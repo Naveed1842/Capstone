@@ -1,0 +1,196 @@
+<html>
+    <head>
+        <title>311 Visualization tool</title>
+        <!-- Connecting html with home.css file -->
+        <link href="home.css" rel="stylesheet" type="text/css">
+        <!-- Linking bootstrap and cartoDB API-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+        <link rel="icon" type="image/png" href="./favicon.png">
+    </head>
+    <body>
+        <div id=title>311 Visualization</div>
+        <!-- Map div contains cartoDB Map -->
+        <div id=map></div>
+        <!-- Inspector div contains all the options of right side of screen -->
+        <div id= inspector>
+            <!-- Adding menu bar -->
+            <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                  </button>
+                </div>
+                  <!--Naming Menu options -->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-map-marker"></span> Maps</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-stats"></span> Analytics </a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <!-- Options for first Tab i.e. Maps -->
+             <h2>Map Selection</h2>
+                <form role="form" id="boro">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="">Brooklyn
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="">Bronx
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="">Manhattan
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="">Queens
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="">Staten Island
+                    </label>
+                    <h3>Grandularity</h3>
+                     <div class="checkbox">
+                      <label><input type="checkbox" value="">Census Tract</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="">Zip Code</label>
+                    </div>
+                    <h3>Classify by Complaints type</h3>
+            </form>
+            <svg width="300" height="20" id="complainselection">
+            <defs>
+                <linearGradient id="MyGradient">
+                    <stop offset="5%" stop-color="#F60" />
+                    <stop offset="95%" stop-color="#FF6" />
+                </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="300" height="20" />
+            </svg>
+            <script src="tooltip.js"></script>
+            
+        </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+
+
+
+
+    var map = L.map('map', {
+        scrollWheelZoom: false
+      }).setView( [40.767802,-73.953266], 11);
+
+
+
+      var geojson;
+
+      //this function takes a value and returns a color based on which bucket the value falls between
+      function getColor(d) {
+          return d > 400  ? '#990000' :
+                 d > 300  ? '#FC4E2A':
+                 d > 100   ? '#FD8D3C' :
+                 d > 50   ? '#FEB24C' :
+                 d > 20   ? '#FED976' :
+                            '#FFEDA0';
+      }
+      function style(feature) {
+          return {
+              fillColor: getColor(feature.properties.Noise),
+              weight: 2,
+              opacity: 1,
+              color: 'white',
+              dashArray: '3',
+              fillOpacity: 0.7
+          };
+        }
+
+    L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    }).addTo(map);
+
+    var layerUrl = 'https://rgdonohue.cartodb.com/api/v2/viz/bcdbfe36-6f4f-11e5-833d-0e674067d321/viz.json';
+
+    cartodb.createLayer(map, layerUrl)
+      .addTo(map)
+      .on('done', function(layer) {
+
+      }).on('error', function() {
+        //log the error
+      });
+
+
+      function style(feature) {
+          return {
+              fillColor: getColor(feature.properties.Noise),
+              weight: 2,
+              opacity: 1,
+              color: 'white',
+              dashArray: '2',
+              fillOpacity: 0.7
+          };
+        }
+
+        //this function is set to run when a user mouses over any polygon
+        function mouseoverFunction(e) {
+          var layer = e.target;
+
+          layer.setStyle({
+              weight: 5,
+              color: '#666',
+              dashArray: '',
+              fillOpacity: 0.7
+          });
+
+          if (!L.Browser.ie && !L.Browser.opera) {
+              layer.bringToFront();
+          }
+
+          //update the text in the infowindow with whatever was in the data
+          //console.log(layer.feature.properties.NTACode+ '\n\n'+ layer.feature.properties.NoiseComplains);
+          //$('#infoWindow').text(layer.feature.properties.NTACode+'\n\n'+ //layer.feature.properties.NoiseComplains);
+        }
+
+        //this runs on mouseout
+        function resetHighlight(e) {
+          geojson.resetStyle(e.target);
+        }
+        
+        function test(e) {
+           var layer = e. target;
+            
+            layer.setStyle({
+              fillColor:"red",
+              weight: 5,
+              color: '#450',
+              dashArray: '',
+              fillOpacity: 0.7,
+          });
+          
+        }
+
+      function onEachFeature(feature, layer) {
+         layer.on({
+             mouseover: mouseoverFunction,
+             mouseout: resetHighlight,
+             click: test
+         });
+       }
+
+      $.getJSON('data/threenonan.geojson', function(state_data) {
+         geojson = L.geoJson(state_data,{
+            style: style,
+            onEachFeature: onEachFeature
+          }).addTo(map);
+});
+    </script>
+        
+    </body>
+</html>
