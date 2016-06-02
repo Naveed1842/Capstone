@@ -161,6 +161,7 @@
         //this runs on mouseout
         function resetHighlight(e) {
           geojson.resetStyle(e.target);
+          info.update();
         }
         
         function test(e) {
@@ -175,12 +176,45 @@
           });
           
         }
+        function zoomToFeature(e) {
+        
+    
+        var layer = e. target;
+            map.fitBounds(layer.getBounds())
+            layer.setStyle({
+              fillColor:"red",
+              weight: 5,
+              color: '#450',
+              dashArray: '',
+              fillOpacity: 0.7,
+        })};
+        
+        var info = L.control();
+
+        info.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update();
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        info.update = function (props) {
+            this._div.innerHTML = '<h4>Noise Complaints</h4>' +  (props ?
+                '<b>' + props.properties.Noise + '</b><br />' + props.properties.Noise + ' people / mi<sup>2</sup>'
+                : 'Hover over a state');
+        };
+
+        info.addTo(map);
+        
+            function highlightFeature(e) {
+            info.update(layer.feature.properties);
+        }        
 
       function onEachFeature(feature, layer) {
          layer.on({
              mouseover: mouseoverFunction,
              mouseout: resetHighlight,
-             click: test
+             click: zoomToFeature
          });
        }
 
