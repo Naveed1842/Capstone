@@ -41,11 +41,11 @@
                 </div>
               </div>
             </nav>
-            <div id="container">
             <div id=mainc>
             <!-- Options for first Tab i.e. Maps -->
-             <h2>Map Selection</h2>
+             
                 <form role="form" id="boro">
+                    <h3>Map Selection</h3>
                     <label class="checkbox-inline">
                         <input type="checkbox" value="">Brooklyn
                     </label>
@@ -68,18 +68,55 @@
                     <div class="checkbox">
                       <label><input type="checkbox" value="">Zip Code</label>
                     </div>
-                    <h3>Classify by Complaints type</h3>
-            </form>
-            <svg width="300" height="20" id="complainselection">
-            <defs>
-                <linearGradient id="MyGradient">
-                    <stop offset="5%" stop-color="#F60" />
-                    <stop offset="95%" stop-color="#FF6" />
-                </linearGradient>
-            </defs>
-            <rect x="0" y="0" width="300" height="20" />
-            </svg>
-            <script src="js/tooltip.js"></script>
+                    </form>
+                    <div id=inspectior2>
+                     <h3>Classify by Complaints type</h3>
+                    &nbsp;<label class="radio-inline"> <input id="oneWay" type="radio" checked=True value="oneway" name="group1">&nbsp;Sigle Data Visualization </label>
+                    <label class="radio-inline"><input id="return" type="radio" value="return" name="group1">&nbsp;Compare values</label>
+                    <div id="dropdownchoice">
+                    <div id="dropdown1">
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu scrollable-menu" role="menu" >
+                          <li class="dropdown-header">Noise</li>
+                          <li><a href="#">All</a></li>
+                          <li><a href="#">Helicopter</a></li>
+                          <li><a href="#">House of Worship</a></li>
+                          <li><a href="#">Park</a></li>
+                          <li><a href="#">Street/Sidewalk</a></li>
+                          <li><a href="#">Vehicle</a></li>
+                          <li class="divider"></li>
+                          <li class="dropdown-header">Demographics</li>
+                          <li><a href="#">About Us</a></li>
+                        </ul>
+                            
+                      </div>
+                    </div>
+                    <div id="dropdown2">
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu scrollable-menu" role="menu" >
+                          <li class="dropdown-header">Noise</li>
+                          <li><a href="#">All</a></li>
+                          <li><a href="#">Helicopter</a></li>
+                          <li><a href="#">House of Worship</a></li>
+                          <li><a href="#">Park</a></li>
+                          <li><a href="#">Street/Sidewalk</a></li>
+                          <li><a href="#">Vehicle</a></li>
+                          <li class="divider"></li>
+                          <li class="dropdown-header">Demographics</li>
+                          <li><a href="#">About Us</a></li>
+                        </ul>
+                            
+                      </div>
+                    </div>
+                    </div>
+                        <input type="checkbox" name="muliple" value="multiple"> Multiple Selection
+                        </div>
+                
+            
             </div>
             <div id="analyticsc">Analytics</div>
             <div id="settingsc">settings</div>
@@ -104,8 +141,9 @@
                 navi('contact','contactc');
             </script>
                 
-            </div>
+            
         </div>
+        
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -249,6 +287,6 @@
           }).addTo(map);
 });
     </script>
-        
+   
     </body>
 </html>
