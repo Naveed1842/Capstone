@@ -13,11 +13,22 @@
         <link rel="icon" type="image/png" href="./favicon.png">
     </head>
     <body>
-        <div id=title>311 Visualization</div>
-        <!-- Map div contains cartoDB Map -->
-        <div id=map></div>
-        <!-- Inspector div contains all the options of right side of screen -->
         
+        <!-- Map div contains cartoDB Map -->
+        <div id=map>
+        <!-- Inspector div contains all the options of right side of screen -->
+        <div id=title>311 Visualization</div>
+        <div id=miniinspector>
+            <button id="mbtn" class=button>Full View </button>
+            <button id="rstmap" class=button>Reset Map</button>
+            <script>
+            $( "#mbtn" ).click(function() {
+              $( "#inspector" ).toggle("blind");
+                
+            });
+            </script>
+
+            </div>
         <div id= inspector>
             <!-- Adding menu bar -->
             
@@ -118,9 +129,33 @@
                 
             
             </div>
-            <div id="analyticsc">Analytics</div>
+            <div id="analyticsc">Analytics
+            </div>
             <div id="settingsc">settings</div>
-            <div id="contactc">Contact</div>
+            <div id="contactc">
+                <div id="talkhere">
+                <h2 >Contact</h2>
+                <form role="form" id="contactform">
+                  <div id="letstalkfield">
+                  <div id="frommain">
+                    <input type="text" class="form-control" id="usr" placeholder="Name">
+                </div>
+                <div id="tomain">
+                    <input type="text" class="form-control" id="usr" placeholder="Email Address">
+                </div>
+                  </div>
+                  <br><br>
+                  
+                    <div class="form-group">
+
+                 <textarea class="form-control" rows="10" id="comment" placeholder="Please type here."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+
+                </div>
+            
+            </div>
                 
             <script>
                 function navi(link,div2){
@@ -143,6 +178,7 @@
                 
             
         </div>
+        </div>
         
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
@@ -152,9 +188,17 @@
     <script>
     var map = L.map('map', {
         scrollWheelZoom: false
-      }).setView( [40.767802,-73.953266], 11);
+      }).setView( [40.767802,-73.81326], 11);
 
-
+   $("#rstmap").click(function(){
+        map.setView( [40.767802,-73.81326], 11);
+       
+       $("#analyticsc").hide();
+        $("#settingsc").hide();
+        $("#mainc").hide();
+        $("#contactc").hide()
+        $('#mainc').show();
+   });
 
       var geojson;
 
@@ -250,12 +294,13 @@
               dashArray: '',
               fillOpacity: 0.7,
         });
-           info.update(); 
+           
          };
         
         
      var info = L.control();
 
+        info.setPosition("topleft");
         info.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
             this.update();
@@ -268,8 +313,10 @@
                 '<b>' + props['WGS84.Bo_2'] + " (Census Tract ID: " +props['WGS84.CT20']+")"+'</b><br />' + props["Noise"] + ' complaints'
                 : 'Hover over a state');
         };
+        
+        
 
-        info.addTo(map);    
+        info.addTo(map);
         
 
       function onEachFeature(feature, layer) {
