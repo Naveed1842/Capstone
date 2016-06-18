@@ -7,10 +7,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="somefun.js"></script>
         <link rel="icon" type="image/png" href="./favicon.png">
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        
+  
     </head>
     <body>
         
@@ -56,32 +60,33 @@
             <!-- Options for first Tab i.e. Maps -->
              
                 <form role="form" id="boro">
-                    <h3>Map Selection</h3>
+                    <h3 style="text-align: center">Maps</h3>
+                    <h5><u>Map Selection:</u></h5>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="">Brooklyn
+                        <input type="checkbox" value="" checked>Brooklyn
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="">Bronx
+                        <input type="checkbox" value="" checked>Bronx
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="">Manhattan
+                        <input type="checkbox" value="" checked>Manhattan
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="">Queens
+                        <input type="checkbox" value="" checked>Queens
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="">Staten Island
+                        <input type="checkbox" value="" checked>Staten Island
                     </label>
-                    <h3>Grandularity</h3>
+                    <h5><u>Granularity:</u></h5>
                      <div class="checkbox">
-                      <label><input type="checkbox" value="">Census Tract</label>
+                      <label><input type="checkbox" value="" checked>Census Tract</label>
                     </div>
                     <div class="checkbox">
-                      <label><input type="checkbox" value="">Zip Code</label>
+                      <label><input type="checkbox" value="">MTA</label>
                     </div>
                     </form>
                     <div id=inspectior2>
-                     <h3>Classify by Complaints type</h3>
+                     <h5><u>Classify by Complaints type:</u></h5>
                     &nbsp;<label class="radio-inline"> <input id="oneWay" type="radio" checked=True value="oneway" name="group1">&nbsp;Sigle Data Visualization </label>
                     <label class="radio-inline"><input id="return" type="radio" value="return" name="group1">&nbsp;Compare values</label>
                     <div id="dropdownchoice">
@@ -91,15 +96,16 @@
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu scrollable-menu" role="menu" >
                           <li class="dropdown-header">Noise</li>
-                          <li><a href="#">All</a></li>
-                          <li><a href="#">Helicopter</a></li>
-                          <li><a href="#">House of Worship</a></li>
-                          <li><a href="#">Park</a></li>
-                          <li><a href="#">Street/Sidewalk</a></li>
-                          <li><a href="#">Vehicle</a></li>
+                          <li><a id="Noise" href="#" class='mapoptions' onclick="dropdownmap()">All</a></li>
+                          <li><a id="Noise - Co" class='mapoptions' href="#" onclick="dropdownmap()">Commercial</a></li> 
+                          <li><a id="nheli" class='mapoptions' href="#" onclick="dropdownmap()">Helicopter</a></li>
+                          <li><a id="nhwor" class='mapoptions' href="#" onclick="dropdownmap()">House of Worship</a></li>
+                          <li><a id="npark" class='mapoptions' href="#">Park</a></li>
+                          <li><a id="nstreet" class='mapoptions' href="#">Street/Sidewalk</a></li>
+                          <li><a id="nveh" class='mapoptions' href="#">Vehicle</a></li>
                           <li class="divider"></li>
                           <li class="dropdown-header">Demographics</li>
-                          <li><a href="#">About Us</a></li>
+                          <li><a href="#">Income</a></li>
                         </ul>
                             
                       </div>
@@ -124,17 +130,71 @@
                       </div>
                     </div>
                     </div>
-                        <input type="checkbox" name="muliple" value="multiple"> Multiple Selection
+                        <input id="multipleradio" type="radio" name="muliple" value="multiple"> Multiple Selection
+                        <input id="singleradio" type="radio" name="muliple" value="multiple" checked="checked"> Single Selection
+                        
+                        <p>
+                      <label for="amount">Year range:</label>
+                      <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold; margin-top:10">
+                    </p>
+
+                    <div id="slider-range"></div>
                         </div>
+                <script>
+                    
+                var k = "Noise"
+                function dropdownmap(){
+                    $('.mapoptions').click(function(){
+                      
+                       k= (this.id);
+                        
+                        
+                    });
+                };
+               
+                </script>
                 
-            
+             <script>
+              $(function() {
+                $( "#slider-range" ).slider({
+                  disabled:true,
+                  range: true,
+                  min: 2009,
+                  max: 2015,
+                  values: [ 2014, 2015 ],
+                  slide: function( event, ui ) {
+                    $( "#amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                  }
+                });
+                $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
+                  " - " + $( "#slider-range" ).slider( "values", 1 ) );
+              });
+  </script>
+
+ 
+
             </div>
             <div id="analyticsc">Analytics
             </div>
-            <div id="settingsc">settings</div>
+            <div id="settingsc">
+                <h3 style="text-align: center ">Settings</h3>
+                <input id="doubleclick" type="checkbox" > Double Click Zoom &nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="dragclick" type="checkbox" > Dragable Map 
+                <h5><u>Accessibility Options</u> </h5>
+                <h5>Background Map Layer:</h5>
+                <input type="radio" class="layerselection" id="bnw" name="layersel"> &nbsp;black n white
+                <input type="radio" class="layerselection" id="streete" name="layersel">&nbsp;Street  
+                <input type="radio" class="layerselection" id="light" name="layersel">&nbsp;Light-All  
+                <input type="radio" class="layerselection" id="black" name="layersel" checked>&nbsp; Black (Default)
+                <h5>Text Size:</h5>
+                <label style="font: normal 25px courier !important;"><input type="radio" name="size"> A&nbsp;</label>
+                <label style="font: normal 20px courier !important"><input type="radio" name="size">&nbsp; A&nbsp;</label>
+                <label ><input type="radio" name="size">&nbsp; A</label>&nbsp;(Default) <br>
+                <input type="checkbox" checked> Transparency
+            </div>
             <div id="contactc">
                 <div id="talkhere">
-                <h2 >Contact</h2>
+                <h3 style="text-align: center">Contact</h3>
                 <form role="form" id="contactform">
                   <div id="letstalkfield">
                   <div id="frommain">
@@ -180,7 +240,7 @@
         </div>
         </div>
         
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     
@@ -188,8 +248,11 @@
     <script>
     var map = L.map('map', {
         scrollWheelZoom: false
-      }).setView( [40.767802,-73.81326], 11);
+      }).setView( [40.717802,-73.81326], 11);
 
+    map.doubleClickZoom.disable();
+    map.dragging.disable();
+      
    $("#rstmap").click(function(){
         map.setView( [40.767802,-73.81326], 11);
        
@@ -203,6 +266,7 @@
       var geojson;
 
       //this function takes a value and returns a color based on which bucket the value falls between
+    
       function getColor(d) {
           return d > 400  ? '#990000' :
                  d > 300  ? '#FC4E2A':
@@ -211,23 +275,67 @@
                  d > 20   ? '#FED976' :
                             '#FFEDA0';
       }
-      function style(feature) {
-          return {
-              fillColor: getColor(feature.properties.Noise),
-              weight: 2,
-              opacity: 1,
-              color: 'white',
-              dashArray: '3',
-              fillOpacity: 0.7
-          };
-        }
-
+     
+//Layer Selection
+        
     L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     }).addTo(map);
 
+    //L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: 'Stamen'}).addTo(map_object);
     var layerUrl = 'https://rgdonohue.cartodb.com/api/v2/viz/bcdbfe36-6f4f-11e5-833d-0e674067d321/viz.json';
+       
+    var black= L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+                })
+           
+    var blacknw = L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png',{
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+                })
+         
+    var streete = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}) 
+    
+    var lightall =L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+                })
+        
+    function removealllayer(){
+        map.removeLayer(black);
+        map.removeLayer(blacknw);
+        map.removeLayer(streete);
+    };
+    
+     $(".layerselection").click(function(){
+             removealllayer();
+         console.log(this.id)
+            if(this.id == 'bnw'){
+                
+                blacknw.addTo(map);
+                $('#title').css("color","black")
+                 
+            }
+         else if(this.id == 'streete'){
+                
+                streete.addTo(map);
+                $('#title').css("color","black")
+                 
+            }
+          else if(this.id == 'black'){
+            
+                black.addTo(map);
+                $('#title').css("color","white")
+                 
+            }
+         else if(this.id == 'light'){
+            
+                lightall.addTo(map);
+                $('#title').css("color","black")
+                 
+            }
+        });
 
+        
+                    
     cartodb.createLayer(map, layerUrl,{
         legends:false
     })
@@ -241,11 +349,11 @@
 
       function style(feature) {
           return {
-              fillColor: getColor(feature.properties.Noise),
-              weight: 2,
-              opacity: 1,
+              fillColor: getColor(feature.properties[k]),
+              weight: 1,
+              opacity: 0.7,
               color: 'white',
-              dashArray: '2',
+              dashArray: '1',
               fillOpacity: 0.7
           };
         }
@@ -255,12 +363,13 @@
           var layer = e.target;
 
           layer.setStyle({
-              weight: 5,
+              weight: 2,
               color: '#666',
               dashArray: '',
               fillOpacity: 0.7
           });
-            
+          
+         
             info.update(layer.feature.properties);
             
           if (!L.Browser.ie && !L.Browser.opera) {
@@ -272,30 +381,111 @@
           //console.log(layer.feature.properties.NTACode+ '\n\n'+ layer.feature.properties.NoiseComplains);
           //$('#infoWindow').text(layer.feature.properties.NTACode+'\n\n'+ //layer.feature.properties.NoiseComplains);
         }
+        
 
         //this runs on mouseout
         function resetHighlight(e) {
           geojson.resetStyle(e.target);
         }
         
-         function zoomToFeature(e) {
+        var colors = ['#1abc9c','#5499c7','#af7ac5','#ec7063','#cd6155','#dc7633','#eb984e','#f5b041','#f4d03f','#58d68d','#52be80','#34495e'];
+        function Randomcolor() {
+            var min=0;
+            var max= colors.length;
+            var num = Math.round(Math.random() * (max - min) + min);
+         
+            return colors[num];
+        }
         
-        var layer = e.target;
-            map.fitBounds(layer.getBounds());
-            $("#analyticsc").hide();
-            $("#settingsc").hide();
-            $("#mainc").hide();
-            $("#contactc").hide()
-            $("#analyticsc").show();
-            layer.setStyle({
-              fillColor:"red",
-              weight: 5,
-              color: '#450',
-              dashArray: '',
-              fillOpacity: 0.7,
-        });
-           
+        var selectedpoly = [];
+        var count=0;
+         function mouseclick(e) {
+          
+        if(document.getElementById("singleradio").checked)
+            {
+            var layer = e.target;
+                map.fitBounds(layer.getBounds());
+                $("#analyticsc").hide();
+                $("#settingsc").hide();
+                $("#mainc").hide();
+                $("#contactc").hide()
+                $("#analyticsc").show();
+                layer.setStyle({
+                  fillColor:Randomcolor(),
+                  weight: 3,
+                  color: '#450',
+                  fillOpacity: 0.7,
+            });
+               info.update(); 
+         }
+             else if(document.getElementById("multipleradio").checked){
+                 
+                 console.log("heyr u  there?")
+                 var layer = e.target;
+                 
+                 
+                 var found =0;
+                 console.log(selectedpoly.length);
+                 if(selectedpoly.length==0){
+                      layer.removeEventListener('mouseout',false);
+                     layer.removeEventListener('mouseover',false);
+                       console.log("at new if's place");
+                            layer.setStyle({
+                                fillColor:Randomcolor(),
+                                weight: 3,
+                                color: '#450',
+                                fillOpacity: 0.7,
+                    });
+                            console.log(this._leaflet_id);
+                            selectedpoly.push(this._leaflet_id);
+                 }
+                 else{
+                     console.log("reached the target");
+                 for(i=0;i<selectedpoly.length;i++){
+                    
+                      console.log("entered for loop as well");
+                         if(selectedpoly[i]==this._leaflet_id){
+                           
+                            var num = selectedpoly.indexOf(i);
+                             
+                            selectedpoly.splice(num,1); 
+                            console.log("spliced"+num);
+                             
+                            geojson.resetStyle(e.target);
+                            //layer.addEventListener('mouseout',true);
+                            console.log(selectedpoly);
+                             found = 1;
+                             break;
+                         }
+                     found=-1;
+                      
+                     };
+             };
+                 if(found==-1){
+                      layer.removeEventListener('mouseout',false);
+                     layer.removeEventListener('mouseover',false);
+                        layer.setStyle({
+                            fillColor:Randomcolor(),
+                            weight: 3,
+                            color: '#450',
+                            fillOpacity: 0.7,
+                    });
+                        
+                        console.log("at else's place 2");
+                        console.log(this._leaflet_id);
+                        selectedpoly.push(this._leaflet_id);
+                        
+                            };                 
+               
+                 
+                  
+                 
+          
+               info.update(); 
+                 
+             };
          };
+        
         
         
      var info = L.control();
@@ -309,8 +499,8 @@
 
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
-            this._div.innerHTML = '<h4>New York Noise Level</h4>' +  (props ?
-                '<b>' + props['WGS84.Bo_2'] + " (Census Tract ID: " +props['WGS84.CT20']+")"+'</b><br />' + props["Noise"] + ' complaints'
+            this._div.innerHTML = '<h4>New York '+ k +'Level</h4>' +  (props ?
+                '<b>' + props['WGS84.Bo_2'] + " (Census Tract ID: " +props['WGS84.CT20']+")"+'</b><br />' + props[k] + ' complaints'
                 : 'Hover over a state');
         };
         
@@ -323,7 +513,8 @@
          layer.on({
              mouseover: mouseoverFunction,
              mouseout: resetHighlight,
-             click: zoomToFeature
+             click: mouseclick,
+             
          });
        }
 
@@ -333,6 +524,9 @@
             onEachFeature: onEachFeature
           }).addTo(map);
 });
+       // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(map); 
+        
+
     </script>
    
     </body>
