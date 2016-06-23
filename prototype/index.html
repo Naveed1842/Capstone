@@ -13,7 +13,7 @@
         <script type="text/javascript" src="somefun.js"></script>
         <link rel="icon" type="image/png" href="./favicon.png">
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        
+        <script type="text/javascript" src="js/charts.js"></script>
   
     </head>
     <body>
@@ -63,19 +63,19 @@
                     <h3 style="text-align: center">Maps</h3>
                     <h5><u>Map Selection:</u></h5>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="" checked>Brooklyn
+                        <input type="checkbox" value="" checked disabled>Brooklyn
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="" checked>Bronx
+                        <input type="checkbox" value="" checked disabled>Bronx
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="" checked>Manhattan
+                        <input type="checkbox" value="" checked disabled>Manhattan
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="" checked>Queens
+                        <input type="checkbox" value="" checked disabled>Queens
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" value="" checked>Staten Island
+                        <input type="checkbox" value="" checked disabled>Staten Island
                     </label>
                     <h5><u>Granularity:</u></h5>
                      <div class="checkbox">
@@ -130,9 +130,9 @@
                       </div>
                     </div>
                     </div>
-                        <input id="multipleradio" type="radio" name="muliple" value="multiple"> Multiple Selection
-                        <input id="singleradio" type="radio" name="muliple" value="multiple" checked="checked"> Single Selection
-                        
+                        <input id="multipleradio" type="radio" name="muliple" value="multiple" > Multiple Selection
+                        <input id="singleradio" type="radio" name="muliple" value="multiple" checked="checked" > Single Selection<br>
+                        <input id="sszoom" type="checkbox"> Zoom Off/On
                         <p>
                       <label for="amount">Year range:</label>
                       <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold; margin-top:10">
@@ -174,7 +174,21 @@
  
 
             </div>
-            <div id="analyticsc">Analytics
+            <div id="analyticsc"><h3 style="text-align: center ">Analytics</h3>
+                <div id="charts">
+                    <p id="mi1">Median Income: <svg id="svg"></svg></p><h6 id="mi"></h6>
+                    <p id="mag1">Median Age:<svg id="svg1"></svg></p><h6 id="mag"></h6>
+                    <p id="tca1">Total Calls:<svg id="svg2" ></svg></p><h6 id="tca"></h6>
+                    <p id="medhh1">Median Households: <svg id="svg3"></svg></p><h6 id="medhh"></h6>
+    
+                <script>
+                     //init("svg1","barchart");
+                    init("svg","barchart");
+                    init("svg1","barchart1");
+                    init("svg2","barchart2");
+                    init("svg3","barchart3");
+                    </script>
+                </div>
             </div>
             <div id="settingsc">
                 <h3 style="text-align: center ">Settings</h3>
@@ -245,289 +259,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     
 
-    <script>
-    var map = L.map('map', {
-        scrollWheelZoom: false
-      }).setView( [40.717802,-73.81326], 11);
-
-    map.doubleClickZoom.disable();
-    map.dragging.disable();
-      
-   $("#rstmap").click(function(){
-        map.setView( [40.767802,-73.81326], 11);
-       
-       $("#analyticsc").hide();
-        $("#settingsc").hide();
-        $("#mainc").hide();
-        $("#contactc").hide()
-        $('#mainc').show();
-   });
-
-      var geojson;
-
-      //this function takes a value and returns a color based on which bucket the value falls between
-    
-      function getColor(d) {
-          return d > 400  ? '#990000' :
-                 d > 300  ? '#FC4E2A':
-                 d > 100   ? '#FD8D3C' :
-                 d > 50   ? '#FEB24C' :
-                 d > 20   ? '#FED976' :
-                            '#FFEDA0';
-      }
-     
-//Layer Selection
-        
-    L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-    }).addTo(map);
-
-    //L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: 'Stamen'}).addTo(map_object);
-    var layerUrl = 'https://rgdonohue.cartodb.com/api/v2/viz/bcdbfe36-6f4f-11e5-833d-0e674067d321/viz.json';
-       
-    var black= L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-                })
-           
-    var blacknw = L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png',{
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-                })
-         
-    var streete = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}) 
-    
-    var lightall =L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-                })
-        
-    function removealllayer(){
-        map.removeLayer(black);
-        map.removeLayer(blacknw);
-        map.removeLayer(streete);
-    };
-    
-     $(".layerselection").click(function(){
-             removealllayer();
-         console.log(this.id)
-            if(this.id == 'bnw'){
-                
-                blacknw.addTo(map);
-                $('#title').css("color","black")
-                 
-            }
-         else if(this.id == 'streete'){
-                
-                streete.addTo(map);
-                $('#title').css("color","black")
-                 
-            }
-          else if(this.id == 'black'){
-            
-                black.addTo(map);
-                $('#title').css("color","white")
-                 
-            }
-         else if(this.id == 'light'){
-            
-                lightall.addTo(map);
-                $('#title').css("color","black")
-                 
-            }
-        });
-
-        
-                    
-    cartodb.createLayer(map, layerUrl,{
-        legends:false
-    })
-      .addTo(map)
-      .on('done', function(layer) {
-
-      }).on('error', function() {
-        //log the error
-      });
-
-
-      function style(feature) {
-          return {
-              fillColor: getColor(feature.properties[k]),
-              weight: 1,
-              opacity: 0.7,
-              color: 'white',
-              dashArray: '1',
-              fillOpacity: 0.7
-          };
-        }
-
-        //this function is set to run when a user mouses over any polygon
-        function mouseoverFunction(e) {
-          var layer = e.target;
-
-          layer.setStyle({
-              weight: 2,
-              color: '#666',
-              dashArray: '',
-              fillOpacity: 0.7
-          });
-          
-         
-            info.update(layer.feature.properties);
-            
-          if (!L.Browser.ie && !L.Browser.opera) {
-              layer.bringToFront();
-          }
-         
-
-          //update the text in the infowindow with whatever was in the data
-          //console.log(layer.feature.properties.NTACode+ '\n\n'+ layer.feature.properties.NoiseComplains);
-          //$('#infoWindow').text(layer.feature.properties.NTACode+'\n\n'+ //layer.feature.properties.NoiseComplains);
-        }
-        
-
-        //this runs on mouseout
-        function resetHighlight(e) {
-          geojson.resetStyle(e.target);
-        }
-        
-        var colors = ['#1abc9c','#5499c7','#af7ac5','#ec7063','#cd6155','#dc7633','#eb984e','#f5b041','#f4d03f','#58d68d','#52be80','#34495e'];
-        function Randomcolor() {
-            var min=0;
-            var max= colors.length;
-            var num = Math.round(Math.random() * (max - min) + min);
-         
-            return colors[num];
-        }
-        
-        var selectedpoly = [];
-        var count=0;
-         function mouseclick(e) {
-          
-        if(document.getElementById("singleradio").checked)
-            {
-            var layer = e.target;
-                map.fitBounds(layer.getBounds());
-                $("#analyticsc").hide();
-                $("#settingsc").hide();
-                $("#mainc").hide();
-                $("#contactc").hide()
-                $("#analyticsc").show();
-                layer.setStyle({
-                  fillColor:Randomcolor(),
-                  weight: 3,
-                  color: '#450',
-                  fillOpacity: 0.7,
-            });
-               info.update(); 
-         }
-             else if(document.getElementById("multipleradio").checked){
-                 
-                 console.log("heyr u  there?")
-                 var layer = e.target;
-                 
-                 
-                 var found =0;
-                 console.log(selectedpoly.length);
-                 if(selectedpoly.length==0){
-                      layer.removeEventListener('mouseout',false);
-                     layer.removeEventListener('mouseover',false);
-                       console.log("at new if's place");
-                            layer.setStyle({
-                                fillColor:Randomcolor(),
-                                weight: 3,
-                                color: '#450',
-                                fillOpacity: 0.7,
-                    });
-                            console.log(this._leaflet_id);
-                            selectedpoly.push(this._leaflet_id);
-                 }
-                 else{
-                     console.log("reached the target");
-                 for(i=0;i<selectedpoly.length;i++){
-                    
-                      console.log("entered for loop as well");
-                         if(selectedpoly[i]==this._leaflet_id){
-                           
-                            var num = selectedpoly.indexOf(i);
-                             
-                            selectedpoly.splice(num,1); 
-                            console.log("spliced"+num);
-                             
-                            geojson.resetStyle(e.target);
-                            //layer.addEventListener('mouseout',true);
-                            console.log(selectedpoly);
-                             found = 1;
-                             break;
-                         }
-                     found=-1;
-                      
-                     };
-             };
-                 if(found==-1){
-                      layer.removeEventListener('mouseout',false);
-                     layer.removeEventListener('mouseover',false);
-                        layer.setStyle({
-                            fillColor:Randomcolor(),
-                            weight: 3,
-                            color: '#450',
-                            fillOpacity: 0.7,
-                    });
-                        
-                        console.log("at else's place 2");
-                        console.log(this._leaflet_id);
-                        selectedpoly.push(this._leaflet_id);
-                        
-                            };                 
-               
-                 
-                  
-                 
-          
-               info.update(); 
-                 
-             };
-         };
-        
-        
-        
-     var info = L.control();
-
-        info.setPosition("topleft");
-        info.onAdd = function (map) {
-            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-            this.update();
-            return this._div;
-        };
-
-        // method that we will use to update the control based on feature properties passed
-        info.update = function (props) {
-            this._div.innerHTML = '<h4>New York '+ k +'Level</h4>' +  (props ?
-                '<b>' + props['WGS84.Bo_2'] + " (Census Tract ID: " +props['WGS84.CT20']+")"+'</b><br />' + props[k] + ' complaints'
-                : 'Hover over a state');
-        };
-        
-        
-
-        info.addTo(map);
-        
-
-      function onEachFeature(feature, layer) {
-         layer.on({
-             mouseover: mouseoverFunction,
-             mouseout: resetHighlight,
-             click: mouseclick,
-             
-         });
-       }
-
-      $.getJSON('data/threenonan1.geojson', function(state_data) {
-         geojson = L.geoJson(state_data,{
-            style: style,
-            onEachFeature: onEachFeature
-          }).addTo(map);
-});
-       // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(map); 
-        
-
-    </script>
+    <script type="text/javascript" src="js/analytics.js"></script>
    
     </body>
 </html>

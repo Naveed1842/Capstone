@@ -105,7 +105,6 @@ body{
 
 #analyticsc{
     margin-left: 2%;
-    border: dotted red 1px;
     height: 70%;
     width: 100%;
     display: none;
@@ -162,6 +161,9 @@ body{
 }
 #slider-range{
     width: 70%;
+    height: 5%;
     margin-left: 10%;
 }
-
+$mi{
+width: 30%;
+}
