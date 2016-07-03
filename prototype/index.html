@@ -14,6 +14,8 @@
         <link rel="icon" type="image/png" href="./favicon.png">
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script type="text/javascript" src="js/charts.js"></script>
+        <script type="text/javascript" src="js/topten.js"> </script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   
     </head>
     <body>
@@ -79,10 +81,10 @@
                     </label>
                     <h5><u>Granularity:</u></h5>
                      <div class="checkbox">
-                      <label><input type="checkbox" value="" checked>Census Tract</label>
+                      <label><input type="radio" value="" name="granularity" checked>Census Tract</label>
                     </div>
                     <div class="checkbox">
-                      <label><input type="checkbox" value="">MTA</label>
+                      <label><input type="radio" value="" name="granularity">MTA</label>
                     </div>
                     </form>
                     <div id=inspectior2>
@@ -180,19 +182,21 @@
                     <p id="mag1">Median Age:<svg id="svg1"></svg></p><h6 id="mag"></h6>
                     <p id="tca1">Total Calls:<svg id="svg2" ></svg></p><h6 id="tca"></h6>
                     <p id="medhh1">Median Households: <svg id="svg3"></svg></p><h6 id="medhh"></h6>
-    
+                    <svg id="svg4"></svg>
                 <script>
                      //init("svg1","barchart");
                     init("svg","barchart");
                     init("svg1","barchart1");
                     init("svg2","barchart2");
                     init("svg3","barchart3");
+                    initbar();
+                    
                     </script>
                 </div>
             </div>
             <div id="settingsc">
                 <h3 style="text-align: center ">Settings</h3>
-                <input id="doubleclick" type="checkbox" > Double Click Zoom &nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="doubleclickckeck" type="checkbox" > Double Click Zoom &nbsp;&nbsp;&nbsp;&nbsp;
                 <input id="dragclick" type="checkbox" > Dragable Map 
                 <h5><u>Accessibility Options</u> </h5>
                 <h5>Background Map Layer:</h5>
@@ -238,7 +242,7 @@
                  $("#analyticsc").hide();
                     $("#settingsc").hide();
                     $("#mainc").hide();
-                    $("#contactc").hide()
+                    $("#contactc").hide();
                     $("#"+div2).show();
                     $("#"+div2).css("display","block");
                     

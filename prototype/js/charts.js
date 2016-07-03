@@ -25,7 +25,7 @@ function findct(c,wha,svgid,bc){
     
     
     var result = $.grep(data, function(e){ return e["censustract"] == (""+c); });
-    console.log("result is "+result[0][""+wha]);
+    //console.log("result is "+result[0][""+wha]);
     
     max = d3.max(data, function(d) 
     {
@@ -34,13 +34,17 @@ function findct(c,wha,svgid,bc){
     
 
     
-    console.log(max)
+   // console.log(max)
     
     var vis = d3.select("#"+bc)
-    console.log("vis", vis)
+    //console.log("vis", vis)
     
     var bars = vis.selectAll("rect.bar")
         .data(data)
+    var t = vis.selectAll("text.bartext")
+                        .data(data)
+                        
+   
     
      bars.enter()
         .append(""+svgid+":rect")
@@ -52,33 +56,48 @@ function findct(c,wha,svgid,bc){
         .attr("rx",5)
         .attr("ry",5)
      
-     
+        
+            
     bars.exit()
         .remove()
     
      bars
         .attr("stroke-width", 4)
-        .attr("width", function() 
-        {
-           // console.log((result[0][""+wha])*100/(max));
-            return ((result[0][""+wha])*100/(max));
-        })
         .attr("height", 2)
-     if(svgid=="svg"){
-     document.getElementById("mi").innerHTML= "$"+(result[0][""+wha]);
-     }
-     if(svgid=="svg1"){
-     document.getElementById("mag").innerHTML= (result[0][""+wha]);
-     }
-    if(svgid=="svg2"){
-     document.getElementById("tca").innerHTML= (result[0][""+wha]);
-     }
-    if(svgid=="svg3"){
-     document.getElementById("medhh").innerHTML= (result[0][""+wha]);
-     }
+        .transition()
+         .duration(500)
+            .ease("quad")
+			.attr("width",((result[0][""+wha])*100/(max)))
+     
+     t.exit()
+        .remove()
+     
+    t.enter()
+    .append("text")
+    .text(result[0][""+wha])
+    .attr("class", "bartext")
+    .attr("x", ((result[0][""+wha])*100/(max)))
+    .attr("y", -40)
+    .attr("class", "bar")
+    .attr("font-family", "sans-serif")
+    .attr("fill", "black")
+    
+               
+   //  if(svgid=="svg"){
+    // document.getElementById("mi").innerHTML= "$"+(result[0][""+wha]);
+     //}
+     //if(svgid=="svg1"){
+     //document.getElementById("mag").innerHTML= (result[0][""+wha]);
+     //}
+    //if(svgid=="svg2"){
+     //document.getElementById("tca").innerHTML= (result[0][""+wha]);
+     //}
+    //if(svgid=="svg3"){
+     //document.getElementById("medhh").innerHTML= (result[0][""+wha]);
+     //}
     
  
-    return (result[0][""+wha]);
+    //return (result[0][""+wha]);
 
   };
 
@@ -87,7 +106,7 @@ function init(svgid,ide)
 
         //setup the svg
         var svg = d3.select("#"+svgid)
-            .attr("width", 110)
+            .attr("width", 200)
             .attr("height", 11)
             
         svg.append(""+svgid+":rect")
