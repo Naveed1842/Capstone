@@ -2,6 +2,13 @@ var map = L.map('map', {
         scrollWheelZoom: false
       }).setView( [40.717802,-73.81326], 11);
 
+var dblclickzoom = function(){
+if(document.getElementById('doubleclickckeck').checked){
+    console.log("checked")
+    map.doubleClickZoom.disable();
+}};
+
+dblclickzoom();
 //map.doubleClickZoom.disable();
 //map.dragging.disable();
       
@@ -157,8 +164,8 @@ var map = L.map('map', {
         if(document.getElementById("singleradio").checked)
             {
                 if(document.getElementById("sszoom").checked){
-                map.fitBounds(layer.getBounds());
-                }
+                    map.fitBounds(layer.getBounds());
+                    }
                 $("#analyticsc").hide();
                 $("#settingsc").hide();
                 $("#mainc").hide();
@@ -170,14 +177,17 @@ var map = L.map('map', {
                   color: '#450',
                   fillOpacity: 0.7,
             });
-                d3.select("rect.bar").remove();
-               
+                //d3.select("rect.bar").remove();
+                
                 ct1=layer.feature.properties["WGS84.Boro"]
                 console.log(ct1)
+                d3.selectAll("text").remove();
                 chart(ct1,"MedianIncome","svg","barchart");
                 chart(ct1,"medianAge","svg1","barchart1");
                 chart(ct1,"calls","svg2","barchart2");
                 chart(ct1,"hholds","svg3","barchart3");
+                
+               compliants(""+ct1+".0");
                info.update(); 
          }
              else if(document.getElementById("multipleradio").checked){
