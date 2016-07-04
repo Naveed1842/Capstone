@@ -27,24 +27,20 @@ function findct(c,wha,svgid,bc){
     var result = $.grep(data, function(e){ return e["censustract"] == (""+c); });
     //console.log("result is "+result[0][""+wha]);
     
-    max = d3.max(data, function(d) 
-    {
-        return d[""+wha]
-    });
-    
 
-    
-   // console.log(max)
     
     var vis = d3.select("#"+bc)
     //console.log("vis", vis)
     
     var bars = vis.selectAll("rect.bar")
-        .data(data)
+        .data(result)
     var t = vis.selectAll("text.bartext")
-                        .data(data)
+                        .data(result)
                         
-   
+     var max = d3.max(data, function(d) 
+    {
+        return d[""+wha]
+    });
     
      bars.enter()
         .append(""+svgid+":rect")
@@ -68,19 +64,25 @@ function findct(c,wha,svgid,bc){
          .duration(500)
             .delay(200)
             .ease("linear")
-			.attr("width",((result[0][""+wha])*100/(max)))
+			.attr("width",function(d,i){
+         console.log("cet is : "+(d[""+wha])+" and max is: "+max);
+         return ((d[""+wha])*100/(max))
+     })
      
      t.exit()
         .remove()
      
     t.enter()
     .append("text")
+    .attr("fill-opacity",0)
     .text(result[0][""+wha])
     .attr("class", "bartext")
     .attr("x", ((result[0][""+wha])*100/(max)))
     .attr("y", -40)
     .attr("font-family", "sans-serif")
-    .attr("fill", "black")
+    .transition()
+        .delay(200)
+        .attr("fill-opacity",1)
     
 
   };

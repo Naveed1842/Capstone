@@ -1,12 +1,17 @@
 var map = L.map('map', {
-        scrollWheelZoom: false
+        scrollWheelZoom: true
       }).setView( [40.717802, -73.81326], 11);
 
 var dblclickzoom = function(){
 if(document.getElementById('doubleclickckeck').checked){
     console.log("checked")
     map.doubleClickZoom.disable();
-}};
+}
+    else{
+         map.doubleClickZoom.enable();
+    }
+};
+
 
 dblclickzoom();
 //map.doubleClickZoom.disable();

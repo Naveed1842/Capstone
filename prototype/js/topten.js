@@ -1,16 +1,13 @@
  var margin = {top: 20, right: 20, bottom: 30, left: 20},
         width = 260 - margin.left - margin.right,
-        height = 300 - margin.top - margin.bottom;
+        height = 200 - margin.top - margin.bottom;
 var compliants = function(zip){
         d3.csv("data/callsfiltered.csv",function(calls){
-            //console.log("complaints:", calls);
-             //console.log(calls)
             data = calls.map(function(d){
                 call = +(d[''+zip]);
                 ct =  (d['BoroCT2010']);
                 return {"callsmade":call,"Cencus":ct};
             })
-            //console.log(calls);
             bars(data);
         })
         }
@@ -27,7 +24,6 @@ var compliants = function(zip){
             
             
             var max =d3.max(data,function(d){
-                   //console.log(d['callsmade']);
                    return d['callsmade'];
                    })
           
@@ -55,61 +51,37 @@ var compliants = function(zip){
                       })
              
              var vis = d3.select("#barcharta")
-            //console.log("vis", vis);
             
             vis.call(tip);
             
             var result = $.grep(data, function(e){ return e["callsmade"] == (max); });
-            //var keysSorted = Object.keys(data).sort(function(a,b){return data[b]-data[a]})
-          
-            
-             
-            
+
             var bars = vis.selectAll("rect.bar")
                         .data(sorted)
-                        
-           
-                    
-            //console.log("tip is "+tip);
-          
-        
-               //enter
             bars.enter()
                 .append("svg:rect")
                 .attr("class", "bar")
                  .on('mouseover', tip.show)
                 .on('mouseout', tip.hide)
-            
-                
-            
-            
-            //exit 
             bars.exit()
                 .remove()
-
             bars
                 .attr("stroke-width", 4)
-                .attr("height", function(d,i) 
-                {   
-                    return (d.callsmade);
-                })
-                .attr("width", 8)  
+                .attr("width", 7)  
                  .attr("x", function(d, i) {
                        return (i * 12);
                     })
-                .attr("y", function(d, i){
-                
-                    return (height - d.callsmade)/2;
+                .transition()
+                    .delay(200)
+                    .ease("exp")
+                    .attr("height", function(d,i) 
+                          {   
+                    console.log("top ten:"+max);
+                    return ((d.callsmade/max)*150);
                     })
-                
-                
-                
-            
-           // console.log(sorted[Object.keys(sorted)[2]]);
-            
-            //console.log(result);
-            console.log(max);
-       
+                    .attr("y", function(d, i){
+                    return (height - (((d.callsmade/max)*150)));
+                    })
         }
         
     function initbar()
