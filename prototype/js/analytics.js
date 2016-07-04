@@ -1,6 +1,6 @@
 var map = L.map('map', {
         scrollWheelZoom: false
-      }).setView( [40.717802,-73.81326], 11);
+      }).setView( [40.717802, -73.81326], 11);
 
 var dblclickzoom = function(){
 if(document.getElementById('doubleclickckeck').checked){
@@ -13,7 +13,7 @@ dblclickzoom();
 //map.dragging.disable();
       
    $("#rstmap").click(function(){
-        map.setView( [40.767802,-73.81326], 11);
+        map.setView( [40.767802, -73.81326], 11);
        
        $("#analyticsc").hide();
         $("#settingsc").hide();
@@ -23,15 +23,50 @@ dblclickzoom();
    });
 
       var geojson;
-
-      //this function takes a value and returns a color based on which bucket the value falls between
+        
+var mx=0       
+var maximus = function(k){
+    var max
+    console.log(k)
+    d3.csv("data/geo3.csv", function(threedata)
+           {
+              data = threedata.map(function(d)
+                {
+                    //each d is one line of the csv file represented as a json object
+                    ct = +(d[""+k]);
+                    //console.log(ct);
+                    m= {"com":ct};
+                    return m;
+                });  
+             max = d3.max(data,function(d){
+                //console.log(d);
+                return d["com"]
+            });
+        //console.log(max)
+       console.log(max);
+        mx=max;
+    return max;
     
+});
+    
+};
+
+        
+    
+    var k = "total_calls";
+      //this function takes a value and returns a color based on which bucket the value falls between
+    maximus(k);
+    console.log(mx);
       function getColor(d) {
-          return d > 400  ? '#990000' :
-                 d > 300  ? '#FC4E2A':
-                 d > 100   ? '#FD8D3C' :
-                 d > 50   ? '#FEB24C' :
-                 d > 20   ? '#FED976' :
+          //console.log(d)
+          //mx= d3.max(col,function(d){
+            //                 return d;
+              //               });
+          return d > (mx*0.65)  ? '#990000' :
+                 d > (mx*0.50)  ? '#FC4E2A':
+                 d > (mx*0.45)   ? '#FD8D3C' :
+                 d > (mx*0.40)   ? '#FEB24C' :
+                 d > (mx*0.30)   ? '#FED976' :
                             '#FFEDA0';
       }
      
@@ -105,8 +140,11 @@ dblclickzoom();
         //log the error
       });
 
+                
 
       function style(feature) {
+            //console.log(feature.properties[k]);
+
           return {
               fillColor: getColor(feature.properties[k]),
               weight: 1,
@@ -114,7 +152,9 @@ dblclickzoom();
               color: 'white',
               dashArray: '1',
               fillOpacity: 0.7
+              
           };
+         
         }
 
         //this function is set to run when a user mouses over any polygon
@@ -179,7 +219,7 @@ dblclickzoom();
             });
                 //d3.select("rect.bar").remove();
                 
-                ct1=layer.feature.properties["WGS84.Boro"]
+                ct1=layer.feature.properties["BoroCT2010"]
                 console.log(ct1)
                 d3.selectAll("text").remove();
                 chart(ct1,"MedianIncome","svg","barchart");
@@ -272,8 +312,8 @@ dblclickzoom();
 
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
-            this._div.innerHTML = '<h4>New York '+ k +'Level</h4>' +  (props ?
-                '<b>' + props['WGS84.Bo_2'] + " (Census Tract ID: " +props['WGS84.CT20']+")"+'</b><br />' + props[k] + ' complaints'
+            this._div.innerHTML = '<h4>New York ' + k + ' Map'+'</h4>'+  (props ?
+                '<b>' +props[k] +' Complaints'+ " (Census Tract ID: " +props['BoroCT2010']+")"+'</b><br />'+props['WGS84.Bo_2'] +' in Year: 2014'
                 : 'Hover over a state');
         };
         
@@ -290,12 +330,37 @@ dblclickzoom();
              
          });
        }
+   var readdata= function(){
+          $.getJSON('data/geo4.geojson', function(state_data) {
+             geojson = L.geoJson(state_data,{
+                style: style,
+                onEachFeature: onEachFeature
+              }).addTo(map);
 
-      $.getJSON('data/threenonan1.geojson', function(state_data) {
-         geojson = L.geoJson(state_data,{
-            style: style,
-            onEachFeature: onEachFeature
-          }).addTo(map);
-          
-});
-        console.log(geojson);
+    });
+   }
+        readdata();
+    function colorsearcher(k){
+            console.log(geojson);
+            console.log(data);
+            //return data;
+            //console.log(data.complaints);
+            //getColor(data.complaints);
+            //console.log(calls);
+            
+            
+            //bars(data);
+        }   
+    
+             
+    $('.mapoptions').on('click',function(){
+        map.removeLayer(geojson);
+        k= (this.id)
+        console.log(k);
+        maximus(k)
+        readdata();
+                       //style(m=(""+(this.id)))
+                      //info.clearLayer();
+                       //k= (this.id);
+                        });
+    console.log(geojson);

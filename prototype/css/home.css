@@ -173,6 +173,10 @@ width: 30%;
 .bar {
   fill: orange;
 }
+.bartext {
+  fill: black;
+}
+
 
 .bar:hover {
   fill: orangered ;

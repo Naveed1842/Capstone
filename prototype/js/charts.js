@@ -66,7 +66,8 @@ function findct(c,wha,svgid,bc){
         .attr("height", 2)
         .transition()
          .duration(500)
-            .ease("quad")
+            .delay(200)
+            .ease("linear")
 			.attr("width",((result[0][""+wha])*100/(max)))
      
      t.exit()
@@ -78,26 +79,9 @@ function findct(c,wha,svgid,bc){
     .attr("class", "bartext")
     .attr("x", ((result[0][""+wha])*100/(max)))
     .attr("y", -40)
-    .attr("class", "bar")
     .attr("font-family", "sans-serif")
     .attr("fill", "black")
     
-               
-   //  if(svgid=="svg"){
-    // document.getElementById("mi").innerHTML= "$"+(result[0][""+wha]);
-     //}
-     //if(svgid=="svg1"){
-     //document.getElementById("mag").innerHTML= (result[0][""+wha]);
-     //}
-    //if(svgid=="svg2"){
-     //document.getElementById("tca").innerHTML= (result[0][""+wha]);
-     //}
-    //if(svgid=="svg3"){
-     //document.getElementById("medhh").innerHTML= (result[0][""+wha]);
-     //}
-    
- 
-    //return (result[0][""+wha]);
 
   };
 

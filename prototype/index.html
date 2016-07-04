@@ -16,6 +16,8 @@
         <script type="text/javascript" src="js/charts.js"></script>
         <script type="text/javascript" src="js/topten.js"> </script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+            <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   
     </head>
     <body>
@@ -84,30 +86,29 @@
                       <label><input type="radio" value="" name="granularity" checked>Census Tract</label>
                     </div>
                     <div class="checkbox">
-                      <label><input type="radio" value="" name="granularity">MTA</label>
+                      <label><input type="radio" value="" name="granularity"  disabled>NTA</label>
                     </div>
                     </form>
                     <div id=inspectior2>
                      <h5><u>Classify by Complaints type:</u></h5>
                     &nbsp;<label class="radio-inline"> <input id="oneWay" type="radio" checked=True value="oneway" name="group1">&nbsp;Sigle Data Visualization </label>
-                    <label class="radio-inline"><input id="return" type="radio" value="return" name="group1">&nbsp;Compare values</label>
+                    <label class="radio-inline"><input id="return" type="radio" value="return" name="group1" disabled>&nbsp;Compare values</label>
                     <div id="dropdownchoice">
                     <div id="dropdown1">
                       <div class="dropdown">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu scrollable-menu" role="menu" >
-                          <li class="dropdown-header">Noise</li>
-                          <li><a id="Noise" href="#" class='mapoptions' onclick="dropdownmap()">All</a></li>
-                          <li><a id="Noise - Co" class='mapoptions' href="#" onclick="dropdownmap()">Commercial</a></li> 
-                          <li><a id="nheli" class='mapoptions' href="#" onclick="dropdownmap()">Helicopter</a></li>
-                          <li><a id="nhwor" class='mapoptions' href="#" onclick="dropdownmap()">House of Worship</a></li>
-                          <li><a id="npark" class='mapoptions' href="#">Park</a></li>
-                          <li><a id="nstreet" class='mapoptions' href="#">Street/Sidewalk</a></li>
-                          <li><a id="nveh" class='mapoptions' href="#">Vehicle</a></li>
+                          <li><a id="Noise" href="#" class='mapoptions' >Noise</a></li>
+                          <li><a id="Violation of Park Rules" class='mapoptions' href="#" >Violation of Park Rules</a></li> 
+                          <li><a id="Water Quality" class='mapoptions' href="#" >Water Quality</a></li>
+                          <li><a id="Animal Abuse" class='mapoptions' href="#" >Animal Abuse</a></li>
+                          <li><a id="Air Quality" class='mapoptions' href="#">Air Quality</a></li>
+                          <li><a id="WATER LEAK" class='mapoptions' href="#">WATER LEAK</a></li>
+                          <li><a id="Street Condition" class='mapoptions' href="#">Street Condition</a></li>
                           <li class="divider"></li>
                           <li class="dropdown-header">Demographics</li>
-                          <li><a href="#">Income</a></li>
+                          <li><a href="#">#</a></li>
                         </ul>
                             
                       </div>
@@ -134,7 +135,7 @@
                     </div>
                         <input id="multipleradio" type="radio" name="muliple" value="multiple" > Multiple Selection
                         <input id="singleradio" type="radio" name="muliple" value="multiple" checked="checked" > Single Selection<br>
-                        <input id="sszoom" type="checkbox"> Zoom Off/On
+                        <input id="sszoom" type="checkbox"> Zoom On
                         <p>
                       <label for="amount">Year range:</label>
                       <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold; margin-top:10">
@@ -142,19 +143,7 @@
 
                     <div id="slider-range"></div>
                         </div>
-                <script>
-                    
-                var k = "Noise"
-                function dropdownmap(){
-                    $('.mapoptions').click(function(){
-                      
-                       k= (this.id);
-                        
-                        
-                    });
-                };
-               
-                </script>
+           
                 
              <script>
               $(function() {
@@ -178,26 +167,27 @@
             </div>
             <div id="analyticsc"><h3 style="text-align: center ">Analytics</h3>
                 <div id="charts">
-                    <p id="mi1">Median Income: <svg id="svg"></svg></p><h6 id="mi"></h6>
-                    <p id="mag1">Median Age:<svg id="svg1"></svg></p><h6 id="mag"></h6>
-                    <p id="tca1">Total Calls:<svg id="svg2" ></svg></p><h6 id="tca"></h6>
-                    <p id="medhh1">Median Households: <svg id="svg3"></svg></p><h6 id="medhh"></h6>
+                    <p id="mi1">Median Income: <svg id="svg"></svg></p>
+                    <p id="mag1">Median Age:<svg id="svg1"></svg></p>
+                    <p id="tca1">Total Calls:<svg id="svg2" ></svg></p>
+                    <p id="medhh1">Median Households: <svg id="svg3"></svg></p>
+                    <h5>Top Complaints</h5>
                     <svg id="svg4"></svg>
-                <script>
-                     //init("svg1","barchart");
-                    init("svg","barchart");
-                    init("svg1","barchart1");
-                    init("svg2","barchart2");
-                    init("svg3","barchart3");
-                    initbar();
-                    
+                    <script>
+                        init("svg","barchart");
+                        init("svg1","barchart1");
+                        init("svg2","barchart2");
+                        init("svg3","barchart3");
+                        initbar();
                     </script>
+                    
                 </div>
             </div>
             <div id="settingsc">
                 <h3 style="text-align: center ">Settings</h3>
-                <input id="doubleclickckeck" type="checkbox" > Double Click Zoom &nbsp;&nbsp;&nbsp;&nbsp;
-                <input id="dragclick" type="checkbox" > Dragable Map 
+                <input id="doubleclickckeck" type="checkbox" checked disabled> Double Click Zoom &nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="doubleclickckeck" type="checkbox" checked disabled> Double Click Zoom &nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="dragclick" type="checkbox" checked disabled> Dragable Map 
                 <h5><u>Accessibility Options</u> </h5>
                 <h5>Background Map Layer:</h5>
                 <input type="radio" class="layerselection" id="bnw" name="layersel"> &nbsp;black n white
@@ -205,10 +195,10 @@
                 <input type="radio" class="layerselection" id="light" name="layersel">&nbsp;Light-All  
                 <input type="radio" class="layerselection" id="black" name="layersel" checked>&nbsp; Black (Default)
                 <h5>Text Size:</h5>
-                <label style="font: normal 25px courier !important;"><input type="radio" name="size"> A&nbsp;</label>
-                <label style="font: normal 20px courier !important"><input type="radio" name="size">&nbsp; A&nbsp;</label>
-                <label ><input type="radio" name="size">&nbsp; A</label>&nbsp;(Default) <br>
-                <input type="checkbox" checked> Transparency
+                <label style="font: normal 25px courier !important;" disabled><input type="radio" name="size"> A&nbsp;</label>
+                <label style="font: normal 20px courier !important" disabled><input type="radio" name="size">&nbsp; A&nbsp;</label>
+                <label ><input type="radio" name="size" checked disabled>&nbsp; A</label>&nbsp;(Default) <br>
+                <input type="checkbox" checked disabled> Transparency
             </div>
             <div id="contactc">
                 <div id="talkhere">
@@ -257,13 +247,7 @@
             
         </div>
         </div>
-        
-    
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    
-
     <script type="text/javascript" src="js/analytics.js"></script>
-   
+      
     </body>
 </html>
