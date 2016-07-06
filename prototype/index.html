@@ -92,7 +92,7 @@
                     <div id=inspectior2>
                      <h5><u>Classify by Complaints type:</u></h5>
                     &nbsp;<label class="radio-inline"> <input id="oneWay" type="radio" checked=True value="oneway" name="group1">&nbsp;Sigle Data Visualization </label>
-                    <label class="radio-inline"><input id="return" type="radio" value="return" name="group1" disabled>&nbsp;Compare values</label>
+                    <label class="radio-inline"><input id="return" type="radio" value="return" name="group1" >&nbsp;Demographics Data</label>
                     <div id="dropdownchoice">
                     <div id="dropdown1">
                       <div class="dropdown">
@@ -107,8 +107,7 @@
                           <li><a id="WATER LEAK" class='mapoptions' href="#">WATER LEAK</a></li>
                           <li><a id="Street Condition" class='mapoptions' href="#">Street Condition</a></li>
                           <li class="divider"></li>
-                          <li class="dropdown-header">Demographics</li>
-                          <li><a href="#">#</a></li>
+                          
                         </ul>
                             
                       </div>
@@ -118,16 +117,19 @@
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu scrollable-menu" role="menu" >
-                          <li class="dropdown-header">Noise</li>
-                          <li><a href="#">All</a></li>
-                          <li><a href="#">Helicopter</a></li>
-                          <li><a href="#">House of Worship</a></li>
-                          <li><a href="#">Park</a></li>
-                          <li><a href="#">Street/Sidewalk</a></li>
-                          <li><a href="#">Vehicle</a></li>
+                          <li><a id="Total Population" class='mapoptions' href="#">Total Population</a></li>
+                          <li><a id="Median Age" class='mapoptions' href="#">Median Age</a></li>
+                          <li class="dropdown-header">Education</li>
+                          <li><a id="population education less than high school" class='mapoptions' href="#">population education less than high school</a></li>
+                          <li><a id="population education high school" class='mapoptions' href="#">population education high school</a></li>
+                          <li><a id="population education masters" class='mapoptions' href="#">population education masters</a></li>
+                          <li><a id="population education phd" class='mapoptions' href="#">population education phd</a></li>
                           <li class="divider"></li>
-                          <li class="dropdown-header">Demographics</li>
-                          <li><a href="#">About Us</a></li>
+                          <li class="dropdown-header">Housing</li>
+                          <li><a id="total housing units" class='mapoptions' href="#">total housing units</a></li>
+                          <li><a id="owner  occupied units" class='mapoptions' href="#">owner occupied units</a></li>
+                          <li><a id="renter occupied units" class='mapoptions' href="#">renter occupied units</a></li>
+                            <li><a id="median house value" class='mapoptions' href="#">median house value</a></li>
                         </ul>
                             
                       </div>
@@ -172,7 +174,7 @@
                     <p id="tca1">Total Calls:<svg id="svg2" ></svg></p>
                     <p id="medhh1">Median Households: <svg id="svg3"></svg></p>
                     <h5>Top Complaints</h5>
-                    <svg id="svg4"></svg>
+                    <div id="barchartcontainer"><svg id="svg4"></svg></div>
                     <script>
                         init("svg","barchart");
                         init("svg1","barchart1");
@@ -180,6 +182,7 @@
                         init("svg3","barchart3");
                         initbar();
                     </script>
+                 
                     
                 </div>
             </div>

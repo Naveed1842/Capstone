@@ -16,6 +16,7 @@ if(document.getElementById('doubleclickckeck').checked){
 dblclickzoom();
 //map.doubleClickZoom.disable();
 //map.dragging.disable();
+map.scrollWheelZoom.disable();
       
    $("#rstmap").click(function(){
         map.setView( [40.767802, -73.81326], 11);
@@ -33,7 +34,7 @@ var mx=0
 var maximus = function(k){
     var max
     console.log(k)
-    d3.csv("data/geo3.csv", function(threedata)
+    d3.csv("data/geo5.csv", function(threedata)
            {
               data = threedata.map(function(d)
                 {
@@ -233,7 +234,7 @@ var maximus = function(k){
                 chart(ct1,"hholds","svg3","barchart3");
                 
                compliants(""+ct1+".0");
-               info.update(); 
+               //info.update(); 
          }
              else if(document.getElementById("multipleradio").checked){
                  
@@ -318,7 +319,7 @@ var maximus = function(k){
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
             this._div.innerHTML = '<h4>New York ' + k + ' Map'+'</h4>'+  (props ?
-                '<b>' +props[k] +' Complaints'+ " (Census Tract ID: " +props['BoroCT2010']+")"+'</b><br />'+props['WGS84.Bo_2'] +' in Year: 2014'
+                '<b>' +' Frequency:'+ props[k] +" (Census Tract ID: " +props['BoroCT2010']+")"+'</b><br />'+props['WGS84.Bo_2'] +' in Year: 2014'
                 : 'Hover over a state');
         };
         
@@ -336,7 +337,7 @@ var maximus = function(k){
          });
        }
    var readdata= function(){
-          $.getJSON('data/geo4.geojson', function(state_data) {
+          $.getJSON('data/geo5.geojson', function(state_data) {
              geojson = L.geoJson(state_data,{
                 style: style,
                 onEachFeature: onEachFeature

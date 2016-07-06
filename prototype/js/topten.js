@@ -1,6 +1,8 @@
- var margin = {top: 20, right: 20, bottom: 30, left: 20},
-        width = 260 - margin.left - margin.right,
+var margin = {top: 20, right: 20, bottom: 30, left: 20},
+        width = 240 - margin.left - margin.right,
         height = 200 - margin.top - margin.bottom;
+
+
 var compliants = function(zip){
         d3.csv("data/callsfiltered.csv",function(calls){
             data = calls.map(function(d){
@@ -12,8 +14,7 @@ var compliants = function(zip){
         })
         }
         
-        var formatPercent = d3.format(".0%");
-        
+        var percent = d3.format('%');
 
         var bars = function(data){
             var x = d3.scale.ordinal()
@@ -35,8 +36,7 @@ var compliants = function(zip){
 
             var yAxis = d3.svg.axis()
                 .scale(y)
-                .orient("left")
-                .tickFormat(formatPercent);
+                .orient("left");
             
              var sorted = data.sort(function(x, y){
                return d3.descending(x.callsmade, y.callsmade);
@@ -50,14 +50,16 @@ var compliants = function(zip){
                         return "<strong>Complain Type:</strong> <span style='color:red'>" + d['Cencus']+":"+d['callsmade'] + "</span>";
                       })
              
-             var vis = d3.select("#barcharta")
-            
+             var vis = d3.select("#barcharta");
+             var bars = vis.selectAll("rect.bar")
+                        .data(sorted)
+
+             
             vis.call(tip);
             
             var result = $.grep(data, function(e){ return e["callsmade"] == (max); });
 
-            var bars = vis.selectAll("rect.bar")
-                        .data(sorted)
+           
             bars.enter()
                 .append("svg:rect")
                 .attr("class", "bar")
@@ -65,23 +67,32 @@ var compliants = function(zip){
                 .on('mouseout', tip.hide)
             bars.exit()
                 .remove()
+            var h = 7;
             bars
                 .attr("stroke-width", 4)
-                .attr("width", 7)  
+                .attr("width", h)  
                  .attr("x", function(d, i) {
+                        if(i<20){
                        return (i * 12);
+                        }
                     })
                 .transition()
                     .delay(200)
                     .ease("exp")
                     .attr("height", function(d,i) 
-                          {   
+                          {
+                    if(i<20){
                     console.log("top ten:"+max);
                     return ((d.callsmade/max)*150);
+                    }
                     })
                     .attr("y", function(d, i){
+                        if(i<20){
                     return (height - (((d.callsmade/max)*150)));
+                        }
                     })
+            
+             
         }
         
     function initbar()
@@ -90,15 +101,25 @@ var compliants = function(zip){
         var svg = d3.select("#svg4")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
+            //.attr("preserveAspectRatio", "xMidYMid meet")
+            //.attr("viewBox", "0 0 300 200")
+            //.classed("svg-container", true)
+            //.classed("svg-content-responsive", true); 
+   //class to make it responsive
+            
         //console.log("svg", svg)
         svg.append("svg4:rect")
             .attr("width", "100%")
             .attr("height", "100%")
             .attr("stroke", "none")
             .attr("fill", "none")
+            
+      
 
         svg.append("svg4:g")
             .attr("id", "barcharta")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+        
+        
+        
     }

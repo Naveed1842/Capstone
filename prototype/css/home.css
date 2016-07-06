@@ -210,3 +210,16 @@ width: 30%;
   top: 100%;
   left: 0;
 }
+
+.svg-container{
+}
+.svg-content-responsive {
+    display: inline-block;
+    top: 10px;
+    left: 0;
+   
+}
+.barcontainer{
+    width: 80%;
+    border: 1px solid black;
+}
