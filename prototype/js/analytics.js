@@ -232,8 +232,9 @@ var maximus = function(k){
                 chart(ct1,"medianAge","svg1","barchart1");
                 chart(ct1,"calls","svg2","barchart2");
                 chart(ct1,"hholds","svg3","barchart3");
-                
+             
                compliants(""+ct1+".0");
+              
                //info.update(); 
          }
              else if(document.getElementById("multipleradio").checked){
@@ -346,23 +347,13 @@ var maximus = function(k){
     });
    }
         readdata();
-    function colorsearcher(k){
-            console.log(geojson);
-            console.log(data);
-            //return data;
-            //console.log(data.complaints);
-            //getColor(data.complaints);
-            //console.log(calls);
-            
-            
-            //bars(data);
-        }   
-    
-             
-    $('.mapoptions').on('click',function(){
+        console.log("lo")
+                 
+    $('.mapoptions').click(function(){
         map.removeLayer(geojson);
         k= (this.id)
         console.log(k);
+        //console.log(this.class);
         maximus(k)
         readdata();
                        //style(m=(""+(this.id)))

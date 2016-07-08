@@ -4,7 +4,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 20},
 
 
 var compliants = function(zip){
-        d3.csv("data/callsfiltered.csv",function(calls){
+        d3.csv("data/callsfiltered1.csv",function(calls){
             data = calls.map(function(d){
                 call = +(d[''+zip]);
                 ct =  (d['BoroCT2010']);

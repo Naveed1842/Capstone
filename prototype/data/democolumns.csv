@@ -1,0 +1,69 @@
+,demographics
+0,Total Population
+1,Population under 18
+2,population between 18 and 34
+3,population between 35 to 64
+4,population 65 and over
+5,Median Age
+6,Population white
+7,population black
+8,Population asian
+9,population hispanic
+10,population other race
+11,Total households
+12,family households
+13,nonfamily households
+14,population education less than high school
+15,population education high school
+16,population education some college
+17,population education bachelors
+18,population education masters
+19,population education professional school
+20,population education phd
+21,household income less than 10
+22,household income from 10 to 15
+23,household income from 15 to 20
+24,household income from 20 to 25
+25,household income from 25 to 30
+26,household income from 30 to 35
+27,household income from 35 to 40
+28,household income from 40 to 45
+29,household income from 45 to 50
+30,household income from 50 to 60
+31,household income from 60 to 75
+32,household income from 75 to 100
+33,household income from 100 to 125
+34,household income from 125 to 150
+35,household income from 150 to 200
+36,household income 200 or more
+37,income per capita
+38,total housing units
+39,owner  occupied units
+40,house value less than 20
+41,house value from 20 to 50
+42,house value from 50 to 100
+43,house value from 100 to 150
+44,house value from 150 to 300
+45,house value from 300 to 500
+46,house value from 500 to 750
+47,house value from 750 to 1000
+48,house value 1000 or more
+49,median house value
+50,renter occupied units
+51,rent less than 300
+52,rent from 300 to 600
+53,rent from 600 to 800
+54,rent from 800 to 1000
+55,rent from 1000 to 1250
+56,rent from 1250 to 1500
+57,rent from 1500 to 2000
+58,rent 2000 or more
+59,median rent
+60,transportation car
+61,number of cars
+62,transportation public
+63,tranportation motorcycle
+64,transportation bicyle
+65,transportation walk
+66,transportation other means
+67,work at home
