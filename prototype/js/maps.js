@@ -31,15 +31,15 @@ d3.csv("data/democolumns.csv", function(complain)
                                         m= {"demographics":com};
                                         return m;
                                     });  
-                        var max_fields      = 180; //maximum input boxes allowed
-                        var wrapper         = $("#wrapper1"); //Fields wrapper
+                       // var max_fields      = 180; //maximum input boxes allowed
+                        var wrapper2         = $("#wrapper1"); //Fields wrapper
                         //var add_button      = $(".add_field_button"); //Add button ID
                         var x = 1; //initlal text box count
                         //val=datacom.complaints
                         //console.log(datacom[0].demographics)
                         
-                        for(i=0;i<180;i++){ //max input box allowed
+                        for(i=0;i<68;i++){ //max input box allowed
                                 //console.log(datacom[i]);
-                                $(wrapper).append('<li><a id="'+ datacom[i].demographics+'" ' + 'href="#" class="mapoptions"  >'+datacom[i].demographics+'</a></li>');
+                                $(wrapper2).append('<li><a id="'+ datacom[i].demographics+'" ' + 'href="#" class="mapoptions"  >'+datacom[i].demographics+'</a></li>');
                             };
                             }); 

@@ -56,8 +56,14 @@ var maximus = function(k){
 });
     
 };
-
-        
+    //color codes for background
+    var s1=['#c2ffdf','#FFE0F8','','',''];
+    var s2=['#aadfc3','#FCBAED','','',''];
+    var s3=['#92bfa7','#FEA2E9','','',''];
+    var s4=['#799f8b','#FC89E1','','',''];
+    var s5=['#61806f','#F268D3','','',''];
+    var s6=['#496054','#D635B1','','',''];
+    
     
     var k = "total_calls";
       //this function takes a value and returns a color based on which bucket the value falls between

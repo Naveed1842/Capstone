@@ -27,6 +27,7 @@ body{
 #inspector{
     width: 30%;
     height:80%;
+   
     box-shadow: 0 0 10px rgba(0,0,0,0.55);
     margin-top: 8%;
     margin-right: 2%;
@@ -36,6 +37,7 @@ body{
     z-index: 2;
     opacity: 0.8;
     border-radius: 15px;
+    
 }
 #title{
     width:100%;
@@ -81,6 +83,7 @@ body{
 }
 #inspectior2{
     margin-left: 1%;
+    margin-top: 2%;
     
 }
 #complainselection {
@@ -104,6 +107,7 @@ body{
 #mainc{
     
     height: 80%;
+    margin-top: 5%;
 }
 
 #analyticsc{
@@ -140,7 +144,7 @@ body{
 #dropdown2{
     width: 30%;
     float: left;
-    display:none
+    margin-left: 2%;
 }
 
 .scrollable-menu {
@@ -222,4 +226,9 @@ width: 30%;
 .barcontainer{
     width: 80%;
     border: 1px solid black;
+}
+.barchartcontainer{
+  border: 1px solid black;    
+  width: 260px;
+  height: 250px;
 }

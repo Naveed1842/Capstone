@@ -1,7 +1,11 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 20},
-        width = 240 - margin.left - margin.right,
-        height = 200 - margin.top - margin.bottom;
+var w=$(".barchartcontainer").width();
+var h =$(".barchartcontainer").height();
+ console.log("width is :"+w);
+console.log("height is :"+h);
 
+var margin = {top: 20, right: 20, bottom: 30, left: 20},
+        width = w - margin.left - margin.right,
+        height = h - margin.top - margin.bottom;
 
 var compliants = function(zip){
         d3.csv("data/callsfiltered1.csv",function(calls){
@@ -58,8 +62,8 @@ var compliants = function(zip){
             vis.call(tip);
             
             var result = $.grep(data, function(e){ return e["callsmade"] == (max); });
-
            
+            
             bars.enter()
                 .append("svg:rect")
                 .attr("class", "bar")
@@ -83,12 +87,12 @@ var compliants = function(zip){
                           {
                     if(i<20){
                     console.log("top ten:"+max);
-                    return ((d.callsmade/max)*150);
+                    return ((d.callsmade/max)*height);
                     }
                     })
                     .attr("y", function(d, i){
                         if(i<20){
-                    return (height - (((d.callsmade/max)*150)));
+                    return (height - (((d.callsmade/max)*height)));
                         }
                     })
             
@@ -101,8 +105,8 @@ var compliants = function(zip){
         var svg = d3.select("#svg4")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
-            //.attr("preserveAspectRatio", "xMidYMid meet")
-            //.attr("viewBox", "0 0 300 200")
+            .attr("preserveAspectRatio", "xMinYMid")
+            .attr("viewBox", "0 0 300 200")
             //.classed("svg-container", true)
             //.classed("svg-content-responsive", true); 
    //class to make it responsive
