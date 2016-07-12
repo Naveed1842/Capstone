@@ -234,12 +234,14 @@ var maximus = function(k){
                 ct1=layer.feature.properties["BoroCT2010"]
                 console.log(ct1)
                 d3.selectAll("text").remove();
+                d3.selectAll(".arc").remove();
                 chart(ct1,"MedianIncome","svg","barchart");
                 chart(ct1,"medianAge","svg1","barchart1");
                 chart(ct1,"calls","svg2","barchart2");
                 chart(ct1,"hholds","svg3","barchart3");
-             
                compliants(""+ct1+".0");
+                runpie(ct1);
+                runpie1(ct1);
               
                //info.update(); 
          }

@@ -165,16 +165,10 @@
                         init("svg3","barchart3");
                             //y=$('#mainc').height();
                             //console.log("main height is "+(y-210));
-                            $( window ).on('resize',function() {
-                                x=$('.barchartcontainer').width();
-                                y=$('.barchartcontainer').height();
-                                var aspect = x/y;
-                                //console.log("test width is "+x/2);
-                                //console.log("test height is "+y/2);
-                                $(".barchartcontainer").width(x).height(aspect);
-                                });
-
                     </script>
+                    <div id='pie'></div>
+                    <div id='pie1'></div>
+                    
                  
                     
                 </div>
@@ -234,7 +228,8 @@
   
      <script type="text/javascript" src="js/topten.js"> </script>
     <script>initbar();</script>
-    
+    <script src="js/piechart.js"></script>
+    <script src="js/pierace.js"></script>
     <script type="text/javascript" src="js/analytics.js"></script>
       
     </body>

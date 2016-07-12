@@ -3,7 +3,7 @@ var h =$(".barchartcontainer").height();
  console.log("width is :"+w);
 console.log("height is :"+h);
 
-var margin = {top: 20, right: 20, bottom: 30, left: 20},
+var margin = {top: 0, right: 20, bottom: 10, left: 20},
         width = w - margin.left - margin.right,
         height = h - margin.top - margin.bottom;
 
@@ -107,8 +107,8 @@ var compliants = function(zip){
             .attr("height", height + margin.top + margin.bottom)
             .attr("preserveAspectRatio", "xMinYMid")
             .attr("viewBox", "0 0 300 200")
-            //.classed("svg-container", true)
-            //.classed("svg-content-responsive", true); 
+            .classed("svg-container", true)
+            .classed("svg-content-responsive", true); 
    //class to make it responsive
             
         //console.log("svg", svg)
