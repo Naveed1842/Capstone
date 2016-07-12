@@ -31,7 +31,7 @@ var svgr = d3.select("#pie1").append("svg")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 var runpie1=function(ct){
-    d3.csv("data/datafiles/demographics_CT_NYC_residentsNoN.csv", function( data) {
+    d3.csv("data/demographics_CT_NYC_residentsNoN.csv", function( data) {
   datanew= data.map(function(d){
       v = parseInt(d['BoroCT2010'])
       v1 = parseInt(d['owner  occupied units']);
