@@ -116,13 +116,13 @@ body{
     width: 100%;
     display: none;
 }
-#settingsc{
+#impactc{
     margin-left: 2%;
     height: 70%;
     width: 100%;
     display: none;
 }
-#contactc{
+#teamc{
     margin-left: 2%;
     height: 70%;
     width: 100%;
@@ -161,7 +161,7 @@ body{
 #letstalkfield{
     width: 60%;  
 }
-#contactform{
+#teamform{
     margin-top: 15%;
     width: 80%;
     
@@ -252,4 +252,26 @@ width: 30%;
 
 .arc path {
   stroke: #fff;
+}
+#impactform{
+    width: 80%;
+    margin: 0 auto;
+}
+#rnt{
+    display: none;
+}
+#ownd{
+    display: none;
+}
+#Prediction{
+    display: none;
+    margin-left: 2%;
+}
+.radiowrap {
+    width: 60%; 
+    height: 5%;
+    margin-bottom: 2%;
+    transition: background 2s ease;
+    -webkit-transition: background 2s ease;
+    -moz-transition: background 2s ease;
 }

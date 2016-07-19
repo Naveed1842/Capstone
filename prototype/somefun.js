@@ -1,9 +1,13 @@
-$(document).ready(function(){
-		$("#oneWay").click(function(){
-			$("#dropdown2").css("display","none");
+$(document).ready(function () {
+    $("#radownd").click(function(){
+			$("#ownd").css("display","block");
+            $("#rnt").css("display","none");
 		});
-		$("#return").click(function(){
-			$("#dropdown2").css("display","block");
+		$("#radrnt").click(function(){
+			$("#rnt").css("display","block");
+            $("#ownd").css("display","none");
 		});
 		
-	})
+	});
+
+//function to resize chart. don't work all the time.

@@ -4,7 +4,7 @@ var map = L.map('map', {
 
 var dblclickzoom = function(){
 if(document.getElementById('doubleclickckeck').checked){
-    console.log("checked")
+    //console.log("checked")
     map.doubleClickZoom.disable();
 }
     else{
@@ -24,7 +24,8 @@ map.scrollWheelZoom.disable();
        $("#analyticsc").hide();
         $("#settingsc").hide();
         $("#mainc").hide();
-        $("#contactc").hide()
+        $("#teamc").hide()
+        $("#prediction").hide();
         $('#mainc').show();
    });
 
@@ -40,46 +41,56 @@ var maximus = function(k){
                 {
                     //each d is one line of the csv file represented as a json object
                     ct = +(d[""+k]);
+                    tpop = +(d['Total Population'])
                     //console.log(ct);
-                    m= {"com":ct};
+                    m= {"com":ct,"tpopulation":tpop};
                     return m;
                 });  
-             max = d3.max(data,function(d){
-                //console.log(d);
+            max = d3.max(data,function(d){
                 return d["com"]
             });
-        //console.log(max)
-       console.log(max);
-        mx=max;
-    return max;
+            console.log(max);
+            mx=max;
+            return max;
     
 });
     
 };
     //color codes for background
-    var s1=['#c2ffdf','#FFE0F8','','',''];
-    var s2=['#aadfc3','#FCBAED','','',''];
-    var s3=['#92bfa7','#FEA2E9','','',''];
-    var s4=['#799f8b','#FC89E1','','',''];
-    var s5=['#61806f','#F268D3','','',''];
-    var s6=['#496054','#D635B1','','',''];
+    var s1=['#edf8fb','#FFE0F8','','',''];
+    var s2=['#ccece6','#FCBAED','','',''];
+    var s3=['#99d8c9','#FEA2E9','','',''];
+    var s4=['#66c2a4','#FC89E1','','',''];
+    var s5=['#2ca25f','#F268D3','','',''];
+    var s6=['#006d2c','#D635B1','','',''];
     
     
     var k = "total_calls";
       //this function takes a value and returns a color based on which bucket the value falls between
     maximus(k);
     console.log(mx);
-      function getColor(d) {
-          //console.log(d)
+      function getColor(d,p) {
+         // console.log(mx)
           //mx= d3.max(col,function(d){
             //                 return d;
               //               });
-          return d > (mx*0.65)  ? '#990000' :
-                 d > (mx*0.50)  ? '#FC4E2A':
-                 d > (mx*0.45)   ? '#FD8D3C' :
-                 d > (mx*0.40)   ? '#FEB24C' :
-                 d > (mx*0.30)   ? '#FED976' :
-                            '#FFEDA0';
+          //here it id defining quantiles to reflect colors on the map.
+         // if(document.getElementById('npop').checked){
+        //      return d > (p*0.65)  ? '#990000' :
+          //           d > (p*0.50)  ? '#FC4E2A':
+            //         d > (p*0.45)   ? '#FD8D3C' :
+              //       d > (p*0.40)   ? '#FEB24C' :
+                //     d > (p*0.30)   ? '#FED976' :
+                //                '#FFEDA0';
+        //  }
+           // else if(document.getElementById('nper').checked){
+              return d > (mx*0.65)  ? '#006d2c' :
+                     d > (mx*0.50)  ? '#2ca25f':
+                     d > (mx*0.45)   ? '#66c2a4' :
+                     d > (mx*0.40)   ? '#99d8c9' :
+                     d > (mx*0.30)   ? '#ccece6' :
+                                '#edf8fb';
+          
       }
      
 //Layer Selection
@@ -113,7 +124,7 @@ var maximus = function(k){
     
      $(".layerselection").click(function(){
              removealllayer();
-         console.log(this.id)
+         //console.log(this.id)
             if(this.id == 'bnw'){
                 
                 blacknw.addTo(map);
@@ -156,7 +167,7 @@ var maximus = function(k){
 
       function style(feature) {
             //console.log(feature.properties[k]);
-
+         
           return {
               fillColor: getColor(feature.properties[k]),
               weight: 1,
@@ -164,10 +175,10 @@ var maximus = function(k){
               color: 'white',
               dashArray: '1',
               fillOpacity: 0.7
-              
+          }
           };
          
-        }
+        
 
         //this function is set to run when a user mouses over any polygon
         function mouseoverFunction(e) {
@@ -221,7 +232,8 @@ var maximus = function(k){
                 $("#analyticsc").hide();
                 $("#settingsc").hide();
                 $("#mainc").hide();
-                $("#contactc").hide()
+                $("#teamc").hide()
+                $("#prediction").hide();
                 $("#analyticsc").show();
                 layer.setStyle({
                   fillColor:Randomcolor(),
@@ -232,7 +244,7 @@ var maximus = function(k){
                 //d3.select("rect.bar").remove();
                 
                 ct1=layer.feature.properties["BoroCT2010"]
-                console.log(ct1)
+                //console.log(ct1)
                 d3.selectAll("text").remove();
                 d3.selectAll(".arc").remove();
                 chart(ct1,"MedianIncome","svg","barchart");
@@ -248,11 +260,11 @@ var maximus = function(k){
              else if(document.getElementById("multipleradio").checked){
                  
                  var found =0;
-                 console.log(selectedpoly.length);
+                 //console.log(selectedpoly.length);
                  if(selectedpoly.length==0){
                      layer.removeEventListener('mouseout',false);
                      layer.removeEventListener('mouseover',false);
-                       console.log("at new if's place");
+                       //console.log("at new if's place");
                             layer.setStyle({
                                 fillColor:Randomcolor(),
                                 weight: 3,
@@ -262,15 +274,15 @@ var maximus = function(k){
                      layer.on({
                         mousover:info.update(layer.feature.properties)
                      });
-                            console.log("ct is "+layer.feature.properties["WGS84.Boro"]);
+                           // console.log("ct is "+layer.feature.properties["WGS84.Boro"]);
                             selectedpoly.push(this._leaflet_id);
                             ctselectled.push(layer.feature.properties["WGS84.Boro"]);
                  }
                  else{
-                     console.log("reached the target");
+                     //console.log("reached the target");
                  for(i=0;i<selectedpoly.length;i++){
                     
-                      console.log("entered for loop as well");
+                     // console.log("entered for loop as well");
                          if(selectedpoly[i]==this._leaflet_id){
                            
                             var num = selectedpoly.indexOf(i);
@@ -345,27 +357,26 @@ var maximus = function(k){
              
          });
        }
-   var readdata= function(){
+    var readdata= function(){
           $.getJSON('data/geo5.geojson', function(state_data) {
              geojson = L.geoJson(state_data,{
                 style: style,
                 onEachFeature: onEachFeature
               }).addTo(map);
 
-    });
-   }
-        readdata();
-        console.log("lo")
+          });
+        }
+  
+      readdata();
+
                  
     $('.mapoptions').click(function(){
         map.removeLayer(geojson);
         k= (this.id)
-        console.log(k);
-        //console.log(this.class);
-        maximus(k)
+        //console.log(k);
+        
+        maximus(k);
+        
         readdata();
-                       //style(m=(""+(this.id)))
-                      //info.clearLayer();
-                       //k= (this.id);
-                        });
-    console.log(geojson);
+
+            });

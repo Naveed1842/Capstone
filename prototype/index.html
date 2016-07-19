@@ -2,33 +2,35 @@
     <head>
         <title>311 Visualization tool</title>
         <!-- Connecting html with home.css file -->
+        
         <link href="css/home.css" rel="stylesheet" type="text/css">
         <!-- Linking bootstrap and cartoDB API-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <link rel="icon" type="image/png" href="./favicon.png">
         <script type="text/javascript" src="js/maps.js"> </script>
         <script type="text/javascript" src="js/charts.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
             <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-         
+        
         <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-73423232-2', 'auto');
-  ga('send', 'pageview');
+          ga('create', 'UA-73423232-2', 'auto');
+          ga('send', 'pageview');
 
-</script>
-  
+        </script>
+        <script type="text/javascript" src="somefun.js".js></script>
     </head>
     <body>
         
@@ -64,8 +66,8 @@
                   <ul class="nav navbar-nav">
                     <li><a href="#" id="main"><span class="glyphicon glyphicon-map-marker"></span> Options</a></li>
                     <li><a href="#" id="analytics"><span class="glyphicon glyphicon-stats"></span> Data </a></li>
-                    <li><a href="#" id="settings"><span class="glyphicon glyphicon-cog"></span> Impact</a></li>
-                    <li><a href="#" id="contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
+                    <li><a href="#" id="impact"><span class="glyphicon glyphicon-cog"></span> Impact</a></li>
+                    <li><a href="#" id="team"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
                   </ul>
                 </div>
               </div>
@@ -85,6 +87,8 @@
                     </form>
                     <div id=inspectior2>
                      <h5><u>Service Request type:</u></h5>
+                        <label><input type="radio" checked name='demotype'> Residents</label>
+                        <label><input type="radio" name='demotype'> Workers</label>
                     <div id="dropdownchoice">
                     <div id="dropdown1">
                       <div class="dropdown" >
@@ -126,6 +130,11 @@
                         <input type="radio" class="layerselection" id="light" name="layersel">&nbsp;Light-All  
                         <input type="radio" class="layerselection" id="black" name="layersel" checked>&nbsp; Black (Default) <br><br>
                         <input type="checkbox" checked disabled> Transparency
+                        <h5>Normalization:</h5>
+                        <input type="radio" class='normalization' id="nper" name="norm" checked> &nbsp;Percent
+                        <input type="radio" class='normalization' id="narea" name="norm">&nbsp;Area  
+                        <input type="radio" class='normalization' id="npop" name="norm">&nbsp;Population  
+                        
                     </div>
                 
            
@@ -154,7 +163,7 @@
                 <div id="charts">
                     <p id="mi1">Median Income: <svg id="svg"></svg></p>
                     <p id="mag1">Median Age:<svg id="svg1"></svg></p>
-                    <p id="tca1">Total Calls:<svg id="svg2" ></svg></p>
+                    <p id="tca1">Service Requests:<svg id="svg2" ></svg></p>
                     <p id="medhh1">Median Households: <svg id="svg3"></svg></p>
                     <h5>Top Complaints</h5>
                     <div class="barchartcontainer"><svg id="svg4"></svg></div>
@@ -173,15 +182,68 @@
                     
                 </div>
             </div>
-            <div id="settingsc">
-                <h3 style="text-align: center ">Settings</h3>
+          
+
+            <div id="impactc">
+                <h3 style="text-align: center ">Impact</h3>
+                <p>Please provide as less or as detailed information of personality type to find out his liklihood of making complaint.</p><br>
+                <div id="impactform">
+                <form >
+                    <div class='radiowrap'><label><input type="radio" name="impact" id="imresident"> Resident</label></div>
+                    <div class='radiowrap'><label><input type="radio" name="impact" id="imworker"> Workers</label><br></div>
+                    <input type="text" id="nf" name="namef" class="form-control" placeholder="Personality Name"><br>
+                    <input type="text" id="age" name="namel" class="form-control" placeholder="personality Age"><br>
+                    <label><input type="radio" name="ownership" id='radownd'> House Owned</label>
+                    <label><input type="radio" name="ownership" id='radrnt'> Rented</label>
+                    <input type="text" name="rent" class="form-control" id="rnt" placeholder="Rent Amount(eg. 1500)">
+                    <input type="text" name="property" class="form-control" id="ownd" placeholder="Property Amount(eg. 100000)"><br>
+                    <input type="text" name="income" class="form-control" placeholder="Income per annum(eg 40000)"><br>
+                    <fieldset>
+                        <select name="hhtype" id="htype" >
+                            <option><b>House Hold Type</b></option>
+                              <option>family households</option>
+                              <option>Non family households</option>
+                        </select><br><br>
+                        <select name="education" id="education" >
+                            <option><b>education</b></option>
+                              <option id="population education high school or less">high school or less</option>
+                              <option>Bachelors</option>
+                              <option>Masters</option>
+                              <option>Phd</option>
+                        </select><br><br>
+                        <select name="Transportation" id="transportation" >
+                            <option><b>Transporation Mode</b></option>
+                              <option>Public</option>
+                              <option>Motor Cycle</option>
+                              <option>Car</option>
+                              <option>Others</option>
+                        </select>
+                        <select name="Race" id="race" >
+                            <option><b>Ethnicity</b></option>
+                              <option>Asian</option>
+                              <option>Black</option>
+                              <option>Hispanic</option>
+                              <option>White</option>
+                              <option>Others</option>
+                        </select>
+                    </fieldset><br><br>
+                   <button type="submit" id="subf" class="btn btn-default">Submit</button>
+                    <script type="text/javascript" src="js/person.js"></script>
+                    
+                </form>
              
             </div>
-           
-            <div id="contactc">
+                </div>
+           <div id="prediction">
+               <h5 id='start'></h5><br>
+               <p id='welcomemessage'></p><br>
+               <h5 id='mycomplain'></h5>
+               
+            </div>
+            <div id="teamc">
                 <div id="talkhere">
                 <h3 style="text-align: center">Contact</h3>
-                <form role="form" id="contactform">
+                <form role="form" id="teamform">
                   <div id="letstalkfield">
                   <div id="frommain">
                     <input type="text" class="form-control" id="usr" placeholder="Name">
@@ -208,18 +270,19 @@
                     
                 $( "#"+link ).on("click",function() {
                  $("#analyticsc").hide();
-                    $("#settingsc").hide();
+                    $("#impactc").hide();
                     $("#mainc").hide();
-                    $("#contactc").hide();
+                    $("#teamc").hide();
+                    $("#prediction").hide();
                     $("#"+div2).show();
                     $("#"+div2).css("display","block");
                     
                 });
                 };
                 navi('analytics','analyticsc');
-                navi('settings','settingsc');
+                navi('impact','impactc');
                 navi('main','mainc');
-                navi('contact','contactc');
+                navi('team','teamc');
             </script>
                 
             
@@ -231,6 +294,7 @@
     <script src="js/piechart.js"></script>
     <script src="js/pierace.js"></script>
     <script type="text/javascript" src="js/analytics.js"></script>
+
       
     </body>
 </html>
