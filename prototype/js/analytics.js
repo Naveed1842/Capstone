@@ -386,14 +386,30 @@ console.log('here in percentage');
 //refresh map for loading map normalized by population
 //refresh map for loading map normalized by raw data
 $("#nper").on("click",function() {
-        console.log('here in percentage');
+        $('#npop').css('background-color','white');
+        $('#npop').css('opacity',1)
+        $('#npop').css('color','black');
+        $('#narea').css('background-color','white');
+        $('#narea').css('opacity',1)
+        $('#narea').css('color','black');
+        $(this).css('background-color','black')
+        $(this).css('opacity',0.5)
+        $(this).css('color','white');
         //alert("You have selected Option 1");
         map.removeLayer(geojson);
         flag=0;
         readdata();
     });
 $("#npop").on("click",function() {
-        console.log('here in pop');
+        $('#nper').css('background-color','white');
+        $('#nper').css('opacity',1)
+        $('#nper').css('color','black');
+        $('#narea').css('background-color','white');
+        $('#narea').css('opacity',1)
+        $('#narea').css('color','black');
+        $(this).css('background-color','black');
+        $(this).css('opacity',0.5)
+        $(this).css('color','white');
         //alert("You have selected Option 1");
         map.removeLayer(geojson);
         flag=1;
@@ -402,7 +418,15 @@ $("#npop").on("click",function() {
 
 //refresh map for loading map normalized by area
 $("#narea").on("click",function() {
-        console.log('here in percentage');
+        $('#nper').css('background-color','white');
+        $('#nper').css('opacity',1)
+        $('#nper').css('color','black');
+        $('#npop').css('background-color','white');
+        $('#npop').css('opacity',1)
+        $('#npop').css('color','black');
+        $(this).css('background-color','black')
+        $(this).css('opacity',0.5)
+        $(this).css('color','white');
         //alert("You have selected Option 1");
         map.removeLayer(geojson);
         flag=2;
