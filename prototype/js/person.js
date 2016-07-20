@@ -197,9 +197,9 @@ var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
         }
            
        
-        r=[age,race,hht,edu,occ,tra,own,rent];
+        r=[age,race,hht,edu,occ,tra,income,own,rent];
         m1=data;
-        console.log(m1);
+        //console.log(m1);
         c=0
         for(i=0;i<r.length;i++){
             if(r[i]!=''){
