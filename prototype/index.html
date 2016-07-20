@@ -79,16 +79,16 @@
                     <h3 style="text-align: center">Options</h3>
                     <h5><u>Granularity:</u></h5>
                      <div class="checkbox">
-                      <label><input type="radio" value="" name="granularity" checked>Census Tract</label>
+                      <label><input type="radio" value="" name="granularity" id="ctmain" checked>Census Tract</label>
                     </div>
                     <div class="checkbox">
-                      <label><input type="radio" value="" name="granularity"  disabled>NTA</label>
+                      <label><input type="radio" value="" name="granularity" id="ntamain" disabled >NTA</label>
                     </div>
                     </form>
                     <div id=inspectior2>
                      <h5><u>Service Request type:</u></h5>
                         <label><input type="radio" checked name='demotype'> Residents</label>
-                        <label><input type="radio" name='demotype'> Workers</label>
+                        <label><input type="radio" name='demotype' disabled> Workers</label>
                     <div id="dropdownchoice">
                     <div id="dropdown1">
                       <div class="dropdown" >
@@ -132,8 +132,8 @@
                         <input type="checkbox" checked disabled> Transparency
                         <h5>Normalization:</h5>
                         <input type="radio" class='normalization' id="nper" name="norm" checked> &nbsp;Percent
-                        <input type="radio" class='normalization' id="narea" name="norm">&nbsp;Area  
-                        <input type="radio" class='normalization' id="npop" name="norm">&nbsp;Population  
+                        <input type="radio" class='normalization' id="narea" name="norm" disabled>&nbsp;Area  
+                        <input type="radio" class='normalization' id="npop" name="norm" disabled>&nbsp;Population  
                         
                     </div>
                 
@@ -165,7 +165,7 @@
                     <p id="mag1">Median Age:<svg id="svg1"></svg></p>
                     <p id="tca1">Service Requests:<svg id="svg2" ></svg></p>
                     <p id="medhh1">Median Households: <svg id="svg3"></svg></p>
-                    <h5>Top Complaints</h5>
+                    <h5>Service Requests</h5>
                     <div class="barchartcontainer"><svg id="svg4"></svg></div>
                     <script>
                         init("svg","barchart");
@@ -294,6 +294,7 @@
     <script src="js/piechart.js"></script>
     <script src="js/pierace.js"></script>
     <script type="text/javascript" src="js/analytics.js"></script>
+        
 
       
     </body>
