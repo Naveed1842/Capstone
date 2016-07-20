@@ -1,3 +1,4 @@
+var flag=0;
 var map = L.map('map', {
         scrollWheelZoom: true
       }).setView( [40.717802, -73.81326], 11);
@@ -41,9 +42,9 @@ var maximus = function(k){
                 {
                     //each d is one line of the csv file represented as a json object
                     ct = +(d[""+k]);
-                    tpop = +(d['Total Population'])
+                    //tpop = +(d['Total Population'])
                     //console.log(ct);
-                    m= {"com":ct,"tpopulation":tpop};
+                    m= {"com":ct};
                     return m;
                 });  
             max = d3.max(data,function(d){
@@ -69,29 +70,44 @@ var maximus = function(k){
       //this function takes a value and returns a color based on which bucket the value falls between
     maximus(k);
     console.log(mx);
-      function getColor(d,p) {
-         // console.log(mx)
-          //mx= d3.max(col,function(d){
-            //                 return d;
-              //               });
+      function getColor(d,p,a) {
           //here it id defining quantiles to reflect colors on the map.
-         // if(document.getElementById('npop').checked){
-        //      return d > (p*0.65)  ? '#990000' :
-          //           d > (p*0.50)  ? '#FC4E2A':
-            //         d > (p*0.45)   ? '#FD8D3C' :
-              //       d > (p*0.40)   ? '#FEB24C' :
-                //     d > (p*0.30)   ? '#FED976' :
-                //                '#FFEDA0';
-        //  }
-           // else if(document.getElementById('nper').checked){
+         //flag 0 is raw
+           if(flag==0){
               return d > (mx*0.65)  ? '#006d2c' :
                      d > (mx*0.50)  ? '#2ca25f':
                      d > (mx*0.45)   ? '#66c2a4' :
                      d > (mx*0.40)   ? '#99d8c9' :
                      d > (mx*0.30)   ? '#ccece6' :
-                                '#edf8fb';
+                     d > (mx*0.10)   ? '#edf8fb' :
+                                '#FFFFFb';
           
       }
+          //flag 1 is normalize by population
+           else if(flag==1){
+               //console.log((p*(0.10)));
+              return d > (p*(0.65))  ? '#990000' :
+                     d > (p*(0.50))  ? '#FC4E2A':
+                     d > (p*(0.35))   ? '#FD8D3C' :
+                     d > (p*(0.20))   ? '#FEB24C' :
+                     d > (p*(0.01))   ? '#FED976' :
+                     d > (p*(0.005))   ? '#FFFDA0' :
+                                '#FFFFF0';
+          }
+           else if(flag==2){
+               a=a*10000;
+              // console.log(mx);
+              // console.log(d/a)
+              return d > (a*(0.65))  ? '#016450' :
+                     d > (a*(0.50))  ? '#02818a':
+                     d > (a*(0.35))   ? '#3690c0' :
+                     d > (a*(0.20))   ? '#67a9cf' :
+                     d > (a*(0.01))   ? '#a6bddb' :
+                     d > (a*(0.005))   ? '#d0d1e6' :
+                                '#f6eff7';
+          }
+      }
+      
      
 //Layer Selection
         
@@ -169,7 +185,7 @@ var maximus = function(k){
             //console.log(feature.properties[k]);
          
           return {
-              fillColor: getColor(feature.properties[k]),
+              fillColor: getColor(feature.properties[k],feature.properties['Total Population'],feature.properties['area']),
               weight: 1,
               opacity: 0.7,
               color: 'white',
@@ -328,7 +344,7 @@ var maximus = function(k){
          };
 
         
-     var info = L.control();
+var info = L.control();
 
         info.setPosition("topleft");
         info.onAdd = function (map) {
@@ -346,10 +362,8 @@ var maximus = function(k){
         
         
 
-        info.addTo(map);
-   
-
-      function onEachFeature(feature, layer) {
+info.addTo(map);
+function onEachFeature(feature, layer) {
          layer.on({
              mouseover: mouseoverFunction,
              mouseout: resetHighlight,
@@ -357,25 +371,52 @@ var maximus = function(k){
              
          });
        }
-    var readdata= function(){
-          $.getJSON('data/geo5.geojson', function(state_data) {
-             geojson = L.geoJson(state_data,{
-                style: style,
-                onEachFeature: onEachFeature
-              }).addTo(map);
 
-          });
-        }
-  
-      readdata();
+var readdata= function(){
+              $.getJSON('data/geo6.geojson', function(state_data) {
+                 geojson = L.geoJson(state_data,{
+                    style: style,
+                    onEachFeature: onEachFeature
+                  }).addTo(map);
+
+              });
+            };
+readdata();
+console.log('here in percentage');
+//refresh map for loading map normalized by population
+//refresh map for loading map normalized by raw data
+$("#nper").on("click",function() {
+        console.log('here in percentage');
+        //alert("You have selected Option 1");
+        map.removeLayer(geojson);
+        flag=0;
+        readdata();
+    });
+$("#npop").on("click",function() {
+        console.log('here in pop');
+        //alert("You have selected Option 1");
+        map.removeLayer(geojson);
+        flag=1;
+        readdata();
+    });
+
+//refresh map for loading map normalized by area
+$("#narea").on("click",function() {
+        console.log('here in percentage');
+        //alert("You have selected Option 1");
+        map.removeLayer(geojson);
+        flag=2;
+        readdata();
+    });
+      
 
                  
     $('.mapoptions').click(function(){
         map.removeLayer(geojson);
         k= (this.id)
         //console.log(k);
-        
         maximus(k);
+        
         
         readdata();
 
