@@ -275,3 +275,27 @@ width: 30%;
     -webkit-transition: background 2s ease;
     -moz-transition: background 2s ease;
 }
+.barres {
+  fill: GoldenRod;
+}
+
+
+.barres:hover {
+  fill: black ;
+}
+.barwor {
+  fill: YellowGreen;
+}
+
+
+.barwor:hover {
+  fill: Yellow  ;
+}
+
+input.invalid, textarea.invalid{
+	border: 2px solid red;
+}
+
+input.valid, textarea.valid{
+	border: 2px solid green;
+}

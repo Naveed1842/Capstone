@@ -66,7 +66,7 @@
                   <ul class="nav navbar-nav">
                     <li><a href="#" id="main"><span class="glyphicon glyphicon-map-marker"></span> Options</a></li>
                     <li><a href="#" id="analytics"><span class="glyphicon glyphicon-stats"></span> Data </a></li>
-                    <li><a href="#" id="impact"><span class="glyphicon glyphicon-cog"></span> Impact</a></li>
+                    <li><a href="#" id="impact"><span class="glyphicon glyphicon-cog"></span> Model</a></li>
                     <li><a href="#" id="team"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
                   </ul>
                 </div>
@@ -164,11 +164,12 @@
             </div>
             <div id="analyticsc"><h3 style="text-align: center ">Data</h3>
                 <div id="charts">
+                    <h5 id='cts'></h5>
                     <p id="mi1">Median Income: <svg id="svg"></svg></p>
                     <p id="mag1">Median Age:<svg id="svg1"></svg></p>
                     <p id="tca1">Service Requests:<svg id="svg2" ></svg></p>
                     <p id="medhh1">Median Households: <svg id="svg3"></svg></p>
-                    <h5>Service Requests</h5>
+                    <h5>Service Requests</h5><p>(Hover over the bars to see complains and click to change map)</p>
                     <div class="barchartcontainer"><svg id="svg4"></svg></div>
                     <script>
                         init("svg","barchart");
@@ -188,19 +189,18 @@
           
 
             <div id="impactc">
-                <h3 style="text-align: center ">Impact</h3>
+                <h3 style="text-align: center ">Model</h3>
                 <p>Please provide as less or as detailed information of personality type to find out his liklihood of making complaint.</p><br>
                 <div id="impactform">
-                <form >
-                    <div class='radiowrap'><label><input type="radio" name="impact" id="imresident"> Resident</label></div>
-                    <div class='radiowrap'><label><input type="radio" name="impact" id="imworker"> Workers</label><br></div>
-                    <input type="text" id="nf" name="namef" class="form-control" placeholder="Personality Name"><br>
-                    <input type="text" id="age" name="namel" class="form-control" placeholder="personality Age"><br>
+                <form id="impform">
+                    <label> <input type="text" id="nf" name="namef" class="form-control" placeholder="Personality Name"><br></label>
+                    <label><input type="text" id="age" name="namel" class="form-control" placeholder="personality Age"><br></label>
                     <label><input type="radio" name="ownership" id='radownd'> House Owned</label>
                     <label><input type="radio" name="ownership" id='radrnt'> Rented</label>
-                    <input type="text" name="rent" class="form-control" id="rnt" placeholder="Rent Amount(eg. 1500)">
-                    <input type="text" name="property" class="form-control" id="ownd" placeholder="Property Amount(eg. 100000)"><br>
-                    <input type="text" name="income" class="form-control" placeholder="Income per annum(eg 40000)"><br>
+                    <label><input type="radio" name="ownership" id='none'> None</label>
+                    <label><input type="text" name="rent" class="form-control" id="rnt" placeholder="Rent Amount"></label>
+                    <label><input type="text" name="property" class="form-control" id="ownd" placeholder="Property Amount"><br></label>
+                    <label><input type="text" name="income" class="form-control" placeholder="Income per annum"><br></label>
                     <fieldset>
                         <select name="hhtype" id="htype" >
                             <option><b>House Hold Type</b></option>
@@ -241,6 +241,9 @@
                <h5 id='start'></h5><br>
                <p id='welcomemessage'></p><br>
                <h5 id='mycomplain'></h5>
+               <div class="barresident"><svg id="svg5"></svg></div>
+               <h5 id='start1'></h5><br>
+               <div class="barworker"><svg id="svg6"></svg></div>
                
             </div>
             <div id="teamc">

@@ -67,10 +67,9 @@ var runpie=function(ct){
         .duration(300)
         
         //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-    
   g.append("text")
       .attr("transform", function(d,i) { return "translate(" + labelArc.centroid(d) + ")" })
       .attr("dy", ".35em")
-      .text(function(d,i) { return d.data['label'] })
+      .text(function(d,i) { if(d.data['count']!=0){return d.data['label']} })
 });
 }

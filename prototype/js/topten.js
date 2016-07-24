@@ -3,6 +3,7 @@ var h =$(".barchartcontainer").height();
  console.log("width is :"+w);
 console.log("height is :"+h);
 
+
 var margin = {top: 0, right: 20, bottom: 10, left: 20},
         width = w - margin.left - margin.right,
         height = h - margin.top - margin.bottom;
@@ -21,56 +22,49 @@ var compliants = function(zip){
         var percent = d3.format('%');
 
         var bars = function(data){
-            var x = d3.scale.ordinal()
-                .rangeRoundBands([0, width], .1, 1);
-
-            var y = d3.scale.linear()
-                .range([height, 0]);
-            
+        
             
             var max =d3.max(data,function(d){
                    return d['callsmade'];
                    })
-          
-            
-        
-            var xAxis = d3.svg.axis()
-                .scale(x)
-                .orient("bottom");
-
-            var yAxis = d3.svg.axis()
-                .scale(y)
-                .orient("left");
-            
+                     
              var sorted = data.sort(function(x, y){
                return d3.descending(x.callsmade, y.callsmade);
             });
             
-           
+           //console.log(sorted)
              var tip = d3.tip()
                       .attr('class', 'd3-tip')
                       .offset([-8, 0])
                       .html(function(d) {
-                        return "<strong>Complain Type:</strong> <span style='color:red'>" + d['Cencus']+":"+d['callsmade'] + "</span>";
+                        return "<strong>Complain Type:</strong> <span style='color:red'>" +d['Cencus']+":</span><strong>"+d['callsmade']+'</strong>';
                       })
              
              var vis = d3.select("#barcharta");
              var bars = vis.selectAll("rect.bar")
                         .data(sorted)
-
+             
              
             vis.call(tip);
             
             var result = $.grep(data, function(e){ return e["callsmade"] == (max); });
            
-            
+            //console.log(function(d){return d['Cencus']})
             bars.enter()
                 .append("svg:rect")
                 .attr("class", "bar")
                  .on('mouseover', tip.show)
                 .on('mouseout', tip.hide)
+                //.on('mouseclick',mapupdate(function(d){return d['Census'];}));
+            bars.on('click',function(d){
+                console.log(d)
+                mapupdate(d['Cencus']);
+            })
             bars.exit()
                 .remove()
+            
+            
+            
             var h = 7;
             bars
                 .attr("stroke-width", 4)
@@ -86,7 +80,7 @@ var compliants = function(zip){
                     .attr("height", function(d,i) 
                           {
                     if(i<20){
-                    console.log("top ten:"+max);
+                    //console.log("top ten:"+max);
                     return ((d.callsmade/max)*height);
                     }
                     })
@@ -101,6 +95,7 @@ var compliants = function(zip){
         
     function initbar()
     {
+ 
         //setup the svg
         var svg = d3.select("#svg4")
             .attr("width", width + margin.left + margin.right)
@@ -109,6 +104,8 @@ var compliants = function(zip){
             .attr("viewBox", "0 0 300 200")
             .classed("svg-container", true)
             .classed("svg-content-responsive", true); 
+        
+        
    //class to make it responsive
             
         //console.log("svg", svg)
@@ -118,12 +115,12 @@ var compliants = function(zip){
             .attr("stroke", "none")
             .attr("fill", "none")
             
-      
 
         svg.append("svg4:g")
             .attr("id", "barcharta")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        
+
+
         
         
     }

@@ -445,3 +445,12 @@ $("#narea").on("click",function() {
         readdata();
 
             });
+var mapupdate=function(ke){
+       map.removeLayer(geojson);
+        k= ke;
+        //console.log(k);
+        maximus(k);
+        
+        
+        readdata();
+}

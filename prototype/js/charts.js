@@ -14,6 +14,8 @@ d3.csv("data/Demographic311censusNonan.csv", function(threedata)
             m= {"censustract":ct,"calls": calls, "MedianIncome":medincome,"medianAge":medAge,"hholds":hholds};
             return m;
         });  
+    $('#cts').empty();
+    $('#cts').append("<strong>Census Tract Selected: "+ctract+"</strong>");
     console.log("svgid"+svgid);
     findct(""+ctract,""+type,svgid,bc);
     
@@ -26,7 +28,7 @@ function findct(c,wha,svgid,bc){
     
     var result = $.grep(data, function(e){ return e["censustract"] == (""+c); });
     //console.log("result is "+result[0][""+wha]);
-    
+    //console.log(result);
 
     
     var vis = d3.select("#"+bc)
