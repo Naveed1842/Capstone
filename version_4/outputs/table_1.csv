@@ -1,586 +1,693 @@
 ,Type of complain,Group of features,R square
-118,APPLIANCE,ownorrent_residents,0.32752421031418988
-117,APPLIANCE,race_residents,0.61234697599785148
-119,APPLIANCE,transportationtype_residents,0.24599045104640344
-120,APPLIANCE,income_residents,0.52581960046568255
-121,APPLIANCE,rent_residents,0.58061560803774592
-116,APPLIANCE,age_residents,0.41355158046176566
-139,Air Quality,ownorrent_residents,0.38334691396707332
-138,Air Quality,education_residents,0.57299415694969669
-142,Air Quality,rent_residents,0.6258963249649423
-141,Air Quality,income_residents,0.60549228109168551
-144,Air Quality,ownorrent_workers,0.29223251031380987
-145,Air Quality,transportationtype_workers,0.25811926741453456
-137,Air Quality,typeof_household_residents,0.61625850658249548
-136,Air Quality,race_residents,0.22999025952026991
-135,Air Quality,age_residents,0.40621504231074967
-143,Air Quality,education_workers,0.254235496163224
-140,Air Quality,transportationtype_residents,0.59428794313417799
-564,Animal Abuse,rent_residents,0.2391335657877674
-559,Animal Abuse,race_residents,0.43747501729751637
-558,Animal Abuse,age_residents,0.36543613250941531
-563,Animal Abuse,income_residents,0.35283303417760842
-562,Animal Abuse,transportationtype_residents,0.23536856576597404
-560,Animal Abuse,typeof_household_residents,0.33192811753741858
-561,Animal Abuse,education_residents,0.35682543495923025
-570,Asbestos,ownorrent_residents,0.45907159577837325
-571,Asbestos,transportationtype_residents,0.35105356482208655
-572,Asbestos,income_residents,0.40498476697043939
-573,Asbestos,rent_residents,0.36698571699841664
-567,Asbestos,age_residents,0.30973086474030481
-569,Asbestos,education_residents,0.24078816409886739
-568,Asbestos,typeof_household_residents,0.51095903221871164
-495,Bike/Roller/Skate Chronic,age_residents,0.36650019290572244
-496,Bike/Roller/Skate Chronic,typeof_household_residents,0.50272693353078535
-497,Bike/Roller/Skate Chronic,education_residents,0.45017938493172716
-498,Bike/Roller/Skate Chronic,ownorrent_residents,0.21622460588505343
-499,Bike/Roller/Skate Chronic,transportationtype_residents,0.50783853900504428
-500,Bike/Roller/Skate Chronic,income_residents,0.52272767426972955
-501,Bike/Roller/Skate Chronic,rent_residents,0.62946176683767452
-534,Blocked Driveway,income_residents,0.31622011087913499
-531,Blocked Driveway,typeof_household_residents,0.4099399872233529
-535,Blocked Driveway,rent_residents,0.2503915593883379
-533,Blocked Driveway,transportationtype_residents,0.37739066398246346
-532,Blocked Driveway,education_residents,0.50760689859467778
-530,Blocked Driveway,race_residents,0.28782183877572515
-529,Blocked Driveway,age_residents,0.21987422737208048
-86,Boilers,rent_residents,0.47260496002029939
-85,Boilers,income_residents,0.37625581425437565
-81,Boilers,race_residents,0.34935876258631232
-82,Boilers,typeof_household_residents,0.30392312016007628
-83,Boilers,ownorrent_residents,0.484930467689969
-84,Boilers,transportationtype_residents,0.3541453811212481
-80,Boilers,age_residents,0.34472253889560572
-479,Broken Muni Meter,housing_values_workers,0.25230321640013142
-478,Broken Muni Meter,ownorrent_workers,0.28050670321880034
-474,Broken Muni Meter,education_residents,0.30933052001511374
-475,Broken Muni Meter,age_workers,0.26516489915116209
-476,Broken Muni Meter,race_workers,0.27015053896902735
-477,Broken Muni Meter,education_workers,0.44331347342678989
-263,Broken Parking Meter,income_residents,0.22783006168617809
-307,Building/Use,transportationtype_residents,0.2415775210512022
-306,Building/Use,education_residents,0.29438257519356259
-17,Bus Stop Shelter Placement,ownorrent_residents,0.29732639824049356
-20,Bus Stop Shelter Placement,rent_residents,0.20203171131165956
-19,Bus Stop Shelter Placement,income_residents,0.28210979382460016
-14,Bus Stop Shelter Placement,race_residents,0.30568474387577532
-15,Bus Stop Shelter Placement,typeof_household_residents,0.26791490905369064
-16,Bus Stop Shelter Placement,education_residents,0.33887851028575133
-18,Bus Stop Shelter Placement,transportationtype_residents,0.23578947841940417
-407,CONSTRUCTION,race_residents,0.21443642185610989
-278,Construction,race_workers,0.38218165579459462
-57,Consumer Complaint,typeof_household_residents,0.2607820779228619
-58,Consumer Complaint,education_residents,0.25900938656866146
-56,Consumer Complaint,race_residents,0.23315595898120511
-63,Consumer Complaint,ownorrent_workers,0.37811630591239631
-62,Consumer Complaint,rent_residents,0.20277506394308334
-61,Consumer Complaint,income_residents,0.2675807326257007
-60,Consumer Complaint,transportationtype_residents,0.4150237886130318
-59,Consumer Complaint,ownorrent_residents,0.30746746618290899
-55,Consumer Complaint,age_residents,0.35713489093943418
-332,Curb Condition,education_residents,0.2405628884397048
-331,Curb Condition,typeof_household_residents,0.20666333325648475
-333,Curb Condition,rent_residents,0.21670468051717648
-400,DOOR/WINDOW,ownorrent_residents,0.38519698273159919
-401,DOOR/WINDOW,transportationtype_residents,0.22048909512385909
-398,DOOR/WINDOW,age_residents,0.41639205531569912
-402,DOOR/WINDOW,income_residents,0.51082808270542623
-403,DOOR/WINDOW,rent_residents,0.57865911034277073
-399,DOOR/WINDOW,race_residents,0.5850437357296181
-542,Damaged Tree,transportationtype_residents,0.65852299344698695
-541,Damaged Tree,ownorrent_residents,0.41263680539736669
-543,Damaged Tree,housing_values_residents,0.41972917252462416
-336,Dead Tree,housing_values_residents,0.38089133786284074
-334,Dead Tree,ownorrent_residents,0.35844920163578819
-335,Dead Tree,transportationtype_residents,0.41823935100638998
-197,Derelict Vehicle,transportationtype_residents,0.40960396466333704
-555,Derelict Vehicles,typeof_household_residents,0.29869498669663586
-556,Derelict Vehicles,education_residents,0.35848266073354973
-557,Derelict Vehicles,transportationtype_residents,0.24745191577542336
-554,Derelict Vehicles,age_residents,0.22633229839036048
-108,Dirty Conditions,income_residents,0.33494679606612332
-107,Dirty Conditions,transportationtype_residents,0.39621389863042539
-106,Dirty Conditions,ownorrent_residents,0.21299699290297483
-104,Dirty Conditions,typeof_household_residents,0.37201627208255034
-105,Dirty Conditions,education_residents,0.4714218022953256
-102,Dirty Conditions,age_residents,0.40962810140556555
-103,Dirty Conditions,race_residents,0.36932109441112498
-303,Drinking,transportationtype_residents,0.29900757926990468
-304,Drinking,income_residents,0.30657211207115481
-305,Drinking,rent_residents,0.31608451239328927
-301,Drinking,education_residents,0.24842520881244087
-302,Drinking,ownorrent_residents,0.31865835074361015
-298,Drinking,age_residents,0.40880365504260496
-300,Drinking,typeof_household_residents,0.24574458859218576
-299,Drinking,race_residents,0.37706145991385165
-320,EAP Inspection - F59,race_workers,0.43328801041807663
-321,EAP Inspection - F59,typeof_household_workers,0.49413707556284897
-325,EAP Inspection - F59,rent_workers,0.68802797934043713
-322,EAP Inspection - F59,education_workers,0.63507082648199797
-323,EAP Inspection - F59,transportationtype_workers,0.66460370144289294
-324,EAP Inspection - F59,income_workers,0.68897132012299322
-468,ELECTRIC,typeof_household_residents,0.23642570005635705
-467,ELECTRIC,race_residents,0.61752865656827227
-470,ELECTRIC,ownorrent_residents,0.28272521378026327
-471,ELECTRIC,transportationtype_residents,0.26464670288676062
-472,ELECTRIC,income_residents,0.48915878998880713
-473,ELECTRIC,rent_residents,0.53407668728078084
-469,ELECTRIC,education_residents,0.24189706213762899
-466,ELECTRIC,age_residents,0.45047530907795724
-565,ELEVATOR,income_residents,0.26577461861597812
-566,ELEVATOR,rent_residents,0.29504595663835931
-192,Electrical,typeof_household_residents,0.29734851123230188
-191,Electrical,age_residents,0.3224670411846855
-193,Electrical,ownorrent_residents,0.31089782386082154
-194,Electrical,transportationtype_residents,0.25383361168817348
-195,Electrical,income_residents,0.26413824946463654
-196,Electrical,rent_residents,0.2461884831971069
-491,Elevator,ownorrent_residents,0.37350152116669105
-494,Elevator,rent_residents,0.38187734155574315
-493,Elevator,income_residents,0.33632675617225705
-492,Elevator,transportationtype_residents,0.28768567480036916
-489,Elevator,age_residents,0.20152305483597893
-490,Elevator,typeof_household_residents,0.23349538099115952
-329,FLOORING/STAIRS,income_residents,0.47057201450314778
-328,FLOORING/STAIRS,ownorrent_residents,0.35696830425958576
-327,FLOORING/STAIRS,race_residents,0.5509833682423424
-326,FLOORING/STAIRS,age_residents,0.3730987652996467
-330,FLOORING/STAIRS,rent_residents,0.52851485240684626
-100,Fire Alarm - Modification,rent_workers,0.20870434992599102
-435,Fire Alarm - Reinspection,education_workers,0.28106729825892679
-439,Fire Alarm - Reinspection,housing_values_workers,0.43794722215411247
-438,Fire Alarm - Reinspection,income_workers,0.38912664282960302
-437,Fire Alarm - Reinspection,transportationtype_workers,0.40905058585772947
-436,Fire Alarm - Reinspection,ownorrent_workers,0.48831614440090582
-434,Fire Alarm - Reinspection,typeof_household_workers,0.38469001028551897
-433,Fire Alarm - Reinspection,race_workers,0.31444352084215688
-432,Fire Alarm - Reinspection,age_workers,0.3975883031911252
-440,Fire Alarm - Reinspection,rent_workers,0.37070996349294888
-513,Fire Safety Director - F58,income_workers,0.59430048287441051
-514,Fire Safety Director - F58,housing_values_workers,0.38328963061928384
-515,Fire Safety Director - F58,rent_workers,0.69128444918895027
-510,Fire Safety Director - F58,education_workers,0.68018998583125267
-509,Fire Safety Director - F58,typeof_household_workers,0.66057306322256648
-508,Fire Safety Director - F58,race_workers,0.55514262371614165
-507,Fire Safety Director - F58,age_workers,0.44731006230095005
-511,Fire Safety Director - F58,ownorrent_workers,0.48588445899237726
-512,Fire Safety Director - F58,transportationtype_workers,0.6257155147272927
-385,Food Establishment,typeof_household_workers,0.22925143908632134
-391,Food Establishment,rent_workers,0.23439820646644885
-390,Food Establishment,housing_values_workers,0.26833918454518235
-389,Food Establishment,income_workers,0.25713756473115318
-388,Food Establishment,transportationtype_workers,0.3529787118337373
-387,Food Establishment,ownorrent_workers,0.42803944796204807
-375,Food Establishment,age_residents,0.4155218937774558
-386,Food Establishment,education_workers,0.33185189749596355
-381,Food Establishment,income_residents,0.45830434603601911
-380,Food Establishment,transportationtype_residents,0.49970519999629026
-379,Food Establishment,ownorrent_residents,0.47096126029171737
-378,Food Establishment,education_residents,0.44365629964343806
-377,Food Establishment,typeof_household_residents,0.51043679556011123
-383,Food Establishment,age_workers,0.29457708746952294
-382,Food Establishment,rent_residents,0.44000293523129141
-376,Food Establishment,race_residents,0.21828160344700698
-384,Food Establishment,race_workers,0.33767186560715312
-246,Food Poisoning,rent_residents,0.2555122973530925
-245,Food Poisoning,income_residents,0.32037405867447127
-255,Food Poisoning,rent_workers,0.36412724591844098
-254,Food Poisoning,housing_values_workers,0.40937457458314164
-253,Food Poisoning,income_workers,0.40849358596140861
-252,Food Poisoning,transportationtype_workers,0.45583006764940154
-251,Food Poisoning,ownorrent_workers,0.52040701716254101
-249,Food Poisoning,typeof_household_workers,0.37697840281772538
-250,Food Poisoning,education_workers,0.3864317527921533
-247,Food Poisoning,age_workers,0.36617207157112563
-240,Food Poisoning,age_residents,0.29864665958460501
-241,Food Poisoning,typeof_household_residents,0.40030622109929465
-242,Food Poisoning,education_residents,0.23573140710120261
-243,Food Poisoning,ownorrent_residents,0.421011344550136
-244,Food Poisoning,transportationtype_residents,0.40188081914140816
-248,Food Poisoning,race_workers,0.43417881919865514
-41,For Hire Vehicle Complaint,income_residents,0.30245413299473334
-43,For Hire Vehicle Complaint,age_workers,0.29284435889275157
-42,For Hire Vehicle Complaint,rent_residents,0.34901165443416221
-40,For Hire Vehicle Complaint,transportationtype_residents,0.43653974573140764
-44,For Hire Vehicle Complaint,ownorrent_workers,0.43163098746973239
-38,For Hire Vehicle Complaint,typeof_household_residents,0.35363840417635767
-36,For Hire Vehicle Complaint,age_residents,0.28743075658473283
-37,For Hire Vehicle Complaint,race_residents,0.23012768931742031
-39,For Hire Vehicle Complaint,ownorrent_residents,0.40716227873319016
-22,Found Property,typeof_household_residents,0.49480163528831689
-33,Found Property,income_workers,0.55652480378741243
-32,Found Property,transportationtype_workers,0.60851679893957422
-31,Found Property,ownorrent_workers,0.63717085518536776
-30,Found Property,education_workers,0.61050725086698421
-29,Found Property,typeof_household_workers,0.60408638584902041
-23,Found Property,education_residents,0.26088456870979149
-28,Found Property,race_workers,0.56557035001621081
-26,Found Property,rent_residents,0.52524704987946169
-25,Found Property,income_residents,0.40527984689963603
-24,Found Property,transportationtype_residents,0.47480415088730438
-35,Found Property,rent_workers,0.55270569881228104
-21,Found Property,age_residents,0.26147356477966915
-27,Found Property,age_workers,0.59402171094302347
-34,Found Property,housing_values_workers,0.58973481712430731
-91,GENERAL,transportationtype_residents,0.33183256686289192
-93,GENERAL,rent_residents,0.5937785717571421
-92,GENERAL,income_residents,0.49845786241346124
-89,GENERAL,typeof_household_residents,0.23651964473893364
-87,GENERAL,age_residents,0.39096048979390574
-88,GENERAL,race_residents,0.56972292684299275
-90,GENERAL,ownorrent_residents,0.48892826576253484
-544,GENERAL CONSTRUCTION,age_residents,0.32849704048436151
-545,GENERAL CONSTRUCTION,race_residents,0.42206340130054631
-547,GENERAL CONSTRUCTION,income_residents,0.36936435618828251
-548,GENERAL CONSTRUCTION,rent_residents,0.42125704213961807
-546,GENERAL CONSTRUCTION,ownorrent_residents,0.23128695942790159
-309,Gas Station Discharge Lines,age_workers,0.3204117568233445
-311,Gas Station Discharge Lines,ownorrent_workers,0.58600772830064951
-310,Gas Station Discharge Lines,typeof_household_workers,0.38709802496559798
-78,General Construction/Plumbing,income_residents,0.40581460872859426
-73,General Construction/Plumbing,age_residents,0.38914890002867952
-75,General Construction/Plumbing,education_residents,0.35809264180628275
-76,General Construction/Plumbing,ownorrent_residents,0.43649113959038666
-77,General Construction/Plumbing,transportationtype_residents,0.44051087072247663
-79,General Construction/Plumbing,rent_residents,0.32249988154118808
-74,General Construction/Plumbing,typeof_household_residents,0.42937193939174267
-583,Graffiti,income_residents,0.25729765344126065
-582,Graffiti,age_residents,0.24287263231876741
-584,Graffiti,rent_residents,0.22196859030673979
-224,HEAT/HOT WATER,rent_residents,0.58539660613777533
-223,HEAT/HOT WATER,income_residents,0.47578541362962151
-222,HEAT/HOT WATER,transportationtype_residents,0.26004493746873719
-221,HEAT/HOT WATER,ownorrent_residents,0.47881523910683621
-220,HEAT/HOT WATER,typeof_household_residents,0.22932205115762822
-219,HEAT/HOT WATER,race_residents,0.48334036091574228
-218,HEAT/HOT WATER,age_residents,0.32194292905410499
-316,HEATING,rent_residents,0.47613446077786498
-312,HEATING,age_residents,0.2614913772389057
-313,HEATING,race_residents,0.36697470046973546
-314,HEATING,ownorrent_residents,0.33340160814171427
-315,HEATING,income_residents,0.39391424412775694
-231,Hazardous Materials,rent_residents,0.26679669384438542
-226,Hazardous Materials,typeof_household_residents,0.43584007829591842
-225,Hazardous Materials,race_residents,0.24684172390015185
-230,Hazardous Materials,income_residents,0.43820084302460993
-229,Hazardous Materials,transportationtype_residents,0.35959626249242571
-228,Hazardous Materials,ownorrent_residents,0.38814305615018768
-227,Hazardous Materials,education_residents,0.37714095853882273
-170,Homeless Encampment,age_workers,0.35721056034759208
-168,Homeless Encampment,income_residents,0.25132875051005221
-167,Homeless Encampment,transportationtype_residents,0.3829015521425842
-171,Homeless Encampment,race_workers,0.22591388339143476
-172,Homeless Encampment,typeof_household_workers,0.36937039922773679
-173,Homeless Encampment,ownorrent_workers,0.40942661650683593
-174,Homeless Encampment,income_workers,0.26992411708120068
-164,Homeless Encampment,age_residents,0.23445222402595567
-176,Homeless Encampment,rent_workers,0.25706989396352281
-165,Homeless Encampment,typeof_household_residents,0.42878792526367882
-169,Homeless Encampment,rent_residents,0.35479691939637742
-166,Homeless Encampment,ownorrent_residents,0.33029304590694741
-175,Homeless Encampment,housing_values_workers,0.36191584351242478
-359,Homeless Person Assistance,age_workers,0.41671052022791377
-360,Homeless Person Assistance,race_workers,0.29954571110396905
-363,Homeless Person Assistance,ownorrent_workers,0.46720740210725797
-364,Homeless Person Assistance,transportationtype_workers,0.28982046063263095
-365,Homeless Person Assistance,income_workers,0.30446710739543115
-366,Homeless Person Assistance,housing_values_workers,0.37780267924847311
-367,Homeless Person Assistance,rent_workers,0.27217035465118089
-361,Homeless Person Assistance,typeof_household_workers,0.4122765250643991
-362,Homeless Person Assistance,education_workers,0.36691176509978807
-357,Homeless Person Assistance,income_residents,0.25320502512003262
-356,Homeless Person Assistance,transportationtype_residents,0.4177598593025339
-355,Homeless Person Assistance,ownorrent_residents,0.24643236917665118
-354,Homeless Person Assistance,typeof_household_residents,0.37978395923295133
-353,Homeless Person Assistance,age_residents,0.25937793881080629
-358,Homeless Person Assistance,rent_residents,0.2514273299052342
-94,Illegal Parking,age_residents,0.21638236379977061
-97,Illegal Parking,education_residents,0.39760331397834275
-98,Illegal Parking,ownorrent_residents,0.2479147162903001
-95,Illegal Parking,race_residents,0.34052305665167437
-99,Illegal Parking,transportationtype_residents,0.31107154536562726
-96,Illegal Parking,typeof_household_residents,0.27977168265384889
-577,Illegal Tree Damage,education_residents,0.44224241065619874
-578,Illegal Tree Damage,ownorrent_residents,0.36945927743624923
-574,Illegal Tree Damage,age_residents,0.22423865293248912
-575,Illegal Tree Damage,race_residents,0.30275757936942094
-576,Illegal Tree Damage,typeof_household_residents,0.27224695015409928
-579,Illegal Tree Damage,transportationtype_residents,0.39393703755796644
-580,Illegal Tree Damage,income_residents,0.3596954549539777
-581,Illegal Tree Damage,housing_values_residents,0.24474242766036031
-346,Indoor Air Quality,age_residents,0.33982072540542951
-347,Indoor Air Quality,typeof_household_residents,0.5153260389405272
-348,Indoor Air Quality,education_residents,0.23632831606750004
-349,Indoor Air Quality,ownorrent_residents,0.46716263175876876
-350,Indoor Air Quality,transportationtype_residents,0.38503287687611537
-351,Indoor Air Quality,income_residents,0.3982175300434751
-352,Indoor Air Quality,rent_residents,0.47289332627295372
-268,Indoor Sewage,transportationtype_residents,0.20458001521765889
-269,Indoor Sewage,income_residents,0.34041283912269737
-264,Indoor Sewage,age_residents,0.39057647724480182
-265,Indoor Sewage,race_residents,0.61432569097650647
-266,Indoor Sewage,typeof_household_residents,0.29463663909867932
-270,Indoor Sewage,rent_residents,0.32935661561821145
-267,Indoor Sewage,education_residents,0.29858648485121642
-522,Industrial Waste,race_residents,0.22446726794070232
-523,Industrial Waste,ownorrent_residents,0.20899678900871826
-465,Investigations and Discipline (IAD),race_residents,0.22334628641042995
-1,Lead,age_residents,0.34635967602609752
-7,Lead,income_residents,0.48833386052357675
-6,Lead,transportationtype_residents,0.42421141030093584
-5,Lead,ownorrent_residents,0.48211332625086223
-4,Lead,education_residents,0.58505042385762407
-3,Lead,typeof_household_residents,0.51919928170095919
-8,Lead,rent_residents,0.39199774374058077
-2,Lead,race_residents,0.35006843144816374
-464,Litter Basket / Request,rent_residents,0.31340948125354784
-462,Litter Basket / Request,transportationtype_residents,0.41646985854773649
-457,Litter Basket / Request,age_residents,0.34959314965386457
-458,Litter Basket / Request,race_residents,0.3615389381998988
-459,Litter Basket / Request,typeof_household_residents,0.39381749628962537
-460,Litter Basket / Request,education_residents,0.38585487470943181
-461,Litter Basket / Request,ownorrent_residents,0.41934968149171398
-463,Litter Basket / Request,income_residents,0.38465825694599198
-217,Maintenance or Facility,income_residents,0.23091048422335031
-215,Maintenance or Facility,typeof_household_residents,0.23575879754943557
-216,Maintenance or Facility,ownorrent_residents,0.24037607108418224
-536,Missed Collection (All Materials),ownorrent_residents,0.21576608333411626
-537,Missed Collection (All Materials),transportationtype_residents,0.39919567134717643
-538,Missed Collection (All Materials),housing_values_residents,0.23410187841423752
-429,NONCONST,transportationtype_residents,0.29298880527990512
-430,NONCONST,income_residents,0.51623624510628152
-426,NONCONST,typeof_household_residents,0.25933006674261028
-425,NONCONST,race_residents,0.60204141673545186
-424,NONCONST,age_residents,0.46084222453040785
-431,NONCONST,rent_residents,0.56973985022453288
-428,NONCONST,ownorrent_residents,0.31668923121804082
-427,NONCONST,education_residents,0.23917749340377287
-45,New Tree Request,transportationtype_residents,0.25361670385525664
-258,Noise,education_residents,0.57724593680116199
-257,Noise,typeof_household_residents,0.6659633965974372
-260,Noise,transportationtype_residents,0.66794308744353348
-256,Noise,age_residents,0.45829512747634055
-259,Noise,ownorrent_residents,0.36252217649991092
-261,Noise,income_residents,0.66151272264586258
-262,Noise,rent_residents,0.76222454359827618
-373,Noise - Commercial,rent_residents,0.24373729078851677
-372,Noise - Commercial,transportationtype_residents,0.35478798537734763
-370,Noise - Commercial,education_residents,0.20073557996496555
-369,Noise - Commercial,typeof_household_residents,0.24381866180413078
-371,Noise - Commercial,ownorrent_residents,0.26652624261263069
-368,Noise - Commercial,age_residents,0.3901830659624852
-526,Noise - Helicopter,transportationtype_residents,0.22047081122787326
-527,Noise - Helicopter,income_residents,0.32928028143326282
-528,Noise - Helicopter,rent_residents,0.30416120646254441
-525,Noise - Helicopter,education_residents,0.31343952644008299
-524,Noise - Helicopter,typeof_household_residents,0.31794450732901697
-396,Noise - House of Worship,race_residents,0.25812067087212498
-397,Noise - House of Worship,transportationtype_residents,0.27412251179619418
-123,Noise - Residential,race_residents,0.70253473216939055
-129,Noise - Residential,rent_residents,0.68475010788803548
-128,Noise - Residential,income_residents,0.6130776858255238
-127,Noise - Residential,transportationtype_residents,0.40293507881643353
-126,Noise - Residential,ownorrent_residents,0.46349591631768144
-122,Noise - Residential,age_residents,0.54999668356596831
-125,Noise - Residential,education_residents,0.26740272489629258
-124,Noise - Residential,typeof_household_residents,0.32689552744975364
-292,Noise - Street/Sidewalk,age_residents,0.33225151382537987
-295,Noise - Street/Sidewalk,transportationtype_residents,0.20891297193384198
-294,Noise - Street/Sidewalk,ownorrent_residents,0.41974900962478401
-293,Noise - Street/Sidewalk,race_residents,0.20574258586028088
-296,Noise - Street/Sidewalk,income_residents,0.30409565928972054
-297,Noise - Street/Sidewalk,rent_residents,0.38961833188538214
-285,Noise - Vehicle,rent_residents,0.44160892592977063
-284,Noise - Vehicle,income_residents,0.39266030144460778
-283,Noise - Vehicle,transportationtype_residents,0.33053485655379033
-281,Noise - Vehicle,typeof_household_residents,0.30354885534623038
-280,Noise - Vehicle,race_residents,0.38004416594147195
-279,Noise - Vehicle,age_residents,0.43509108550926906
-282,Noise - Vehicle,ownorrent_residents,0.43057304262549556
-154,Non-Emergency Police Matter,education_residents,0.22513163905907149
-155,Non-Emergency Police Matter,transportationtype_residents,0.21460488936901045
-153,Non-Emergency Police Matter,race_residents,0.36436940124311945
-181,Non-Residential Heat,age_workers,0.32672387762942273
-177,Non-Residential Heat,age_residents,0.22432339904606974
-178,Non-Residential Heat,ownorrent_residents,0.3073073424537085
-182,Non-Residential Heat,ownorrent_workers,0.33017057793172022
-180,Non-Residential Heat,rent_residents,0.21337202627212823
-179,Non-Residential Heat,transportationtype_residents,0.20384158845338968
-271,OUTSIDE BUILDING,age_residents,0.3858398638812548
-272,OUTSIDE BUILDING,race_residents,0.48442448063301902
-276,OUTSIDE BUILDING,income_residents,0.3662607022360021
-275,OUTSIDE BUILDING,transportationtype_residents,0.31159306138771098
-274,OUTSIDE BUILDING,ownorrent_residents,0.27952768513382303
-273,OUTSIDE BUILDING,typeof_household_residents,0.29185499338729076
-277,OUTSIDE BUILDING,rent_residents,0.39591225683570386
-71,Other Enforcement,housing_values_residents,0.21982689951809467
-70,Other Enforcement,income_residents,0.49882087161449451
-69,Other Enforcement,transportationtype_residents,0.49696693958849181
-68,Other Enforcement,ownorrent_residents,0.50209825091919225
-67,Other Enforcement,education_residents,0.52903599255667522
-66,Other Enforcement,typeof_household_residents,0.46442313735103369
-65,Other Enforcement,race_residents,0.57978768519805823
-64,Other Enforcement,age_residents,0.39602743762970266
-72,Other Enforcement,rent_residents,0.32961844396281065
-488,Overgrown Tree/Branches,housing_values_residents,0.42074788176101913
-486,Overgrown Tree/Branches,ownorrent_residents,0.35231241836568267
-487,Overgrown Tree/Branches,transportationtype_residents,0.64682782530179561
-133,PAINT - PLASTER,income_residents,0.40232317612283897
-132,PAINT - PLASTER,ownorrent_residents,0.28650197743787864
-131,PAINT - PLASTER,race_residents,0.47647324386555223
-130,PAINT - PLASTER,age_residents,0.3668164310608889
-134,PAINT - PLASTER,rent_residents,0.46965018722163965
-521,PAINT/PLASTER,rent_residents,0.55140571018338758
-520,PAINT/PLASTER,income_residents,0.46567163476325846
-519,PAINT/PLASTER,transportationtype_residents,0.20079939234686778
-518,PAINT/PLASTER,ownorrent_residents,0.37268084734131618
-516,PAINT/PLASTER,age_residents,0.34854632235732302
-517,PAINT/PLASTER,race_residents,0.53126626324163673
-110,PLUMBING,race_residents,0.60962692699798515
-109,PLUMBING,age_residents,0.3998965146347695
-112,PLUMBING,ownorrent_residents,0.39107293715908009
-111,PLUMBING,typeof_household_residents,0.21662738899968037
-114,PLUMBING,income_residents,0.51353105463269932
-115,PLUMBING,rent_residents,0.5827655132184929
-113,PLUMBING,transportationtype_residents,0.27096673304659902
-198,Panhandling,typeof_household_residents,0.2579239106555985
-411,Plumbing,transportationtype_residents,0.22843198976187429
-410,Plumbing,ownorrent_residents,0.23769391381328925
-409,Plumbing,typeof_household_residents,0.24266202435716416
-408,Plumbing,age_residents,0.24291648246140801
-234,Recycling Enforcement,typeof_household_residents,0.34583160282289788
-239,Recycling Enforcement,rent_residents,0.27688623879489954
-237,Recycling Enforcement,transportationtype_residents,0.35417267300399857
-238,Recycling Enforcement,income_residents,0.33690422638566808
-233,Recycling Enforcement,race_residents,0.38785609341110605
-235,Recycling Enforcement,education_residents,0.33364227547817105
-236,Recycling Enforcement,ownorrent_residents,0.34199769017453002
-232,Recycling Enforcement,age_residents,0.30743623172502954
-101,Request Xmas Tree Collection,transportationtype_residents,0.27503089551748422
-183,Rodent,age_residents,0.48883555452596222
-184,Rodent,race_residents,0.52146192642890965
-185,Rodent,typeof_household_residents,0.34675019266256757
-186,Rodent,ownorrent_residents,0.50379184610624217
-187,Rodent,transportationtype_residents,0.37572743707086437
-188,Rodent,income_residents,0.5071764407907291
-189,Rodent,rent_residents,0.57443873380464761
-404,Root/Sewer/Sidewalk Condition,ownorrent_residents,0.40454997815579263
-405,Root/Sewer/Sidewalk Condition,transportationtype_residents,0.64292191719129799
-406,Root/Sewer/Sidewalk Condition,housing_values_residents,0.4182940291570586
-456,SAFETY,rent_residents,0.54500714609175294
-455,SAFETY,income_residents,0.49653539380395539
-454,SAFETY,transportationtype_residents,0.22356634354795668
-453,SAFETY,ownorrent_residents,0.31251545815458248
-452,SAFETY,education_residents,0.23345340597835335
-451,SAFETY,typeof_household_residents,0.24485773440907904
-450,SAFETY,race_residents,0.5536591435326601
-449,SAFETY,age_residents,0.4612672671954014
-549,Sanitation Condition,age_residents,0.28479845443990826
-553,Sanitation Condition,transportationtype_residents,0.32671928330995609
-550,Sanitation Condition,race_residents,0.31455018029083043
-552,Sanitation Condition,education_residents,0.40959884760427362
-551,Sanitation Condition,typeof_household_residents,0.27497158062483745
-480,Scaffold Safety,age_residents,0.20381517485185485
-481,Scaffold Safety,typeof_household_residents,0.26802857256222712
-482,Scaffold Safety,ownorrent_residents,0.23260987473029227
-483,Scaffold Safety,transportationtype_residents,0.24725758392880995
-484,Scaffold Safety,income_residents,0.33280099877905639
-485,Scaffold Safety,rent_residents,0.28750615153438447
-374,School Maintenance,race_residents,0.21789740337768776
-0,Senior Center Complaint,ownorrent_residents,0.20778913935168153
-319,Sewer,housing_values_residents,0.27468940698107858
-318,Sewer,transportationtype_residents,0.42071105465111946
-317,Sewer,ownorrent_residents,0.20046530620292766
-54,Sidewalk Condition,rent_residents,0.55176839780850373
-46,Sidewalk Condition,age_residents,0.27692970763716551
-47,Sidewalk Condition,race_residents,0.44396711498167923
-48,Sidewalk Condition,typeof_household_residents,0.51177316354224378
-49,Sidewalk Condition,education_residents,0.52819302304393478
-50,Sidewalk Condition,ownorrent_residents,0.4251973060214283
-51,Sidewalk Condition,transportationtype_residents,0.53704974500191083
-52,Sidewalk Condition,income_residents,0.57828852818931575
-53,Sidewalk Condition,housing_values_residents,0.29924759956099484
-394,Smoking,income_residents,0.21042180141243017
-395,Smoking,rent_residents,0.21165839477606693
-393,Smoking,transportationtype_residents,0.27717547597129999
-392,Smoking,ownorrent_residents,0.32177932090854133
-345,Snow,transportationtype_residents,0.39092074493870144
-190,Standing Water,transportationtype_residents,0.22111102183898171
-344,Street Condition,housing_values_residents,0.21799511720121401
-342,Street Condition,ownorrent_residents,0.35028442680549265
-341,Street Condition,race_residents,0.25393572779524776
-343,Street Condition,transportationtype_residents,0.43760930896936168
-502,Sweeping/Missed,race_residents,0.23222200365859944
-505,Sweeping/Missed,income_residents,0.23211738261221621
-504,Sweeping/Missed,transportationtype_residents,0.23613959620795413
-503,Sweeping/Missed,typeof_household_residents,0.20947671500086357
-506,Sweeping/Missed,rent_residents,0.20091107778031697
-206,Taxi Complaint,age_workers,0.66864827041039998
-205,Taxi Complaint,rent_residents,0.54954303752123335
-210,Taxi Complaint,ownorrent_workers,0.70594737033848831
-204,Taxi Complaint,income_residents,0.45366427597217002
-203,Taxi Complaint,transportationtype_residents,0.45270892008930802
-202,Taxi Complaint,ownorrent_residents,0.21458964971412869
-201,Taxi Complaint,education_residents,0.20526050646474028
-200,Taxi Complaint,typeof_household_residents,0.55027806731058315
-199,Taxi Complaint,age_residents,0.23910522324889971
-207,Taxi Complaint,race_workers,0.62361286067535848
-208,Taxi Complaint,typeof_household_workers,0.67676170542628089
-209,Taxi Complaint,education_workers,0.64712747501980572
-211,Taxi Complaint,transportationtype_workers,0.69780256732615631
-212,Taxi Complaint,income_workers,0.62616345069536405
-213,Taxi Complaint,housing_values_workers,0.64610567314592837
-214,Taxi Complaint,rent_workers,0.62008577369887008
-421,Taxi Report,income_workers,0.6174180916351284
-420,Taxi Report,transportationtype_workers,0.67756254287963935
-413,Taxi Report,income_residents,0.23778124571981998
-418,Taxi Report,education_workers,0.58073131373072862
-422,Taxi Report,housing_values_workers,0.57449523625844467
-419,Taxi Report,ownorrent_workers,0.60085048977780564
-415,Taxi Report,age_workers,0.59583361359961118
-416,Taxi Report,race_workers,0.65026304414953684
-414,Taxi Report,rent_residents,0.26842348430607854
-412,Taxi Report,typeof_household_residents,0.34200385338162143
-417,Taxi Report,typeof_household_workers,0.7099315200516505
-423,Taxi Report,rent_workers,0.63730063940434734
-540,Traffic,transportationtype_residents,0.26211868366996244
-539,Traffic,typeof_household_residents,0.22239216624501784
-441,UNSANITARY CONDITION,age_residents,0.41711778398282406
-443,UNSANITARY CONDITION,typeof_household_residents,0.22633186619853046
-444,UNSANITARY CONDITION,education_residents,0.20538479480130672
-447,UNSANITARY CONDITION,income_residents,0.53650868019447984
-446,UNSANITARY CONDITION,transportationtype_residents,0.25005463971299308
-445,UNSANITARY CONDITION,ownorrent_residents,0.37445473384666056
-442,UNSANITARY CONDITION,race_residents,0.60417254049230673
-448,UNSANITARY CONDITION,rent_residents,0.61158663842012562
-338,Unsanitary Animal Pvt Property,race_residents,0.20819840816217247
-340,Unsanitary Animal Pvt Property,education_residents,0.23909827042919796
-339,Unsanitary Animal Pvt Property,typeof_household_residents,0.23454905764465059
-337,Unsanitary Animal Pvt Property,age_residents,0.22643435944978396
-286,Unsanitary Pigeon Condition,age_residents,0.21617018503838298
-287,Unsanitary Pigeon Condition,typeof_household_residents,0.20156699031145675
-289,Unsanitary Pigeon Condition,ownorrent_residents,0.24573914597993932
-291,Unsanitary Pigeon Condition,income_residents,0.22374166284076086
-290,Unsanitary Pigeon Condition,transportationtype_residents,0.20908686831313705
-288,Unsanitary Pigeon Condition,education_residents,0.20129159444648476
-163,Urinating in Public,rent_residents,0.36380840744041543
-162,Urinating in Public,income_residents,0.33623787014119955
-161,Urinating in Public,transportationtype_residents,0.37122249707612154
-159,Urinating in Public,education_residents,0.27730630014651209
-158,Urinating in Public,typeof_household_residents,0.37618234884899038
-160,Urinating in Public,ownorrent_residents,0.35785665150799389
-156,Urinating in Public,age_residents,0.33001663801779973
-157,Urinating in Public,race_residents,0.20339788548772
-13,WATER LEAK,rent_residents,0.5642794064830966
-12,WATER LEAK,income_residents,0.49918687930386385
-11,WATER LEAK,ownorrent_residents,0.32588270945671316
-10,WATER LEAK,race_residents,0.56657305478184328
-9,WATER LEAK,age_residents,0.38734706481190501
-308,Water Conservation,transportationtype_residents,0.22153067120803693
-146,Water Quality,age_residents,0.32051697411526864
-151,Water Quality,transportationtype_residents,0.29828574483563514
-150,Water Quality,ownorrent_residents,0.3896281379372698
-148,Water Quality,typeof_household_residents,0.3330539641955732
-147,Water Quality,race_residents,0.36295112884925063
-152,Water Quality,income_residents,0.35257793590784509
-149,Water Quality,education_residents,0.35110730418500075
+147,APPLIANCE,age_residents,0.40796498405573567
+148,APPLIANCE,race_residents,0.60532673770291079
+149,APPLIANCE,ownorrent_residents,0.3906785320473678
+150,APPLIANCE,transportationtype_residents,0.33674264892257655
+151,APPLIANCE,income_residents,0.5218373844427574
+152,APPLIANCE,rent_residents,0.57173634460659506
+170,Air Quality,education_residents,0.58044232642738236
+172,Air Quality,transportationtype_residents,0.59719054219299161
+173,Air Quality,income_residents,0.60231862077581999
+174,Air Quality,housing_values_residents,0.29353220918813394
+175,Air Quality,rent_residents,0.6271267621964346
+176,Air Quality,age_workers,0.30328918236656965
+180,Air Quality,ownorrent_workers,0.37497620176212354
+178,Air Quality,typeof_household_workers,0.21301761496062088
+179,Air Quality,education_workers,0.32179681690336615
+171,Air Quality,ownorrent_residents,0.34424917363731888
+181,Air Quality,transportationtype_workers,0.42426548528421681
+184,Air Quality,rent_workers,0.27248496868556826
+177,Air Quality,race_workers,0.23279663583751606
+183,Air Quality,housing_values_workers,0.29656533076337971
+182,Air Quality,income_workers,0.20915956414641781
+167,Air Quality,age_residents,0.38963208046043568
+168,Air Quality,race_residents,0.2211585573874788
+169,Air Quality,typeof_household_residents,0.61900948283916335
+662,Animal Abuse,education_residents,0.38015180967295759
+659,Animal Abuse,age_residents,0.38896833697135924
+660,Animal Abuse,race_residents,0.45696623794911667
+661,Animal Abuse,typeof_household_residents,0.35102479233938116
+663,Animal Abuse,ownorrent_residents,0.28830449740112518
+665,Animal Abuse,income_residents,0.39846996788191308
+666,Animal Abuse,rent_residents,0.36934507780476117
+664,Animal Abuse,transportationtype_residents,0.30145332235218236
+675,Asbestos,rent_residents,0.3589666716175054
+676,Asbestos,education_workers,0.2127426363056423
+677,Asbestos,ownorrent_workers,0.2591382871668374
+678,Asbestos,transportationtype_workers,0.27458494927404892
+674,Asbestos,income_residents,0.3777696184653343
+673,Asbestos,transportationtype_residents,0.35668378562482311
+672,Asbestos,ownorrent_residents,0.3631550166113362
+671,Asbestos,education_residents,0.23578252258173954
+670,Asbestos,typeof_household_residents,0.49516303267735723
+669,Asbestos,age_residents,0.27125634427757078
+592,Bike/Roller/Skate Chronic,ownorrent_workers,0.2024026559738421
+591,Bike/Roller/Skate Chronic,rent_residents,0.63200129504752423
+590,Bike/Roller/Skate Chronic,income_residents,0.51950614930354788
+589,Bike/Roller/Skate Chronic,transportationtype_residents,0.50102204757801083
+588,Bike/Roller/Skate Chronic,education_residents,0.46391088954723936
+587,Bike/Roller/Skate Chronic,typeof_household_residents,0.51191913275451151
+586,Bike/Roller/Skate Chronic,age_residents,0.36190202719997244
+622,Blocked Driveway,education_residents,0.49485166287250715
+623,Blocked Driveway,transportationtype_residents,0.37002144978452112
+621,Blocked Driveway,typeof_household_residents,0.40507311249855127
+620,Blocked Driveway,race_residents,0.28770285436342996
+619,Blocked Driveway,age_residents,0.21741051946872852
+624,Blocked Driveway,income_residents,0.33255478445453424
+625,Blocked Driveway,rent_residents,0.34153968657230138
+106,Boilers,age_residents,0.32981786733951518
+111,Boilers,income_residents,0.36706649892455556
+112,Boilers,rent_residents,0.46345312696793856
+108,Boilers,typeof_household_residents,0.29902552575808611
+107,Boilers,race_residents,0.33629209074961364
+109,Boilers,ownorrent_residents,0.48648510904334935
+110,Boilers,transportationtype_residents,0.38288324828796511
+570,Broken Muni Meter,ownorrent_workers,0.31469982495186766
+571,Broken Muni Meter,income_workers,0.22548624377813634
+566,Broken Muni Meter,age_workers,0.37815434656369235
+568,Broken Muni Meter,typeof_household_workers,0.3328694667949943
+572,Broken Muni Meter,housing_values_workers,0.36032843608650328
+567,Broken Muni Meter,race_workers,0.35508031646908289
+569,Broken Muni Meter,education_workers,0.47991959699355313
+565,Broken Muni Meter,education_residents,0.29164252694579579
+332,Broken Parking Meter,income_residents,0.21789582020002748
+372,Building/Use,education_residents,0.25377841813230784
+18,Bus Stop Shelter Placement,ownorrent_residents,0.29188000926255464
+16,Bus Stop Shelter Placement,typeof_household_residents,0.26682638377596796
+17,Bus Stop Shelter Placement,education_residents,0.33928343828785612
+19,Bus Stop Shelter Placement,transportationtype_residents,0.23019852858690984
+20,Bus Stop Shelter Placement,income_residents,0.27648426760162598
+21,Bus Stop Shelter Placement,rent_residents,0.20217813471309332
+15,Bus Stop Shelter Placement,race_residents,0.30527232009852029
+348,Construction,race_workers,0.43311922523862878
+84,Consumer Complaint,housing_values_workers,0.31267610359886
+83,Consumer Complaint,income_workers,0.25063267955910307
+85,Consumer Complaint,rent_workers,0.21495315349883964
+81,Consumer Complaint,ownorrent_workers,0.42850297016390615
+69,Consumer Complaint,age_residents,0.35925046096427493
+70,Consumer Complaint,race_residents,0.24630909883704333
+71,Consumer Complaint,typeof_household_residents,0.27444826859293797
+72,Consumer Complaint,education_residents,0.27649114272306924
+73,Consumer Complaint,ownorrent_residents,0.33101723562992691
+74,Consumer Complaint,transportationtype_residents,0.43019636170045772
+75,Consumer Complaint,income_residents,0.28527538545642817
+82,Consumer Complaint,transportationtype_workers,0.31681473345995509
+77,Consumer Complaint,age_workers,0.35489811991709119
+78,Consumer Complaint,race_workers,0.33218762272337915
+79,Consumer Complaint,typeof_household_workers,0.26818233939647018
+76,Consumer Complaint,rent_residents,0.27705239375784241
+80,Consumer Complaint,education_workers,0.39429731053740003
+397,Curb Condition,education_residents,0.21990482996799479
+398,Curb Condition,rent_residents,0.2574388649002774
+486,DOOR/WINDOW,ownorrent_residents,0.44231466583864804
+485,DOOR/WINDOW,race_residents,0.57278099574964725
+484,DOOR/WINDOW,age_residents,0.40896630473345558
+487,DOOR/WINDOW,transportationtype_residents,0.32960759096823428
+488,DOOR/WINDOW,income_residents,0.50201432350188568
+489,DOOR/WINDOW,rent_residents,0.5649151081320174
+633,Damaged Tree,typeof_household_residents,0.20578383430915564
+632,Damaged Tree,age_residents,0.24038983786714194
+634,Damaged Tree,ownorrent_residents,0.49198878184015093
+636,Damaged Tree,housing_values_residents,0.43687512138243756
+635,Damaged Tree,transportationtype_residents,0.65878190083534105
+399,Dead Tree,age_residents,0.20139763873706742
+402,Dead Tree,housing_values_residents,0.385095383942891
+401,Dead Tree,transportationtype_residents,0.40618502390524169
+400,Dead Tree,ownorrent_residents,0.40254874767807242
+252,Derelict Vehicle,ownorrent_residents,0.22732479957112819
+253,Derelict Vehicle,transportationtype_residents,0.41609849783177844
+658,Derelict Vehicles,transportationtype_residents,0.24165816549837094
+657,Derelict Vehicles,education_residents,0.34927869014334856
+655,Derelict Vehicles,age_residents,0.2377387694781386
+656,Derelict Vehicles,typeof_household_residents,0.29614807628639755
+136,Dirty Conditions,ownorrent_residents,0.30126687739784891
+135,Dirty Conditions,education_residents,0.48488530336518398
+134,Dirty Conditions,typeof_household_residents,0.39476811783525667
+133,Dirty Conditions,race_residents,0.40030660253326233
+132,Dirty Conditions,age_residents,0.44221892977681126
+139,Dirty Conditions,rent_residents,0.28623710516776729
+137,Dirty Conditions,transportationtype_residents,0.42350284575575586
+138,Dirty Conditions,income_residents,0.40899155031777568
+370,Drinking,income_residents,0.306937136932799
+368,Drinking,ownorrent_residents,0.33942198350045799
+367,Drinking,education_residents,0.25086478745989471
+366,Drinking,typeof_household_residents,0.24765109770090027
+365,Drinking,race_residents,0.36813935922919799
+364,Drinking,age_residents,0.4110647767221482
+371,Drinking,rent_residents,0.33044192909831605
+369,Drinking,transportationtype_residents,0.31699686023738655
+385,EAP Inspection - F59,race_workers,0.45830733014593139
+386,EAP Inspection - F59,typeof_household_workers,0.48952719604763412
+390,EAP Inspection - F59,rent_workers,0.67724894894308496
+389,EAP Inspection - F59,income_workers,0.67879761174843989
+388,EAP Inspection - F59,transportationtype_workers,0.66620936276203024
+387,EAP Inspection - F59,education_workers,0.62986476575069938
+558,ELECTRIC,race_residents,0.61964818036229796
+559,ELECTRIC,typeof_household_residents,0.23023284725831505
+560,ELECTRIC,education_residents,0.24161305874166966
+561,ELECTRIC,ownorrent_residents,0.33422939682806718
+562,ELECTRIC,transportationtype_residents,0.32113662323802078
+564,ELECTRIC,rent_residents,0.52851107135540798
+563,ELECTRIC,income_residents,0.48636168160535787
+557,ELECTRIC,age_residents,0.44467674131608009
+667,ELEVATOR,income_residents,0.25587729455776448
+668,ELEVATOR,rent_residents,0.25714263163601936
+249,Electrical,income_residents,0.27843925606717684
+251,Electrical,transportationtype_workers,0.237187817804347
+248,Electrical,transportationtype_residents,0.27831749075452705
+250,Electrical,rent_residents,0.31773676267989137
+246,Electrical,typeof_household_residents,0.30138949964764206
+245,Electrical,age_residents,0.32000901699910023
+247,Electrical,ownorrent_residents,0.34075820548701602
+585,Elevator,rent_residents,0.36830614568153031
+584,Elevator,income_residents,0.33211463160366467
+582,Elevator,ownorrent_residents,0.36248188271418946
+581,Elevator,typeof_household_residents,0.22244544913303699
+583,Elevator,transportationtype_residents,0.30851073207250773
+394,FLOORING/STAIRS,transportationtype_residents,0.29431776356402983
+393,FLOORING/STAIRS,ownorrent_residents,0.40859396020609118
+392,FLOORING/STAIRS,race_residents,0.53686946059489604
+391,FLOORING/STAIRS,age_residents,0.36451341697046519
+395,FLOORING/STAIRS,income_residents,0.46204907508348458
+396,FLOORING/STAIRS,rent_residents,0.51114258902369369
+128,Fire Alarm - Modification,rent_workers,0.23375471559763134
+528,Fire Alarm - Reinspection,income_workers,0.40723076298682059
+524,Fire Alarm - Reinspection,typeof_household_workers,0.40379302963773772
+525,Fire Alarm - Reinspection,education_workers,0.28962413196427911
+527,Fire Alarm - Reinspection,transportationtype_workers,0.44952245549557962
+523,Fire Alarm - Reinspection,race_workers,0.33626798742908459
+529,Fire Alarm - Reinspection,housing_values_workers,0.45772758070788144
+530,Fire Alarm - Reinspection,rent_workers,0.38346670599472577
+526,Fire Alarm - Reinspection,ownorrent_workers,0.49652984099893305
+522,Fire Alarm - Reinspection,age_workers,0.42583223958803301
+597,Fire Safety Director - F58,education_workers,0.67561799952122648
+594,Fire Safety Director - F58,age_workers,0.44609563171285666
+595,Fire Safety Director - F58,race_workers,0.56190435446818543
+596,Fire Safety Director - F58,typeof_household_workers,0.6549573473577438
+598,Fire Safety Director - F58,ownorrent_workers,0.44269619042488556
+599,Fire Safety Director - F58,transportationtype_workers,0.62234067056549736
+600,Fire Safety Director - F58,income_workers,0.58502421907545255
+601,Fire Safety Director - F58,housing_values_workers,0.39107293060063825
+602,Fire Safety Director - F58,rent_workers,0.68119046073935174
+467,Food Establishment,typeof_household_workers,0.37489079957570925
+456,Food Establishment,age_residents,0.40392706269604767
+457,Food Establishment,race_residents,0.21714784890878053
+458,Food Establishment,typeof_household_residents,0.51669370757365463
+459,Food Establishment,education_residents,0.44940778704882778
+466,Food Establishment,race_workers,0.44301748569721672
+461,Food Establishment,transportationtype_residents,0.49902294250722762
+460,Food Establishment,ownorrent_residents,0.45511012638983378
+463,Food Establishment,housing_values_residents,0.20623519204406837
+464,Food Establishment,rent_residents,0.4708248343291162
+465,Food Establishment,age_workers,0.42436862754166083
+473,Food Establishment,rent_workers,0.36076572804052814
+472,Food Establishment,housing_values_workers,0.41616624840953731
+471,Food Establishment,income_workers,0.39382247820441973
+462,Food Establishment,income_residents,0.44791949573411827
+470,Food Establishment,transportationtype_workers,0.51978960943883468
+468,Food Establishment,education_workers,0.42120213055385358
+469,Food Establishment,ownorrent_workers,0.47887355473824267
+316,Food Poisoning,race_workers,0.47788100679026241
+315,Food Poisoning,age_workers,0.44284359634280862
+314,Food Poisoning,rent_residents,0.2776274388503836
+310,Food Poisoning,education_residents,0.2462732165364212
+311,Food Poisoning,ownorrent_residents,0.38880851665193061
+317,Food Poisoning,typeof_household_workers,0.426092378718473
+312,Food Poisoning,transportationtype_residents,0.39668715071649674
+313,Food Poisoning,income_residents,0.29950226792921669
+318,Food Poisoning,education_workers,0.43275454499236599
+308,Food Poisoning,age_residents,0.28764409009020075
+320,Food Poisoning,transportationtype_workers,0.53438941677697216
+309,Food Poisoning,typeof_household_residents,0.40269666573909657
+323,Food Poisoning,rent_workers,0.40626654488803826
+319,Food Poisoning,ownorrent_workers,0.55462197139621261
+321,Food Poisoning,income_workers,0.45890380360915328
+322,Food Poisoning,housing_values_workers,0.4739471680555889
+52,For Hire Vehicle Complaint,rent_workers,0.32174337993307883
+51,For Hire Vehicle Complaint,housing_values_workers,0.39410519259405685
+50,For Hire Vehicle Complaint,income_workers,0.3703849668888991
+49,For Hire Vehicle Complaint,transportationtype_workers,0.45010031791022181
+40,For Hire Vehicle Complaint,ownorrent_residents,0.41666466698613791
+47,For Hire Vehicle Complaint,education_workers,0.3528747347219533
+46,For Hire Vehicle Complaint,typeof_household_workers,0.37554608878778351
+45,For Hire Vehicle Complaint,race_workers,0.34463265991098313
+44,For Hire Vehicle Complaint,age_workers,0.4312398532735327
+43,For Hire Vehicle Complaint,rent_residents,0.39410510959066175
+42,For Hire Vehicle Complaint,income_residents,0.30671916138791772
+41,For Hire Vehicle Complaint,transportationtype_residents,0.47199672523101477
+39,For Hire Vehicle Complaint,typeof_household_residents,0.37333066206248405
+48,For Hire Vehicle Complaint,ownorrent_workers,0.48399429799165139
+37,For Hire Vehicle Complaint,age_residents,0.28449804489631997
+38,For Hire Vehicle Complaint,race_residents,0.24036905964961433
+22,Found Property,age_residents,0.25304427071987329
+23,Found Property,typeof_household_residents,0.51348859987420181
+24,Found Property,education_residents,0.27286991961454443
+25,Found Property,transportationtype_residents,0.4602917114763761
+26,Found Property,income_residents,0.38700871322625185
+27,Found Property,rent_residents,0.51708189981868935
+28,Found Property,age_workers,0.58235044767362076
+30,Found Property,typeof_household_workers,0.59772450145857348
+31,Found Property,education_workers,0.60947062834605281
+32,Found Property,ownorrent_workers,0.63637129726748787
+33,Found Property,transportationtype_workers,0.60985524354224363
+34,Found Property,income_workers,0.55044559012618977
+36,Found Property,rent_workers,0.55508646710870679
+35,Found Property,housing_values_workers,0.58270811933444566
+29,Found Property,race_workers,0.55879672888726095
+119,GENERAL,rent_residents,0.58543645913129383
+118,GENERAL,income_residents,0.49281663110026075
+117,GENERAL,transportationtype_residents,0.40331453480808827
+116,GENERAL,ownorrent_residents,0.50769446535485196
+115,GENERAL,typeof_household_residents,0.22906194584962777
+114,GENERAL,race_residents,0.55955073590416005
+113,GENERAL,age_residents,0.38540090910955394
+645,GENERAL CONSTRUCTION,age_residents,0.31774318751405817
+646,GENERAL CONSTRUCTION,race_residents,0.40434604210200026
+647,GENERAL CONSTRUCTION,ownorrent_residents,0.29914610005941344
+648,GENERAL CONSTRUCTION,income_residents,0.35371627635237146
+649,GENERAL CONSTRUCTION,rent_residents,0.39056095024759208
+102,General Construction/Plumbing,income_residents,0.42432084145961346
+103,General Construction/Plumbing,housing_values_residents,0.29038316287519667
+104,General Construction/Plumbing,rent_residents,0.41756574073387143
+105,General Construction/Plumbing,transportationtype_workers,0.37485171434808856
+99,General Construction/Plumbing,education_residents,0.35880675271275897
+98,General Construction/Plumbing,typeof_household_residents,0.44339708832805586
+97,General Construction/Plumbing,age_residents,0.38957684572595469
+101,General Construction/Plumbing,transportationtype_residents,0.44928656556495766
+100,General Construction/Plumbing,ownorrent_residents,0.44189839955660587
+690,Graffiti,income_residents,0.27221801398859963
+691,Graffiti,rent_residents,0.25562699204474593
+689,Graffiti,ownorrent_residents,0.21653029429212883
+688,Graffiti,age_residents,0.25795055888354257
+279,HEAT/HOT WATER,age_residents,0.31331166559338708
+280,HEAT/HOT WATER,race_residents,0.46684943025805187
+281,HEAT/HOT WATER,typeof_household_residents,0.22079447150680251
+282,HEAT/HOT WATER,ownorrent_residents,0.4876058923479466
+283,HEAT/HOT WATER,transportationtype_residents,0.34696341644972173
+284,HEAT/HOT WATER,income_residents,0.46794067765466696
+285,HEAT/HOT WATER,rent_residents,0.57454690207076975
+376,HEATING,race_residents,0.32456119641863246
+380,HEATING,rent_residents,0.43201776936868946
+379,HEATING,income_residents,0.36105332541347906
+378,HEATING,transportationtype_residents,0.24005234050276769
+377,HEATING,ownorrent_residents,0.36142285282096964
+375,HEATING,age_residents,0.24464888540668039
+293,Hazardous Materials,age_workers,0.27579996539632523
+292,Hazardous Materials,rent_residents,0.38096444140512886
+286,Hazardous Materials,race_residents,0.26700670720429176
+287,Hazardous Materials,typeof_household_residents,0.46643385674097859
+289,Hazardous Materials,ownorrent_residents,0.38013764962147795
+290,Hazardous Materials,transportationtype_residents,0.38722759947019486
+288,Hazardous Materials,education_residents,0.41083939242532408
+291,Hazardous Materials,income_residents,0.45652228159259023
+297,Hazardous Materials,housing_values_workers,0.2299215023721474
+296,Hazardous Materials,transportationtype_workers,0.33817062479483279
+295,Hazardous Materials,ownorrent_workers,0.32954192092080048
+294,Hazardous Materials,education_workers,0.24469006164923424
+222,Homeless Encampment,rent_workers,0.34672131639944831
+218,Homeless Encampment,ownorrent_workers,0.41374979820335589
+219,Homeless Encampment,transportationtype_workers,0.22064641977112273
+220,Homeless Encampment,income_workers,0.3215748108521933
+221,Homeless Encampment,housing_values_workers,0.37703824025239174
+217,Homeless Encampment,education_workers,0.20616362041877165
+214,Homeless Encampment,age_workers,0.33438442860730666
+209,Homeless Encampment,typeof_household_residents,0.42506651211317098
+212,Homeless Encampment,income_residents,0.22035475705317181
+211,Homeless Encampment,transportationtype_residents,0.37769478925713829
+210,Homeless Encampment,ownorrent_residents,0.24569892128613485
+208,Homeless Encampment,age_residents,0.22939918772888923
+216,Homeless Encampment,typeof_household_workers,0.37510388915754317
+213,Homeless Encampment,rent_residents,0.34683535802830667
+215,Homeless Encampment,race_workers,0.29371891812587575
+442,Homeless Person Assistance,ownorrent_workers,0.4800773926058664
+441,Homeless Person Assistance,education_workers,0.39183856557962188
+446,Homeless Person Assistance,rent_workers,0.32520331673210934
+434,Homeless Person Assistance,typeof_household_residents,0.39345256029850811
+433,Homeless Person Assistance,age_residents,0.24763138513670593
+435,Homeless Person Assistance,transportationtype_residents,0.41331895060497431
+436,Homeless Person Assistance,income_residents,0.23419264199971329
+443,Homeless Person Assistance,transportationtype_workers,0.3559551443053538
+437,Homeless Person Assistance,rent_residents,0.24310261890892865
+438,Homeless Person Assistance,age_workers,0.44157299766836167
+445,Homeless Person Assistance,housing_values_workers,0.42149077818279468
+444,Homeless Person Assistance,income_workers,0.32411547059444346
+439,Homeless Person Assistance,race_workers,0.32702194729103046
+440,Homeless Person Assistance,typeof_household_workers,0.43727395379359157
+127,Illegal Parking,housing_values_residents,0.25761587934483005
+125,Illegal Parking,transportationtype_residents,0.31565130481822606
+124,Illegal Parking,ownorrent_residents,0.29689725328537481
+123,Illegal Parking,education_residents,0.4029447284093407
+122,Illegal Parking,typeof_household_residents,0.29837037501293112
+126,Illegal Parking,income_residents,0.24158967085251906
+121,Illegal Parking,race_residents,0.36221161054161988
+120,Illegal Parking,age_residents,0.22297322231190603
+686,Illegal Tree Damage,housing_values_residents,0.37194303507088494
+687,Illegal Tree Damage,rent_residents,0.28498347221864934
+681,Illegal Tree Damage,typeof_household_residents,0.29441253564331304
+682,Illegal Tree Damage,education_residents,0.45403399848641907
+683,Illegal Tree Damage,ownorrent_residents,0.36612051711987181
+684,Illegal Tree Damage,transportationtype_residents,0.38863905138006294
+685,Illegal Tree Damage,income_residents,0.38653492050646854
+679,Illegal Tree Damage,age_residents,0.23091172754262135
+680,Illegal Tree Damage,race_residents,0.32031200273085758
+428,Indoor Air Quality,income_residents,0.39033712863108472
+424,Indoor Air Quality,typeof_household_residents,0.52685393503252864
+430,Indoor Air Quality,education_workers,0.21018961244033368
+429,Indoor Air Quality,rent_residents,0.47172003620914243
+427,Indoor Air Quality,transportationtype_residents,0.42944926457775801
+426,Indoor Air Quality,ownorrent_residents,0.46182320017213724
+432,Indoor Air Quality,transportationtype_workers,0.31051592245551873
+431,Indoor Air Quality,ownorrent_workers,0.24017105756805127
+423,Indoor Air Quality,age_residents,0.33221256207574285
+425,Indoor Air Quality,education_residents,0.25480131810472528
+333,Indoor Sewage,age_residents,0.37270271656991694
+334,Indoor Sewage,race_residents,0.61180463374227645
+335,Indoor Sewage,typeof_household_residents,0.28275143792906965
+336,Indoor Sewage,education_residents,0.29139359711396751
+338,Indoor Sewage,transportationtype_residents,0.2176197292768598
+340,Indoor Sewage,rent_residents,0.35335055250651165
+337,Indoor Sewage,ownorrent_residents,0.23327951659147672
+339,Indoor Sewage,income_residents,0.3343239120358823
+613,Industrial Waste,income_residents,0.21640442732730564
+609,Industrial Waste,race_residents,0.27580431414621331
+610,Industrial Waste,education_residents,0.20526909199789817
+611,Industrial Waste,ownorrent_residents,0.25658866646755574
+614,Industrial Waste,housing_values_residents,0.22105113248396546
+612,Industrial Waste,transportationtype_residents,0.20646695247188998
+556,Investigations and Discipline (IAD),race_residents,0.22404869317040726
+0,Lead,age_residents,0.33781593995055581
+6,Lead,income_residents,0.48168326749973955
+4,Lead,ownorrent_residents,0.45128986464139664
+7,Lead,housing_values_residents,0.23903563362545327
+8,Lead,rent_residents,0.38772525800971047
+5,Lead,transportationtype_residents,0.41186640766063426
+3,Lead,education_residents,0.57967288385176108
+1,Lead,race_residents,0.33145203333468637
+2,Lead,typeof_household_residents,0.50180997905345004
+555,Litter Basket / Request,transportationtype_workers,0.31846063438532435
+554,Litter Basket / Request,rent_residents,0.32092024834490046
+553,Litter Basket / Request,income_residents,0.37714692896908464
+551,Litter Basket / Request,ownorrent_residents,0.40368616130073959
+552,Litter Basket / Request,transportationtype_residents,0.41562413345512433
+549,Litter Basket / Request,typeof_household_residents,0.38677492801639313
+548,Litter Basket / Request,race_residents,0.34935850481722031
+547,Litter Basket / Request,age_residents,0.33962490375952659
+550,Litter Basket / Request,education_residents,0.38237422939344173
+272,Maintenance or Facility,age_residents,0.2383837299388826
+273,Maintenance or Facility,typeof_household_residents,0.29082048946473904
+275,Maintenance or Facility,ownorrent_residents,0.27274034265986213
+276,Maintenance or Facility,transportationtype_residents,0.24409945794436946
+277,Maintenance or Facility,income_residents,0.26834061678490384
+278,Maintenance or Facility,rent_residents,0.29717733466258961
+274,Maintenance or Facility,education_residents,0.22700866938708036
+628,Missed Collection (All Materials),housing_values_residents,0.24450242322885471
+627,Missed Collection (All Materials),transportationtype_residents,0.40578207111396869
+626,Missed Collection (All Materials),ownorrent_residents,0.32417065250294996
+514,NONCONST,age_residents,0.45248703950752533
+520,NONCONST,income_residents,0.50927543511259021
+518,NONCONST,ownorrent_residents,0.36061511435560933
+519,NONCONST,transportationtype_residents,0.35992489606612754
+517,NONCONST,education_residents,0.23278399927067867
+516,NONCONST,typeof_household_residents,0.24774821776777106
+515,NONCONST,race_residents,0.60758142265788728
+521,NONCONST,rent_residents,0.54901085699879859
+53,New Tree Request,transportationtype_residents,0.24943183877258548
+324,Noise,age_residents,0.44829119067943912
+325,Noise,typeof_household_residents,0.67885773599630661
+327,Noise,ownorrent_residents,0.32140997132265098
+328,Noise,transportationtype_residents,0.66217766964594016
+329,Noise,income_residents,0.65364412528313476
+330,Noise,housing_values_residents,0.24843174927875805
+331,Noise,rent_residents,0.76397128648066526
+326,Noise,education_residents,0.57924322275161977
+450,Noise - Commercial,ownorrent_residents,0.24965485370420365
+452,Noise - Commercial,rent_residents,0.21249225487898288
+451,Noise - Commercial,transportationtype_residents,0.36957299913973829
+449,Noise - Commercial,education_residents,0.208504458393517
+448,Noise - Commercial,typeof_household_residents,0.25679647676443046
+447,Noise - Commercial,age_residents,0.38547191459498137
+615,Noise - Helicopter,typeof_household_residents,0.25967101261946585
+616,Noise - Helicopter,education_residents,0.30019403769744002
+617,Noise - Helicopter,income_residents,0.28366112964498474
+618,Noise - Helicopter,rent_residents,0.27419529048411445
+483,Noise - House of Worship,rent_residents,0.20372242742445529
+482,Noise - House of Worship,transportationtype_residents,0.23827342328613313
+481,Noise - House of Worship,race_residents,0.25236494157105349
+159,Noise - Residential,income_residents,0.60953356750488397
+160,Noise - Residential,rent_residents,0.68111326991154686
+156,Noise - Residential,education_residents,0.26708709793308899
+153,Noise - Residential,age_residents,0.54447973901068458
+154,Noise - Residential,race_residents,0.69626928152677392
+155,Noise - Residential,typeof_household_residents,0.32095948372402539
+158,Noise - Residential,transportationtype_residents,0.46571648838435936
+157,Noise - Residential,ownorrent_residents,0.50865528048126896
+359,Noise - Street/Sidewalk,age_residents,0.32031669808862195
+363,Noise - Street/Sidewalk,rent_residents,0.35494382255602075
+360,Noise - Street/Sidewalk,ownorrent_residents,0.43419484213579118
+361,Noise - Street/Sidewalk,transportationtype_residents,0.2965595666976989
+362,Noise - Street/Sidewalk,income_residents,0.27176412229956071
+353,Noise - Vehicle,transportationtype_residents,0.40063013637264155
+354,Noise - Vehicle,income_residents,0.385361235610933
+355,Noise - Vehicle,rent_residents,0.442995043835125
+350,Noise - Vehicle,race_residents,0.3618469462826035
+349,Noise - Vehicle,age_residents,0.43162621005340462
+352,Noise - Vehicle,ownorrent_residents,0.45192875513089303
+351,Noise - Vehicle,typeof_household_residents,0.31378354991594437
+195,Non-Emergency Police Matter,typeof_household_residents,0.23468041872900686
+194,Non-Emergency Police Matter,race_residents,0.40002032806479404
+199,Non-Emergency Police Matter,income_residents,0.21875630933402629
+198,Non-Emergency Police Matter,transportationtype_residents,0.23499019724248363
+197,Non-Emergency Police Matter,ownorrent_residents,0.22920140752170673
+196,Non-Emergency Police Matter,education_residents,0.26902835545177872
+231,Non-Residential Heat,ownorrent_workers,0.36297801233591392
+232,Non-Residential Heat,transportationtype_workers,0.25302993674433
+233,Non-Residential Heat,income_workers,0.2622849797882576
+234,Non-Residential Heat,housing_values_workers,0.25632562772963829
+235,Non-Residential Heat,rent_workers,0.22365205142193084
+225,Non-Residential Heat,transportationtype_residents,0.21294850990544614
+229,Non-Residential Heat,typeof_household_workers,0.27279354087113783
+228,Non-Residential Heat,race_workers,0.24135641444792899
+227,Non-Residential Heat,age_workers,0.36507658642646901
+226,Non-Residential Heat,rent_residents,0.21454789229933988
+224,Non-Residential Heat,ownorrent_residents,0.29867634136351634
+223,Non-Residential Heat,age_residents,0.21578004638578419
+230,Non-Residential Heat,education_workers,0.25001084289156977
+347,OUTSIDE BUILDING,rent_residents,0.38626298342389842
+346,OUTSIDE BUILDING,income_residents,0.35656937915449805
+344,OUTSIDE BUILDING,ownorrent_residents,0.31044406495645022
+343,OUTSIDE BUILDING,typeof_household_residents,0.2823733474128145
+342,OUTSIDE BUILDING,race_residents,0.48049226838445624
+341,OUTSIDE BUILDING,age_residents,0.3784523551731655
+345,OUTSIDE BUILDING,transportationtype_residents,0.3459605163985085
+88,Other Enforcement,typeof_household_residents,0.46200437649687454
+87,Other Enforcement,race_residents,0.57464709776450051
+89,Other Enforcement,education_residents,0.52365106242191428
+90,Other Enforcement,ownorrent_residents,0.49820907003887493
+91,Other Enforcement,transportationtype_residents,0.49252566116716456
+96,Other Enforcement,transportationtype_workers,0.30328047258959712
+92,Other Enforcement,income_residents,0.49869464613503228
+93,Other Enforcement,housing_values_residents,0.34885125518663218
+86,Other Enforcement,age_residents,0.38988404379015212
+94,Other Enforcement,rent_residents,0.39092202015649941
+95,Other Enforcement,education_workers,0.34320018521172357
+576,Overgrown Tree/Branches,age_residents,0.23473312672617022
+577,Overgrown Tree/Branches,typeof_household_residents,0.22559261479924003
+578,Overgrown Tree/Branches,ownorrent_residents,0.44212707767143716
+580,Overgrown Tree/Branches,housing_values_residents,0.43271660275023133
+579,Overgrown Tree/Branches,transportationtype_residents,0.63968186758295165
+164,PAINT - PLASTER,transportationtype_residents,0.24826215132376581
+161,PAINT - PLASTER,age_residents,0.36031513649466346
+166,PAINT - PLASTER,rent_residents,0.44144305020289931
+165,PAINT - PLASTER,income_residents,0.38882119208546206
+162,PAINT - PLASTER,race_residents,0.45867886128932139
+163,PAINT - PLASTER,ownorrent_residents,0.33415553647090668
+608,PAINT/PLASTER,rent_residents,0.52864223328064308
+603,PAINT/PLASTER,age_residents,0.33675240868713374
+607,PAINT/PLASTER,income_residents,0.45011587418646232
+606,PAINT/PLASTER,transportationtype_residents,0.30491590909339106
+605,PAINT/PLASTER,ownorrent_residents,0.41142124248467377
+604,PAINT/PLASTER,race_residents,0.51000458789270608
+146,PLUMBING,rent_residents,0.57264942716793099
+145,PLUMBING,income_residents,0.50777919510870728
+144,PLUMBING,transportationtype_residents,0.34776749625122366
+143,PLUMBING,ownorrent_residents,0.42891377277969334
+141,PLUMBING,race_residents,0.6056353666822083
+140,PLUMBING,age_residents,0.39311656567786885
+142,PLUMBING,typeof_household_residents,0.20745775268753969
+256,Panhandling,education_workers,0.22396015530919877
+255,Panhandling,typeof_household_workers,0.31615544037886678
+254,Panhandling,typeof_household_residents,0.29262800952370027
+495,Plumbing,age_residents,0.27569156523506499
+496,Plumbing,typeof_household_residents,0.27245601170503198
+497,Plumbing,education_residents,0.21155326283832382
+498,Plumbing,ownorrent_residents,0.30431853966694827
+499,Plumbing,transportationtype_residents,0.24621497160777253
+501,Plumbing,rent_residents,0.22974620150133132
+500,Plumbing,income_residents,0.23921278076144165
+305,Recycling Enforcement,income_residents,0.32416451378349748
+302,Recycling Enforcement,education_residents,0.3181295011252348
+303,Recycling Enforcement,ownorrent_residents,0.3305755789727971
+304,Recycling Enforcement,transportationtype_residents,0.3437630407977878
+307,Recycling Enforcement,rent_residents,0.30335801450706512
+306,Recycling Enforcement,housing_values_residents,0.20042549999008047
+301,Recycling Enforcement,typeof_household_residents,0.33189734436004004
+300,Recycling Enforcement,race_residents,0.37045420871256118
+299,Recycling Enforcement,age_residents,0.29807001348620943
+129,Request Xmas Tree Collection,ownorrent_residents,0.22649469294026242
+130,Request Xmas Tree Collection,transportationtype_residents,0.26978251851984403
+131,Request Xmas Tree Collection,housing_values_residents,0.21855801810404304
+236,Rodent,age_residents,0.48202484634889287
+240,Rodent,transportationtype_residents,0.46157666345089565
+241,Rodent,income_residents,0.50467121911191248
+242,Rodent,rent_residents,0.58465913284005055
+243,Rodent,transportationtype_workers,0.20012201988782366
+237,Rodent,race_residents,0.51823591542261416
+238,Rodent,typeof_household_residents,0.35245927474316929
+239,Rodent,ownorrent_residents,0.54164611104361637
+490,Root/Sewer/Sidewalk Condition,age_residents,0.22693170267883697
+492,Root/Sewer/Sidewalk Condition,ownorrent_residents,0.47564100931625275
+493,Root/Sewer/Sidewalk Condition,transportationtype_residents,0.64144358109264055
+494,Root/Sewer/Sidewalk Condition,housing_values_residents,0.39876434454645782
+491,Root/Sewer/Sidewalk Condition,typeof_household_residents,0.23251710538509723
+541,SAFETY,typeof_household_residents,0.2399252955360982
+542,SAFETY,education_residents,0.24219764365869004
+543,SAFETY,ownorrent_residents,0.38843087320348368
+539,SAFETY,age_residents,0.45346386036125469
+544,SAFETY,transportationtype_residents,0.31042102653428855
+540,SAFETY,race_residents,0.54653727766273197
+545,SAFETY,income_residents,0.49259061193242265
+546,SAFETY,rent_residents,0.54116663070829263
+652,Sanitation Condition,typeof_household_residents,0.29234902256648521
+653,Sanitation Condition,education_residents,0.41126540488012076
+650,Sanitation Condition,age_residents,0.30908391879484298
+651,Sanitation Condition,race_residents,0.35704877482706526
+654,Sanitation Condition,transportationtype_residents,0.34372368551309412
+573,Scaffold Safety,transportationtype_residents,0.20001543968587451
+575,Scaffold Safety,rent_residents,0.24743130756357803
+574,Scaffold Safety,income_residents,0.26878116685287812
+455,School Maintenance,race_residents,0.21063286466404746
+381,Sewer,race_residents,0.20387039393175216
+384,Sewer,housing_values_residents,0.39359067355261734
+383,Sewer,transportationtype_residents,0.43120076298554527
+382,Sewer,ownorrent_residents,0.30326392051552614
+65,Sidewalk Condition,education_workers,0.31513852395290459
+59,Sidewalk Condition,transportationtype_residents,0.54044665926337521
+68,Sidewalk Condition,housing_values_workers,0.26233145315800821
+67,Sidewalk Condition,transportationtype_workers,0.4398031401548394
+66,Sidewalk Condition,ownorrent_workers,0.34932670008176847
+64,Sidewalk Condition,race_workers,0.21766028486598071
+63,Sidewalk Condition,age_workers,0.28985239666659035
+54,Sidewalk Condition,age_residents,0.25734088367415403
+61,Sidewalk Condition,housing_values_residents,0.44392506514644225
+62,Sidewalk Condition,rent_residents,0.58835270650584481
+58,Sidewalk Condition,ownorrent_residents,0.42159553299250874
+57,Sidewalk Condition,education_residents,0.53634919121994917
+56,Sidewalk Condition,typeof_household_residents,0.51637218138891927
+55,Sidewalk Condition,race_residents,0.44173824584434229
+60,Sidewalk Condition,income_residents,0.57358186116292897
+474,Smoking,ownorrent_residents,0.32593218641429494
+475,Smoking,transportationtype_residents,0.29217236980245181
+477,Smoking,education_workers,0.24112249946024819
+478,Smoking,ownorrent_workers,0.24613947235869951
+476,Smoking,rent_residents,0.22311273650882768
+419,Snow,ownorrent_residents,0.27294927297212618
+418,Snow,education_residents,0.24020143955727985
+421,Snow,income_residents,0.23423666562827755
+417,Snow,typeof_household_residents,0.24834305978201501
+416,Snow,race_residents,0.20256658779389816
+422,Snow,housing_values_residents,0.29854858024275721
+415,Snow,age_residents,0.23959323590710441
+420,Snow,transportationtype_residents,0.41623975215872183
+298,Special Enforcement,race_workers,0.24193780089243094
+453,Special Projects Inspection Team (SPIT),rent_residents,0.25421513869889967
+454,Special Projects Inspection Team (SPIT),ownorrent_workers,0.21944807969865643
+244,Standing Water,transportationtype_residents,0.22933407998463964
+408,Street Condition,race_residents,0.39075503108203896
+409,Street Condition,typeof_household_residents,0.21707663177206965
+410,Street Condition,education_residents,0.24607937833787505
+411,Street Condition,ownorrent_residents,0.44613016064122252
+412,Street Condition,transportationtype_residents,0.45740993778861166
+413,Street Condition,income_residents,0.23583287285403651
+414,Street Condition,housing_values_residents,0.43115350428723798
+637,Street Light Condition,transportationtype_residents,0.22361824380651374
+593,Sweeping/Missed,race_residents,0.20551604657422756
+268,Taxi Complaint,transportationtype_workers,0.70373106083416315
+258,Taxi Complaint,typeof_household_residents,0.57881362673670256
+259,Taxi Complaint,education_residents,0.22205533937897542
+267,Taxi Complaint,ownorrent_workers,0.70608985864858076
+261,Taxi Complaint,income_residents,0.44232542602795216
+257,Taxi Complaint,age_residents,0.22860336621099867
+271,Taxi Complaint,rent_workers,0.62308892761288726
+260,Taxi Complaint,transportationtype_residents,0.43740981072362245
+263,Taxi Complaint,age_workers,0.65257841728741517
+264,Taxi Complaint,race_workers,0.61379177947998953
+265,Taxi Complaint,typeof_household_workers,0.66683862089347268
+269,Taxi Complaint,income_workers,0.61810435638101413
+266,Taxi Complaint,education_workers,0.65407140186745782
+270,Taxi Complaint,housing_values_workers,0.6396241903507629
+262,Taxi Complaint,rent_residents,0.54404685519272522
+502,Taxi Report,typeof_household_residents,0.37626934134678119
+503,Taxi Report,income_residents,0.20717525818469112
+504,Taxi Report,rent_residents,0.25881202577411533
+505,Taxi Report,age_workers,0.5853341089083498
+506,Taxi Report,race_workers,0.64131782971551776
+507,Taxi Report,typeof_household_workers,0.70636564835137361
+509,Taxi Report,ownorrent_workers,0.60003545205195041
+510,Taxi Report,transportationtype_workers,0.67661116689727174
+511,Taxi Report,income_workers,0.60972758965034468
+512,Taxi Report,housing_values_workers,0.56866910249936697
+513,Taxi Report,rent_workers,0.64251584045860999
+508,Taxi Report,education_workers,0.5924434437004894
+631,Traffic,ownorrent_workers,0.21006333516323078
+629,Traffic,typeof_household_residents,0.27664855550885753
+630,Traffic,transportationtype_residents,0.26211983034234781
+534,UNSANITARY CONDITION,education_residents,0.20905058827840053
+537,UNSANITARY CONDITION,income_residents,0.53052908613541583
+533,UNSANITARY CONDITION,typeof_household_residents,0.21663835794831404
+535,UNSANITARY CONDITION,ownorrent_residents,0.43346566114240825
+536,UNSANITARY CONDITION,transportationtype_residents,0.3349615239506063
+538,UNSANITARY CONDITION,rent_residents,0.60278752669567548
+532,UNSANITARY CONDITION,race_residents,0.59903858079828987
+531,UNSANITARY CONDITION,age_residents,0.4070437798932674
+406,Unsanitary Animal Pvt Property,education_residents,0.28231670769565376
+407,Unsanitary Animal Pvt Property,transportationtype_residents,0.25203581591738755
+403,Unsanitary Animal Pvt Property,age_residents,0.281575351122128
+404,Unsanitary Animal Pvt Property,race_residents,0.24238337924161496
+405,Unsanitary Animal Pvt Property,typeof_household_residents,0.26659100892725257
+358,Unsanitary Pigeon Condition,income_residents,0.21153725916979713
+357,Unsanitary Pigeon Condition,ownorrent_residents,0.21544476472293153
+356,Unsanitary Pigeon Condition,age_residents,0.20419468817710856
+207,Urinating in Public,transportationtype_workers,0.21484366936296956
+206,Urinating in Public,rent_residents,0.38018586699458823
+205,Urinating in Public,income_residents,0.33310882039176909
+204,Urinating in Public,transportationtype_residents,0.39721051927209611
+203,Urinating in Public,ownorrent_residents,0.35631276713097593
+201,Urinating in Public,typeof_household_residents,0.38511321968206047
+202,Urinating in Public,education_residents,0.29025409658343998
+200,Urinating in Public,age_residents,0.32864218290258418
+479,Vending,race_workers,0.27137997489640986
+480,Vending,education_workers,0.20019873913511405
+14,WATER LEAK,rent_residents,0.54622718552344296
+13,WATER LEAK,income_residents,0.48683744268514462
+12,WATER LEAK,transportationtype_residents,0.29530978873283315
+11,WATER LEAK,ownorrent_residents,0.38249780080401241
+10,WATER LEAK,race_residents,0.55526066084333747
+9,WATER LEAK,age_residents,0.37670028248862658
+373,Water Conservation,transportationtype_residents,0.2791432687212409
+374,Water Conservation,housing_values_residents,0.23415450018331749
+186,Water Quality,race_residents,0.37274052884617814
+193,Water Quality,rent_residents,0.23090685083534024
+192,Water Quality,housing_values_residents,0.25727665455421583
+191,Water Quality,income_residents,0.37481432649701485
+190,Water Quality,transportationtype_residents,0.3030412082440499
+189,Water Quality,ownorrent_residents,0.39131873924577354
+188,Water Quality,education_residents,0.36728001985149694
+187,Water Quality,typeof_household_residents,0.35048957759463517
+185,Water Quality,age_residents,0.33169586404541174
+644,Water System,income_residents,0.22062613147857527
+641,Water System,education_residents,0.2547314168181094
+642,Water System,ownorrent_residents,0.23663881238093096
+639,Water System,race_residents,0.27898114536577756
+638,Water System,age_residents,0.35902920064794741
+640,Water System,typeof_household_residents,0.28212981380200974
+643,Water System,transportationtype_residents,0.30877910606737374
