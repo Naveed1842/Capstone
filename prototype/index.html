@@ -18,6 +18,7 @@
         <script type="text/javascript" src="js/charts.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
             <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+        
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         
         <script>
@@ -115,7 +116,11 @@
                     </div>
                         <input id="multipleradio" type="radio" name="muliple" value="multiple" > Multiple Selection
                         <input id="singleradio" type="radio" name="muliple" value="multiple" checked="checked" > Single Selection<br><br>
-                        <input id="sszoom" type="checkbox"> Zoom On
+                        <input id="sszoom" type="checkbox"> Zoom On &nbsp;&nbsp;
+                        <label>Percentile Num: <input type="text" id='percentile'>
+                        <input type="button" id='percentilebtn' value="Go">
+                        </label>
+                        
                         <p>
                       <label for="amount">Year range:</label>
                       <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold; margin-top:10">

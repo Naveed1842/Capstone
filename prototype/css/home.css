@@ -299,3 +299,6 @@ input.invalid, textarea.invalid{
 input.valid, textarea.valid{
 	border: 2px solid green;
 }
+#percentile{
+    width: 20%;
+}

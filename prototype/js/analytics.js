@@ -1,4 +1,5 @@
 var flag=0;
+var percen=80/100;
 var map = L.map('map', {
         scrollWheelZoom: true
       }).setView( [40.717802, -73.81326], 11);
@@ -12,6 +13,9 @@ if(document.getElementById('doubleclickckeck').checked){
          map.doubleClickZoom.enable();
     }
 };
+
+//Percentile Function
+
 
 
 dblclickzoom();
@@ -33,26 +37,27 @@ map.scrollWheelZoom.disable();
       var geojson;
         
 var mx=0       
-var maximus = function(k){
-    var max
-    console.log(k)
+var maximus = function(ko){
+    //var max
+    console.log(ko)
     d3.csv("data/geo5.csv", function(threedata)
            {
               data = threedata.map(function(d)
                 {
-                    //each d is one line of the csv file represented as a json object
-                    ct = +(d[""+k]);
-                    //tpop = +(d['Total Population'])
-                    //console.log(ct);
-                    m= {"com":ct};
-                    return m;
+                    ct = +(d[""+ko]);
+                    return ct;
                 });  
-            max = d3.max(data,function(d){
-                return d["com"]
-            });
-            console.log(max);
-            mx=max;
-            return max;
+            ds=data.sort();
+                    //mx=percen/
+            var index=0
+            if(percen<100){
+                index=Math.round(percen* (ds.length+1));
+                mx=ds[index]
+                //console.log(index);
+                //console.log(mx);
+            }
+                    //mx=max;
+            return;
     
 });
     
@@ -74,10 +79,10 @@ var maximus = function(k){
           //here it id defining quantiles to reflect colors on the map.
          //flag 0 is raw
            if(flag==0){
-              return d > (mx*0.65)  ? '#006d2c' :
-                     d > (mx*0.50)  ? '#2ca25f':
-                     d > (mx*0.45)   ? '#66c2a4' :
-                     d > (mx*0.40)   ? '#99d8c9' :
+              return d > (mx)  ? '#006d2c' :
+                     d > (mx*0.90)  ? '#2ca25f':
+                     d > (mx*0.70)   ? '#66c2a4' :
+                     d > (mx*0.50)   ? '#99d8c9' :
                      d > (mx*0.30)   ? '#ccece6' :
                      d > (mx*0.10)   ? '#edf8fb' :
                                 '#FFFFFb';
@@ -85,25 +90,25 @@ var maximus = function(k){
       }
           //flag 1 is normalize by population
            else if(flag==1){
-               //console.log((p*(0.10)));
-              return d > (p*(0.65))  ? '#990000' :
-                     d > (p*(0.50))  ? '#FC4E2A':
-                     d > (p*(0.35))   ? '#FD8D3C' :
-                     d > (p*(0.20))   ? '#FEB24C' :
-                     d > (p*(0.01))   ? '#FED976' :
-                     d > (p*(0.005))   ? '#FFFDA0' :
+              //console.log('calls: '+d+' for population '+p);
+              return d > (p)*percen  ? '#990000' :
+                     d > (p)*percen*0.80  ? '#FC4E2A':
+                     d > (p)*percen*0.60   ? '#FD8D3C' :
+                     d > (p)*percen*0.40   ? '#FEB24C' :
+                     d > (p)*percen*0.20   ? '#FED976' :
+                     d > (p)*percen*0.10   ? '#FFFDA0' :
                                 '#FFFFF0';
           }
            else if(flag==2){
                a=a*10000;
               // console.log(mx);
               // console.log(d/a)
-              return d > (a*(0.65))  ? '#016450' :
-                     d > (a*(0.50))  ? '#02818a':
-                     d > (a*(0.35))   ? '#3690c0' :
-                     d > (a*(0.20))   ? '#67a9cf' :
-                     d > (a*(0.01))   ? '#a6bddb' :
-                     d > (a*(0.005))   ? '#d0d1e6' :
+              return d > (a*percen)  ? '#016450' :
+                     d > (a*percen*0.80)  ? '#02818a':
+                     d > (a*percen*0.60)   ? '#3690c0' :
+                     d > (a*percen*0.40)   ? '#67a9cf' :
+                     d > (a*percen*0.20)   ? '#a6bddb' :
+                     d > (a*percen*0.10)   ? '#d0d1e6' :
                                 '#f6eff7';
           }
       }
@@ -182,8 +187,12 @@ var maximus = function(k){
                 
 
       function style(feature) {
-            //console.log(feature.properties[k]);
-         
+          
+          //quantile = d3.scale.quantile()
+            //              .domain(feature.properties[k])
+                          //.range(range);
+        //  console.log(quantile);
+         //quant = d3.scale.quantile
           return {
               fillColor: getColor(feature.properties[k],feature.properties['Total Population'],feature.properties['area']),
               weight: 1,
@@ -374,6 +383,29 @@ function onEachFeature(feature, layer) {
 
 var readdata= function(){
               $.getJSON('data/geo6.geojson', function(state_data) {
+//                  d=state_data.features.map(function(d)
+//                {
+//                    //each d is one line of the csv file represented as a json object
+//                    prop = (d["properties"][''+k]);
+//                    //tpop = +(d['Total Population'])
+//                    //console.log(ct);
+//                    m= {"com":prop};
+//                    //console.log(m.com);
+//                    return m;
+//                      
+//                });
+//                console.log(d);
+//                ds=d.sort(function(x,y){
+//                    return d3.descending(x.com, y.com);
+//                });
+//                console.log(ds);
+//                var linearScale = d3.scale.linear()
+//                                    .domain([d])
+//                                    .range([0,100]);
+//                console.log(linearScale(d[0]));
+                 // var jenks = turf.jenks(state_data, 'elevation', 15)
+                  //console.log(jenks);
+                  //console.log(state_data.features);
                  geojson = L.geoJson(state_data,{
                     style: style,
                     onEachFeature: onEachFeature
@@ -454,3 +486,10 @@ var mapupdate=function(ke){
         
         readdata();
 }
+//percentile function
+$('#percentilebtn').on('click', function() {
+        percen=$('#percentile').val()/100;
+        mapupdate(k);
+        //    checkimpact(verifier='T');
+        console.log(percen);
+        });
