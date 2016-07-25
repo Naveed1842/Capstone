@@ -1,8 +1,7 @@
 var w=$(".barchartcontainer").width();
 var h =$(".barchartcontainer").height();
 chki=0
-var checkimpact=function(verifier='F'){
-    console.log(verifier);
+var checkimpact=function(){
     event.preventDefault();
     var fname = $("#nf").val();
     var age = $("#age").val();
@@ -147,15 +146,10 @@ var checkimpact=function(verifier='F'){
         rent= '';
         own='';
     }
-    if(verifier=='T'){
-        
-        uprofiles(fname,age,race,ht,educ,occ,trn,own,rent,income,verifier);
-    }
-    else{
-        initbarresidents();
-        initbarworker();
-        uprofiles(fname,age,race,ht,educ,occ,trn,own,rent,income,verifier);
-    }
+    initbarresidents();
+    initbarworker();
+    uprofiles(fname,age,race,ht,educ,occ,trn,own,rent,income);
+
     //console.log(co)
     
 };
@@ -215,7 +209,7 @@ visinfo=function(n,c,cl,feat){
                       .attr('class', 'd3-tip')
                       .offset([-8, 0])
                       .html(function(d) {
-                        return "<strong>Complain Type:</strong> <span style='color:red'>" + d['Complaint'] + "</span>";
+                        return "<strong>Complain Type:</strong> <span style='color:red'>" + d['Complaint'] + "</span>"+"<strong>"+d['Rsquare']+'</strong>';
                       })
             
              var visr = d3.select("#"+cl);
@@ -253,158 +247,214 @@ visinfo=function(n,c,cl,feat){
                     .attr("height", function(d,i) 
                           {
                     if(i<20){
-                        console.log("top ten:"+max);
+                        //console.log("top ten:"+max+"rsquare val is"+d.Rsquare);
                         return ((d.Rsquare/max)*height);
                     }
                     })
                     .attr("y", function(d, i){
                         if(i<20){
-                    return (height - (((d.Rsquare/max)*height)));
+                        return (height - (((d.Rsquare/max)*height)));
                         }
                     })
     
 }
 
-var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income,verifier){
+var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
     //age='';
-    
+    var vars=[age,race,hht,edu,occ,tra,own,rent];
+    var irt =[];
+    var temp=[];
+    for(i=0;i<vars.length;i++){
+        if(vars[i] !=''){
+            irt.push(vars[i]);
+            temp.push(vars[i]);
+        }
+    }
+    console.log(irt);
+    //array of variables consisting of non empty values
+    console.log(irt);
     console.log(age+race+hht+edu+occ+tra+own+rent);
-    d=d3.csv("data/profilr.csv", function(data) {
+    
+    d=d3.csv("data/finalup.csv", function(data) {
         //$.grep(data, function(e){ return e['Boro'] == (ct)
-       
-        //console.log(data); 
-        datamaped=data.map(function(d){
-            co = d['Complaints'];
-            ager = d['age_residents'].replace(/(\[|\]|')/g,"").split(',');
-            racer = d['race_residents'].replace(/(\[|\]|')/g,"").split(',');
-            thr = d['typeof_household_residents'].replace(/(\[|\]|')/g,"").split(',');
-            er = d['education_residents'].replace(/(\[|\]|')/g,"").split(',');
-            or = d['ownorrent_residents'].replace(/(\[|\]|')/g,"").split(',');
-            tr = d['transportationtype_residents'].replace(/(\[|\]|')/g,"").split(',');
-            ir = d['income_residents'].replace(/(\[|\]|')/g,"").split(',');
-            hvr = d['housing_values_residents'].replace(/(\[|\]|')/g,"").split(',');
-            rr = d['rent_residents'].replace(/(\[|\]|')/g,"").split(',');
-            aw = d['age_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            //console.log(aw);
-            rw = d['race_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            thw = d['typeof_household_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            ew = d['education_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            ow = d['ownorrent_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            tw = d['transportationtype_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            iw = d['income_workers'].replace('[','').replace(/(\[|\]|'|_n)/g,"").split(',');
-            hvw = d['housing_values_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            rentw = d['rent_workers'].replace(/(\[|\]|'|_n)/g,"").split(',');
-            m={Complaints:co,age_residents:ager,race_residents:racer,typeof_household_residents:thr,education_residents:er,ownorrent_residents:or,transportationtype_residents:tr,income_residents:ir,housing_values_residents:hvr,rent_residents:rr,age_workers:aw,race_workers:rw,typeof_household_workers:thw,education_workers:ew,ownorrent_workers:ow,transportationtype_workers:tw,income_workers:iw,housing_values_workers:hvw,rent_workers:rentw};
-            return m;
-            //console.log(ag[1]);
-        });
-        r=[age,race,hht,edu,occ,tra,income,own,rent];
+        worker=[];
+        residents = [];
+        m1f=data;
+        m1w=data;
+      
+        for(u=0;u<irt.length;u++){
+            console.log(irt[u]);
+            m1f=$.grep(m1f, function(e){ return (e[''+irt[u]]!="");});
+            m1w=$.grep(m1w, function(e){ return (e[''+irt[u]+'_n']!="");});
+        }
+                
+        //console.log(m1w); 
+        cols =Object.keys(m1f[1]);
+        for(j=0;j<cols.length;j++){
+//                    //console.log(cols[j])
+            if(/(_n)/g.test(cols[j])==true){
+                worker.push(cols[j]);
+                }
+            else{
+                residents.push(cols[j]);
+            }
+            }
+        //console.log(worker);
+        //console.log(residents);
+        //console.log(Object.keys(data[0])); 
+        impacter(residents,temp);
+        impactw(worker,irt);
+        //r=[age,race,hht,edu,occ,tra,income,own,rent];
         //console.log(datamaped);
-        if(verifier=='T'){
-            impacter(datamaped,r,'T');
-        }
-        else{
-            impacter(datamaped,r,'F');
-        }
+        //impacter(datamaped,r);
+    
         
 });
 }
-
-var impacter =function(data,r,verifier){
-    l=[];
-    lr=['age_residents','race_residents','typeof_household_residents','education_residents','ownorrent_residents','transportationtype_residents','income_residents','housing_values_residents','rent_residents'];
-    lw=['age_workers','race_workers','typeof_household_workers','education_workers','ownorrent_workers','transportationtype_workers','income_workers','housing_values_workers','rent_workers']
-            
-   // if(document.getElementById('imresident').checked){
-     //       $('.radiowrap').css('background-color','transparent');
-            l=lr;
-       // }
-        //else if(document.getElementById('imworker').checked){
-          //  $('.radiowrap').css('background-color','transparent');
-            //l=lw;
-       // }
-     //   else{
-            //$('.radiowrap').css('color','red');
-       //     $('.radiowrap').css('background', '#FF3333 ')
-         //                   .attr('opacity','0.8');
-                            
-        //   return;
-        //}
-        //console.log(data['age_residents'])
-        m1=data;
-        mw=data;
-        //t=$.grep(data, function(e){ return (e['age_residents'][0] == "population between 18 and 34");});
-        //console.log(t);
-        c=0
-        for(i=0;i<r.length;i++){
-            if(r[i]!=''){
-              //  console.log(m1[i][''+l[i]]);
-                c=c+1;
-                m1=$.grep(m1, function(e){ return (e[''+lr[i]][0] == ''+r[i]);});
-                mw=$.grep(mw, function(e){ return (e[''+lw[i]][0] == ''+r[i]);});
-                //console.log(m1);
-                }
-            }
-        console.log(m1);
-        if(verifier=='T'){
-            var lm1=m1.length;
-            var lm2=mw.length;
-            chki=lm1+lm2;
-            console.log(lm1+lm2);
-            return;
+var impacter =function(r,sels){
+    console.log(sels);
+    d=d3.csv("data/demographics_nta_NYC_residents_compiled.csv", function(data1) {
+        //console.log(data1);
+        //console.log(r)
+        sums=[];
+        em='F';
+        console.log(sels);
+        if(sels.length==0){
+            console.log("change em")
+            em='T';
         }
-        console.log('c is:'+c );
-        //console.log(m1[0][''+l[1]][0]);
-        
-        //comw=[];
-        //sumallw = [];
-       
-        var rsqu=function(da,l){
-            comf=[];
-            sumallf = [];
-            for(i=0;i<da.length;i++){
-            comf.push(da[i]['Complaints']);
-            sum=0;
-                for(u=0;u<l.length;u++){
-                    try{
-                        if(da[i][''+l[u]][2] !=' nan'){
-                            //console.log(m1[i][''+l[k]][2]);
-                            rvals = parseFloat(da[i][''+l[u]][2]);
-                            sum+=parseFloat(da[i][''+l[u]][2]);
-                        }
-                    }
-                    catch(err){
-                        console.log("error");
-                    }
-                }
-                sumallf.push(sum); 
-                //console.log(sumallf)
+        console.log(r);
+        for(i=2;i<r.length;i++){
+            sm=0;
+           // console.log(r[i]);
+            sm=d3.sum(data1, function(d){return parseFloat(d[''+r[i]]);});
+            if(em=='T'){
+                sels.push(r[i]); 
             }
-            return [sumallf,comf];
-        };
-    var s=rsqu(m1,lr);
-    sumall=s[0];
-    com=s[1];
-    //working people complain and r square
-    sw=rsqu(mw,lw);
-    sumallw=sw[0];
-    comw=sw[1];
-    //console.log(sumall);
-    var visdata = function(c,rs){
-        v=[];
-        for(i=0;i<c.length;i++)
-        {
-            v.push({
-                Complaint:c[i],
-                Rsquare:rs[i]
+            
+            sums.push({
+                featurev:r[i],
+                Sum:sm
             });
+            //sums.push(sm);
+            //console.log(sm);
+        }
+        console.log(sels);
+       // console.log(m1f);
+        prod=0;
+        prodall=[];
+        v=[];
+        vw=[];
+        var Ssolver = function(dat)
+        {
+            for(i=2;i<dat.length;i++){
+            //console.log(sels.length);
+            for(j=0;j<sels.length;j++){
+               // console.log("wo hoo");
+                beta=+(dat[i][''+sels[j]]);
+                fvalue = +(sums[j]['Sum']);
+               // console.log(fvalue);
+                prod = beta*fvalue;
+                
+                //console.log(""+sums[j]['featurev']+":"+fvalue);  
+            }
+            //prodall.push(m1f[i]['Intercept']+prod);
+           //  console.log(prod);
+             //console.log(m1f[i]['Intercept']);
+             var intercept = +(dat[i]['Intercept'])
+             var S=intercept+prod;
+            // console.log(S);
+             v.push({
+                Complaint:dat[i]['Complaints'],
+                Rsquare:S
+            });
+        }
+            return v;
         };
-        return v;
-    }
-    console.log(visdata(com,sumall));
-    visinfo(name,visdata(com,sumall),"barresident","res");
-    visinfo(name,visdata(comw,sumallw),"barworker","wor");
+
+        //Ssolver(m1w);
+        //console.log(prodall.length);
+        //console.log(sels.length);
+       // console.log(v)
+        visinfo(name,Ssolver(m1f),"barresident","res");
+        //visinfo(name,Ssolverw(m1w),"barworker","wor");
+    })
 };
+
+var impactw =function(w,sel){
+    console.log(sel);
+    d=d3.csv("data/demographics_nta_NYC_workers_compiled.csv", function(data2) {
+        //console.log(data2);
+        //console.log(r)
+        sumsw=[];
+        em='F';
+        console.log(sel);
+        if(sel.length==0){
+            console.log("change em")
+            em='T';
+        }
+         console.log(w);
+        for(i=0;i<w.length;i++){
+            sm=0;
+           // console.log(r[i]);
+            sm= d3.sum(data2, function(d){return parseFloat(d[''+w[i]]);});
+            if(em=='T'){
+                console.log('here');
+                sel.push(w[i]); 
+            }
+            
+            sumsw.push({
+                featurev:w[i],
+                Sum:sm
+            });
+            //sumsw.push(sm);
+            //console.log(sm);
+        }
+        console.log(sel+sel.length);
+        console.log(w+w.length);
+        console.log(sumsw);
+       // console.log(m1f);
+        prod=0;
+        prodall=[];
+        vw=[];
+        var Ssolverw = function(dat)
+        {
+            for(i=2;i<dat.length;i++){
+            //console.log(sel.length);
+                for(j=0;j<sel.length;j++){
+                   // console.log("wo hoo");
+                    if(em=='T'){
+                        betaw=+(dat[i][''+sel[j]]);
+                    }
+                    else{
+                        betaw=+(dat[i][''+sel[j]+'_n']);
+                    }
+                    fvaluew = +(sumsw[j]['Sum']);
+                    //console.log(j);
+                    prodw = betaw*fvaluew;
+                    //console.log(betaw);
+                    //console.log(fvaluew);
+                    //console.log(""+sumsw[j]['featurev']+":"+fvalue);  
+                }
+                //prodall.push(m1f[i]['Intercept']+prod);
+               //  console.log(prod);
+                 //console.log(m1f[i]['Intercept']);
+                 var interceptw = +(dat[i]['Intercept'])
+                 var Sw=interceptw+prodw;
+                 //console.log(S);
+                 vw.push({
+                    Complaint:dat[i]['Complaints'],
+                    Rsquare:Sw
+                });
+        }
+            console.log(vw);
+            return vw;
+        };
+
+        visinfo(name,Ssolverw(m1w),"barworker","wor");
+    })
+}
+
 
   function initbarresidents()
     {
