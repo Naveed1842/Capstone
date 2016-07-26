@@ -422,7 +422,7 @@ var readdata= function(){
 }
 
 //readdata();
-$.getJSON('data/nynta.geojson', function(state_data) {
+$.getJSON('data/ntanew1.geojson', function(state_data) {
         geojson = L.geoJson(state_data,{
             style: style,
             onEachFeature: onEachFeature
