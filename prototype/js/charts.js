@@ -1,31 +1,38 @@
 
-var chart = function(ctract,type,svgid,bc)
+var chart = function(ctract,type,svgid,bc,nhood)
 {
-d3.csv("data/Demographic311censusNonan.csv", function(threedata)
-{
-      data = threedata.map(function(d)
-        {
-            //each d is one line of the csv file represented as a json object
-            ct = parseInt(d['BoroCT2010'])
-            calls = parseInt(d['311 calls']);
-            medincome = parseInt(d['Median Income'])
-            medAge = parseInt(d['Median Age'])
-            hholds = parseInt(d['Total households'])
-            m= {"censustract":ct,"calls": calls, "MedianIncome":medincome,"medianAge":medAge,"hholds":hholds};
-            return m;
-        });  
-    $('#cts').empty();
-    $('#cts').append("<strong>Census Tract Selected: "+ctract+"</strong>");
-    console.log("svgid"+svgid);
-    findct(""+ctract,""+type,svgid,bc);
+//    if(document.getElementById("ctmain").checked){
+//        link = 'data/Demographic311censusNonan.csv'
+//    }
+//    else{
+//        
+//    }
     
-});   
+    d3.csv("data/geo7.csv", function(threedata)
+    {
+          data = threedata.map(function(d)
+            {
+                //each d is one line of the csv file represented as a json object
+                ct = parseInt(d['BoroCT2010'])
+                calls = parseInt(d['total_calls']);
+                medincome = parseInt(d['income per capita'])
+                medAge = parseInt(d['Median Age'])
+                hholds = parseInt(d['Total households'])
+                m= {"censustract":ct,"calls": calls, "MedianIncome":medincome,"medianAge":medAge,"hholds":hholds};
+                return m;
+            });  
+        $('#cts').empty();
+        $('#cts').append("<strong>Census Tract Selected: "+nhood+"</strong>");
+        //console.log("svgid"+data);
+        findct(""+ctract,""+type,svgid,bc);
+
+    });   
 };
     
 
 function findct(c,wha,svgid,bc){
     
-    
+    //console.log(c);
     var result = $.grep(data, function(e){ return e["censustract"] == (""+c); });
     //console.log("result is "+result[0][""+wha]);
     //console.log(result);

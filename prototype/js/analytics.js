@@ -40,7 +40,15 @@ var mx=0
 var maximus = function(ko){
     //var max
     console.log(ko)
-    d3.csv("data/geo5.csv", function(threedata)
+    var link=''
+    if(document.getElementById("ctmain").checked){
+        link = 'data/geo7.csv'
+    }
+    else{
+        link = 'data/ntanew1.csv'
+    }
+    
+    d3.csv(""+link, function(threedata)
            {
               data = threedata.map(function(d)
                 {
@@ -50,11 +58,16 @@ var maximus = function(ko){
             ds=data.sort();
                     //mx=percen/
             var index=0
-            if(percen<100){
+            if(percen<1){
                 index=Math.round(percen* (ds.length+1));
                 mx=ds[index]
                 //console.log(index);
                 //console.log(mx);
+                console.log(mx);
+            }
+            else{
+                mx=ds[ds[ds.length-1]];
+                console.log(mx);
             }
                     //mx=max;
             return;
@@ -79,6 +92,7 @@ var maximus = function(ko){
           //here it id defining quantiles to reflect colors on the map.
          //flag 0 is raw
            if(flag==0){
+               //console.log(d);
               return d > (mx)  ? '#006d2c' :
                      d > (mx*0.90)  ? '#2ca25f':
                      d > (mx*0.70)   ? '#66c2a4' :
@@ -101,7 +115,8 @@ var maximus = function(ko){
           }
            else if(flag==2){
                a=a*10000;
-              // console.log(mx);
+               console.log(mx);
+               console.log(a);
               // console.log(d/a)
               return d > (a*percen)  ? '#016450' :
                      d > (a*percen*0.80)  ? '#02818a':
@@ -194,7 +209,7 @@ var maximus = function(ko){
         //  console.log(quantile);
          //quant = d3.scale.quantile
           return {
-              fillColor: getColor(feature.properties[k],feature.properties['Total Population'],feature.properties['area']),
+              fillColor: getColor(feature.properties[k],feature.properties['Total Population'],feature.properties.area),
               weight: 1,
               opacity: 0.7,
               color: 'white',
@@ -269,13 +284,14 @@ var maximus = function(ko){
                 //d3.select("rect.bar").remove();
                 
                 ct1=layer.feature.properties["BoroCT2010"]
+                nhood=layer.feature.properties["Neighborhood"]
                 //console.log(ct1)
                 d3.selectAll("text").remove();
                 d3.selectAll(".arc").remove();
-                chart(ct1,"MedianIncome","svg","barchart");
-                chart(ct1,"medianAge","svg1","barchart1");
-                chart(ct1,"calls","svg2","barchart2");
-                chart(ct1,"hholds","svg3","barchart3");
+                chart(ct1,"MedianIncome","svg","barchart",nhood);
+                chart(ct1,"medianAge","svg1","barchart1",nhood);
+                chart(ct1,"calls","svg2","barchart2",nhood);
+                chart(ct1,"hholds","svg3","barchart3",nhood);
                compliants(""+ct1+".0");
                 runpie(ct1);
                 runpie1(ct1);
@@ -365,7 +381,7 @@ var info = L.control();
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
             this._div.innerHTML = '<h4>New York ' + k + ' Map'+'</h4>'+  (props ?
-                '<b>' +' Frequency:'+ props[k] +" (Census Tract ID: " +props['BoroCT2010']+")"+'</b><br />'+props['WGS84.Bo_2'] +' in Year: 2014'
+                '<b>' +' Frequency:'+ props[k] +" (Neighborhood: " +props['Neighborhood']+")"+'</b><br />'+props['BoroName'] +' in Year: 2014'
                 : 'Hover over a state');
         };
         
@@ -382,39 +398,37 @@ function onEachFeature(feature, layer) {
        }
 
 var readdata= function(){
-              $.getJSON('data/geo6.geojson', function(state_data) {
-//                  d=state_data.features.map(function(d)
-//                {
-//                    //each d is one line of the csv file represented as a json object
-//                    prop = (d["properties"][''+k]);
-//                    //tpop = +(d['Total Population'])
-//                    //console.log(ct);
-//                    m= {"com":prop};
-//                    //console.log(m.com);
-//                    return m;
-//                      
-//                });
-//                console.log(d);
-//                ds=d.sort(function(x,y){
-//                    return d3.descending(x.com, y.com);
-//                });
-//                console.log(ds);
-//                var linearScale = d3.scale.linear()
-//                                    .domain([d])
-//                                    .range([0,100]);
-//                console.log(linearScale(d[0]));
-                 // var jenks = turf.jenks(state_data, 'elevation', 15)
-                  //console.log(jenks);
-                  //console.log(state_data.features);
+    if(document.getElementById("ctmain").checked){
+        map.removeLayer(geojson);
+              $.getJSON('data/geo7.geojson', function(state_data) {
                  geojson = L.geoJson(state_data,{
                     style: style,
                     onEachFeature: onEachFeature
                   }).addTo(map);
 
               });
-            };
-readdata();
-console.log('here in percentage');
+            }
+    else if((document.getElementById("ntamain").checked==true)){
+        map.removeLayer(geojson);
+        console.log('hello');
+            $.getJSON('data/ntanew1.geojson', function(state_data) {
+                 geojson = L.geoJson(state_data,{
+                    style: style,
+                    onEachFeature: onEachFeature
+                  }).addTo(map);
+
+              });
+    }
+}
+
+//readdata();
+$.getJSON('data/nynta.geojson', function(state_data) {
+        geojson = L.geoJson(state_data,{
+            style: style,
+            onEachFeature: onEachFeature
+            }).addTo(map);
+});
+//console.log('here in percentage');
 //refresh map for loading map normalized by population
 //refresh map for loading map normalized by raw data
 $("#nper").on("click",function() {

@@ -323,7 +323,7 @@ var impacter =function(r,sels){
             console.log("change em")
             em='T';
         }
-        console.log(r);
+        //console.log(r);
         for(i=2;i<r.length;i++){
             sm=0;
            // console.log(r[i]);
@@ -340,7 +340,24 @@ var impacter =function(r,sels){
             //console.log(sm);
         }
         console.log(sels);
-       // console.log(m1f);
+        console.log(r);
+        sumsr=[];
+        for(i=0;i<sums.length;i++){
+            //console.log(sumsw[i]['Complaint']);
+            for(j=0;j<sels.length;j++)
+                {
+                //console.log(sel[i]==sumsw[i]['featurev']);
+                if(sums[i]['featurev']==sels[j]){
+                    //console.log("yipiee");
+                    sumsr.push({
+                            featurev:sums[i]['featurev'],
+                            Sum:sums[i]['Sum']
+                        });
+                }
+            }
+        };
+        //console.log(sums);
+        //console.log(sumsr);
         prod=0;
         prodall=[];
         v=[];
@@ -349,12 +366,15 @@ var impacter =function(r,sels){
         {
             for(i=2;i<dat.length;i++){
             //console.log(sels.length);
-            for(j=0;j<sels.length;j++){
-               // console.log("wo hoo");
-                beta=+(dat[i][''+sels[j]]);
-                fvalue = +(sums[j]['Sum']);
-               // console.log(fvalue);
-                prod = beta*fvalue;
+                for(j=0;j<sels.length;j++){
+                   // console.log("wo hoo");
+                    beta=+(dat[i][''+sels[j]]);
+                    fvalue = +(sumsr[j]['Sum']);
+                    console.log(''+sels[j]);
+                    console.log(sumsr[j]['featurev']);
+                    prod = beta*fvalue;
+                    console.log(prod);
+                
                 
                 //console.log(""+sums[j]['featurev']+":"+fvalue);  
             }
@@ -388,12 +408,12 @@ var impactw =function(w,sel){
         //console.log(r)
         sumsw=[];
         em='F';
-        console.log(sel);
+        //console.log(sel);
         if(sel.length==0){
             console.log("change em")
             em='T';
         }
-         console.log(w);
+         //console.log(w);
         for(i=0;i<w.length;i++){
             sm=0;
            // console.log(r[i]);
@@ -410,9 +430,25 @@ var impactw =function(w,sel){
             //sumsw.push(sm);
             //console.log(sm);
         }
-        console.log(sel+sel.length);
-        console.log(w+w.length);
-        console.log(sumsw);
+        //console.log(sel+sel.length);
+        //console.log(w);
+        sumsw1=[];
+        for(i=0;i<sumsw.length;i++){
+            //console.log(sumsw[i]['Complaint']);
+            for(j=0;j<sel.length;j++)
+                {
+                //console.log(sel[i]==sumsw[i]['featurev']);
+                if(sumsw[i]['featurev']==sel[j]+'_n'){
+                    //console.log("yipiee");
+                    sumsw1.push({
+                            featurev:sumsw[i]['featurev'],
+                            Sum:sumsw[i]['Sum']
+                        });
+                }
+            }
+        };
+        //sumsw=sumsw1
+        //console.log(sumsw1);
        // console.log(m1f);
         prod=0;
         prodall=[];
@@ -425,21 +461,21 @@ var impactw =function(w,sel){
                    // console.log("wo hoo");
                     if(em=='T'){
                         betaw=+(dat[i][''+sel[j]]);
+                        fvaluew = +(sumsw[j]['Sum']);
                     }
                     else{
                         betaw=+(dat[i][''+sel[j]+'_n']);
+                        
+                        fvaluew = +(sumsw1[j]['Sum']);
                     }
-                    fvaluew = +(sumsw[j]['Sum']);
+                    
                     //console.log(j);
                     prodw = betaw*fvaluew;
-                    //console.log(betaw);
-                    //console.log(fvaluew);
-                    //console.log(""+sumsw[j]['featurev']+":"+fvalue);  
+                    //console.log('beta for'+[''+sel[j]+'_n']+'is'+dat[i][''+sel[j]+'_n']);
+                    //console.log('feature is :'+ fvaluew+" "+sumsw1[j]['featurev']);
                 }
-                //prodall.push(m1f[i]['Intercept']+prod);
-               //  console.log(prod);
-                 //console.log(m1f[i]['Intercept']);
                  var interceptw = +(dat[i]['Intercept'])
+                 //console.log(interceptw);
                  var Sw=interceptw+prodw;
                  //console.log(S);
                  vw.push({
@@ -447,7 +483,7 @@ var impactw =function(w,sel){
                     Rsquare:Sw
                 });
         }
-            console.log(vw);
+            //console.log(vw);
             return vw;
         };
 
