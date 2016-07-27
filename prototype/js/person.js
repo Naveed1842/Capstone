@@ -167,10 +167,9 @@ var checkimpact=function(){
 //matching all values on submit
 $("form").submit(checkimpact);
 visinfo=function(n,c,cl,feat){
-    console.log(n);
     $('#mycomplain').empty();
     $('#welcomemessage').empty();
-    $("#welcomemessage").append('Hi '+n+'<br>'+"Our model predicts service requests for resident and worker to be as follows:<br>"+'(Please hover on the bars to view service requests and click to view it on the map)');
+    $("#welcomemessage").append('Hi '+n+' ! <br>'+'Our model predicts service requests for resident and worker to be as follows:<br>'+'(Please hover on the bars to view service requests and click to view it on the map)');
     $("#start").empty();
     $("#start1").empty();
     $("#start").append("<u>Impact on Residents</u>");
@@ -306,7 +305,7 @@ var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
         //console.log(name);
         
         impacter(name,residents,temp);
-        impactw(worker,irt);
+        impactw(name,worker,irt);
         //r=[age,race,hht,edu,occ,tra,income,own,rent];
         //console.log(datamaped);
         //impacter(datamaped,r);
@@ -404,7 +403,7 @@ var impacter =function(name,r,sels){
     })
 };
 
-var impactw =function(w,sel){
+var impactw =function(name,w,sel){
     console.log(sel);
     d=d3.csv("data/demographics_nta_NYC_workers_compiled.csv", function(data2) {
         //console.log(data2);
