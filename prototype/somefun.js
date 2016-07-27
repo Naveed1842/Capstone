@@ -7,7 +7,11 @@ $(document).ready(function () {
 			$("#rnt").css("display","block");
             $("#ownd").css("display","none");
 		});
-		
+    $("#resetform").on("click",function(){ 
+        console.log("presses");
+        $('#impform').trigger("reset");
+});
 	});
+
 
 //function to resize chart. don't work all the time.

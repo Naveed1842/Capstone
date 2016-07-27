@@ -33,7 +33,7 @@ var svg = d3.select("#pie").append("svg")
 var runpie=function(ct){
     d3.csv("data/demographics_CT_NYC_residentsNoN.csv", function( data) {
   datanew= data.map(function(d){
-     v = parseInt(d['BoroCT2010'])
+     v = parseInt(d['ID'])
       v1 = parseInt(d['Population under 18']);
       v2 = parseInt(d['population between 18 and 34']);
       v3 = parseInt(d['population between 35 to 64']);

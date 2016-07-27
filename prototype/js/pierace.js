@@ -33,7 +33,7 @@ var svgr = d3.select("#pie1").append("svg")
 var runpie1=function(ct){
     d3.csv("data/demographics_CT_NYC_residentsNoN.csv", function( data) {
   datanew= data.map(function(d){
-      v = parseInt(d['BoroCT2010'])
+      v = parseInt(d['ID'])
       v1 = parseInt(d['owner  occupied units']);
       v2 = parseInt(d['renter occupied units']);
       m=[{label:"owner occupied",count:v1,Boro:v},{label:"renter occupied",count:v2,Boro:v}];

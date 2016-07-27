@@ -24,8 +24,9 @@ dblclickzoom();
 map.scrollWheelZoom.disable();
       
    $("#rstmap").click(function(){
-        map.setView( [40.767802, -73.81326], 11);
-       
+       map.setView( [40.767802, -73.81326], 11);
+       percen=80/100;
+       mapupdate(k);
        $("#analyticsc").hide();
         $("#settingsc").hide();
         $("#mainc").hide();
@@ -36,13 +37,13 @@ map.scrollWheelZoom.disable();
 
       var geojson;
         
-var mx=0       
+var mx=0;
+var link='';
 var maximus = function(ko){
     //var max
     console.log(ko)
-    var link=''
     if(document.getElementById("ctmain").checked){
-        link = 'data/geo7.csv'
+        link = 'data/geo8.csv'
     }
     else{
         link = 'data/ntanew1.csv'
@@ -264,7 +265,7 @@ var maximus = function(ko){
          function mouseclick(e) {
              
           var layer = e.target;
-        if(document.getElementById("singleradio").checked)
+          if(document.getElementById("singleradio").checked)
             {
                 if(document.getElementById("sszoom").checked){
                     map.fitBounds(layer.getBounds());
@@ -283,18 +284,16 @@ var maximus = function(ko){
             });
                 //d3.select("rect.bar").remove();
                 
-                ct1=layer.feature.properties["BoroCT2010"]
+                ct1=layer.feature.properties["ID"]
                 nhood=layer.feature.properties["Neighborhood"]
                 //console.log(ct1)
                 d3.selectAll("text").remove();
                 d3.selectAll(".arc").remove();
-                chart(ct1,"MedianIncome","svg","barchart",nhood);
-                chart(ct1,"medianAge","svg1","barchart1",nhood);
-                chart(ct1,"calls","svg2","barchart2",nhood);
-                chart(ct1,"hholds","svg3","barchart3",nhood);
-               compliants(""+ct1+".0");
-                runpie(ct1);
-                runpie1(ct1);
+                chart(ct1,nhood);
+                compliants(""+ct1);
+                chartw(ct1,nhood);
+                //runpie(ct1);
+                //runpie1(ct1);
               
                //info.update(); 
          }
@@ -329,14 +328,14 @@ var maximus = function(ko){
                             var num = selectedpoly.indexOf(i);
                              
                             selectedpoly.splice(num,1); 
-                            console.log("spliced"+num);
+                            //console.log("spliced"+num);
                              
                             geojson.resetStyle(e.target);
                             //layer.addEventListener('mouseout',true);
                             layer.on({
-                         mouseover: mouseoverFunction,
-                         mouseout: resetHighlight,})
-                            console.log(selectedpoly);
+                             mouseover: mouseoverFunction,
+                             mouseout: resetHighlight,})
+                            //console.log(selectedpoly);
                              found = 1;
                              break;
                          }
@@ -400,7 +399,7 @@ function onEachFeature(feature, layer) {
 var readdata= function(){
     if(document.getElementById("ctmain").checked){
         map.removeLayer(geojson);
-              $.getJSON('data/geo7.geojson', function(state_data) {
+              $.getJSON('data/geo8.geojson', function(state_data) {
                  geojson = L.geoJson(state_data,{
                     style: style,
                     onEachFeature: onEachFeature
@@ -481,10 +480,10 @@ $("#narea").on("click",function() {
       
 
                  
-    $('.mapoptions').click(function(){
+$('.mapoptions').click(function(){
         map.removeLayer(geojson);
         k= (this.id)
-        //console.log(k);
+        console.log(k);
         maximus(k);
         
         
@@ -492,7 +491,7 @@ $("#narea").on("click",function() {
 
             });
 var mapupdate=function(ke){
-       map.removeLayer(geojson);
+        map.removeLayer(geojson);
         k= ke;
         //console.log(k);
         maximus(k);

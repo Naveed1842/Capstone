@@ -16,6 +16,7 @@
         <link rel="icon" type="image/png" href="./favicon.png">
         <script type="text/javascript" src="js/maps.js"> </script>
         <script type="text/javascript" src="js/charts.js"></script>
+        <script type="text/javascript" src="js/workers.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
             <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
         
@@ -65,10 +66,10 @@
                   <!--Naming Menu options -->
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav">
-                    <li><a href="#" id="main"><span class="glyphicon glyphicon-map-marker"></span> Options</a></li>
+                    <li><a href="#" id="main"><span class="glyphicon glyphicon-wrench"></span> Options</a></li>
                     <li><a href="#" id="analytics"><span class="glyphicon glyphicon-stats"></span> Data </a></li>
                     <li><a href="#" id="impact"><span class="glyphicon glyphicon-cog"></span> Model</a></li>
-                    <li><a href="#" id="team"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
+                    <li><a href="#" id="team"><span class="glyphicon glyphicon-phone-alt"></span> Team</a></li>
                   </ul>
                 </div>
               </div>
@@ -88,8 +89,6 @@
                     </form>
                     <div id=inspectior2>
                      <h5><u>Service Request type:</u></h5>
-                        <label><input type="radio" checked name='demotype'> Residents</label>
-                        <label><input type="radio" name='demotype' disabled> Workers</label>
                     <div id="dropdownchoice">
                     <div id="dropdown1">
                       <div class="dropdown" >
@@ -97,21 +96,24 @@
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu scrollable-menu" id='wrapper' role="menu" >
                             <!--JavaScript adds 311 complaint columns here from maps.js -->
-                        </ul>
-                            
+                        </ul>    
                       </div>
-                    </div>
+                    </div><br>
                     <div id="dropdown2">
                       <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Demographics
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Residents
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu scrollable-menu" id='wrapper1' role="menu" >
-                
                         </ul>
-                            
                       </div>
-                         
-            
+                    </div>
+                     <div id="dropdown3">
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Workers
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu scrollable-menu" id='wrapper2' role="menu" >
+                        </ul>
+                      </div>
                     </div>
                     </div>
                         <input id="multipleradio" type="radio" name="muliple" value="multiple" > Multiple Selection
@@ -168,6 +170,10 @@
 
             </div>
             <div id="analyticsc"><h3 style="text-align: center ">Data</h3>
+<!--
+                <input type="button" id="dataresid" class="datatype" value='Residents'> 
+                <input type="button" id="datawork" class="datatype" value="Workers"> 
+-->
                 <div id="charts">
                     <h5 id='cts'></h5>
                     <p id="mi1">Income per capita: <svg id="svg"></svg></p>
@@ -177,6 +183,11 @@
                     <h5>Service Requests</h5><p>(Hover over the bars to see complains and click to change map)</p>
                     <div class="barchartcontainer"><svg id="svg4"></svg></div>
                     <script>
+                         $('#dataresid').on('click',function(){
+                            $('#chartsworker').hide();
+                            $('#charts').show();
+                         });
+                      
                         init("svg","barchart");
                         init("svg1","barchart1");
                         init("svg2","barchart2");
@@ -186,25 +197,47 @@
                     </script>
                     <div id='pie'></div>
                     <div id='pie1'></div>
-                    
-                 
-                    
                 </div>
+<!--
+                <div id="chartworker">
+                    <h5 id='ctsw'></h5>
+                    <p id="mi1w">Income per capita: <svg id="svgw"></svg></p>
+                    <p id="mag1w">Median Age:<svg id="svgw1"></svg></p>
+                    <p id="tca1w">Service Requests:<svg id="svgw2" ></svg></p>
+                    <p id="medhh1w">Median Households: <svg id="svgw3"></svg></p>
+                    <h5>Service Requests</h5><p>(Hover over the bars to see complains and click to change map)</p>
+                    <div class="barchartcontainer"><svg id="svgw4"></svg></div>
+                    <script>
+                         $('#datawork').on('click',function(){
+                            $('#chartsworker').show();
+                            $('#charts').hide();
+                         });
+                        init("svgw","barchartw");
+                        init("svgw1","barchartw1");
+                        init("svgw2","barchartw2");
+                        init("svgw3","barchartw3");
+                            //y=$('#mainc').height();
+                            //console.log("main height is "+(y-210));
+                    </script>
+                    <div id='piew'></div>
+                    <div id='pie1w'></div>
+                </div>
+-->
             </div>
-          
+             
 
             <div id="impactc">
                 <h3 style="text-align: center ">Model</h3>
                 <p>Please provide as less or as detailed information of personality type to find out his liklihood of making complaint.</p><br>
                 <div id="impactform">
                 <form id="impform">
-                    <label> <input type="text" id="nf" name="namef" class="form-control" placeholder="Personality Name"><br></label>
-                    <label><input type="text" id="age" name="namel" class="form-control" placeholder="personality Age"></label><br>
+                    <input type="text" id="nf" name="namef" class="form-control" placeholder="Personality Name"><br>
+                    <input type="text" id="age" name="namel" class="form-control" placeholder="personality Age"><br>
                     <label><input type="radio" name="ownership" id='radownd'> House Owned</label>
                     <label><input type="radio" name="ownership" id='radrnt'> Rented</label>
                     <label><input type="radio" name="ownership" id='none'> None</label><br>
-                    <label><input type="text" name="rent" class="form-control" id="rnt" placeholder="Rent Amount"></label>
-                    <label><input type="text" name="property" class="form-control" id="ownd" placeholder="Property Amount"><br></label>
+                    <input type="text" name="rent" class="form-control" id="rnt" placeholder="Rent Amount">
+                    <input type="text" name="property" class="form-control" id="ownd" placeholder="Property Amount">
                     <label><input type="text" name="income" class="form-control" placeholder="Income per annum"><br></label>
                     <fieldset>
                         <select name="hhtype" id="htype" >
@@ -236,6 +269,7 @@
                         </select>
                     </fieldset><br><br>
                    <button type="submit" id="subf" class="btn btn-default">Submit</button>
+                    <button type="button" id="resetform" class="btn btn-default">Reset</button>
                     <script type="text/javascript" src="js/person.js"></script>
                     
                 </form>
@@ -243,8 +277,8 @@
             </div>
                 </div>
            <div id="prediction">
-               <h5 id='start'></h5><br>
                <p id='welcomemessage'></p><br>
+               <h5 id='start'></h5><br>
                <h5 id='mycomplain'></h5>
                <div class="barresident"><svg id="svg5"></svg></div>
                <h5 id='start1'></h5><br>
@@ -253,25 +287,30 @@
             </div>
             <div id="teamc">
                 <div id="talkhere">
-                <h3 style="text-align: center">Contact</h3>
-                <form role="form" id="teamform">
-                  <div id="letstalkfield">
-                  <div id="frommain">
-                    <input type="text" class="form-control" id="usr" placeholder="Name">
-                </div>
-                <div id="tomain">
-                    <input type="text" class="form-control" id="usr" placeholder="Email Address">
-                </div>
-                  </div>
-                  <br><br>
-                  
-                    <div class="form-group">
-
-                 <textarea class="form-control" rows="10" id="comment" placeholder="Please type here."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
-
+                <h3 style="text-align: center">Team</h3>
+                    <a href="http://dfgarzon.weebly.com/">
+                      <img src="Photos/1469135095.png" alt="HTML tutorial" id="diego" style="width:200px;height:180px;border:0;">
+                    </a>
+                    <a href="https://github.com/jpmora69">
+                      <img src="Photos/Juan%20pablo%20mora%20editada.jpg" alt="HTML tutorial" id='juan' style="width:200px;height:180px;border:0;">
+                    </a>
+                    <a href="http://www.nikhilsprofile.com/">
+                      <img src="Photos/IMG.png" alt="HTML tutorial" id="nikhil" style="width:200px;height:180px;border:0;">
+                    </a>
+                     <a href="https://github.com/yanchao1992">
+                      <img src="Photos/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-22%20%E4%B8%8A%E5%8D%8810.45.27.png" id='yanchao' alt="HTML tutorial" style="width:200px;height:180px;border:0;">
+                    </a>
+                    
+                <h3 class='teamtitles'>Mentor and Sposor </h3>
+                    <a href="https://github.com/yanchao1992">
+                      <img  src="Photos/stan.png" alt="HTML tutorial" id='stan'>
+                    </a>
+                    <a href="http://cusp.nyu.edu/people/stanislav-sobolevsky/">
+                      <img  src="Photos/311NYCLogo.png" alt="HTML tutorial" id='stan'>
+                    </a>
+                      
+    
+                    
                 </div>
             
             </div>

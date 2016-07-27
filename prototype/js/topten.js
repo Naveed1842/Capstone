@@ -9,10 +9,17 @@ var margin = {top: 0, right: 20, bottom: 10, left: 20},
         height = h - margin.top - margin.bottom;
 
 var compliants = function(zip){
-        d3.csv("data/callsfiltered1.csv",function(calls){
+    var link1=''
+    if(document.getElementById("ctmain").checked){
+            link1 = 'data/callsfiltered2.csv'
+         }
+    else{
+            link1 = 'data/complainfilternta.csv'
+        }  
+        d3.csv(""+link1,function(calls){
             data = calls.map(function(d){
                 call = +(d[''+zip]);
-                ct =  (d['BoroCT2010']);
+                ct =  (d['Complaints']);
                 return {"callsmade":call,"Cencus":ct};
             })
             bars(data);

@@ -231,7 +231,7 @@ var maximus = function(k){
             });
                 //d3.select("rect.bar").remove();
                 
-                ct1=layer.feature.properties["BoroCT2010"]
+                ct1=layer.feature.properties["ID"]
                 console.log(ct1)
                 d3.selectAll("text").remove();
                 chart(ct1,"MedianIncome","svg","barchart");
@@ -326,7 +326,7 @@ var maximus = function(k){
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
             this._div.innerHTML = '<h4>New York ' + k + ' Map'+'</h4>'+  (props ?
-                '<b>' +' Frequency:'+ props[k] +" (Census Tract ID: " +props['BoroCT2010']+")"+'</b><br />'+props['WGS84.Bo_2'] +' in Year: 2014'
+                '<b>' +' Frequency:'+ props[k] +" (Census Tract ID: " +props['ID']+")"+'</b><br />'+props['WGS84.Bo_2'] +' in Year: 2014'
                 : 'Hover over a state');
         };
         

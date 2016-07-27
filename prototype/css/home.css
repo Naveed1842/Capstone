@@ -134,11 +134,12 @@ body{
 #dropdownchoice{
     margin-top: 2%;
     width: 100%;
-    height: 10%
+    height: 20%;
 }
 #dropdown1{
     width: 30%;
-    float: left;
+    margin-left: 1%;
+    margin-right: 2%;
 }
 
 #dropdown2{
@@ -146,7 +147,11 @@ body{
     float: left;
     margin-left: 2%;
 }
-
+#dropdown3{
+    width: 30%;
+    float: left;
+    margin-left: 3%;
+}
 .scrollable-menu {
     height: auto;
     max-height: 200px;
@@ -229,7 +234,7 @@ width: 30%;
 .barchartcontainer{
    
   width: 260px;
-  height: 220px;
+  height: 300px;
 }
 #pie{
     width:200px;
@@ -238,6 +243,19 @@ width: 30%;
     float: left;
 }
 #pie1{
+    width:200px;
+    height:150px;
+  
+    float: left;
+    margin-left: 4%;
+}
+#piew{
+    width:200px;
+    height:150px;
+   
+    float: left;
+}
+#pie1w{
     width:200px;
     height:150px;
   
@@ -301,4 +319,37 @@ input.valid, textarea.valid{
 }
 #percentile{
     width: 20%;
+}
+#chartworker {
+    display: none;
+}
+
+#diego{
+     margin-top: 5%;
+   
+}
+#nikhil{
+    margin-top: 5%;
+}
+#juan{
+    margin-top: 5%;
+}
+#yanchao{
+    margin-top: 5%;
+}
+#stan{
+    width:200px;
+    height:180px;
+    border:0;
+}
+#stan1{
+    margin: 0 auto;
+}
+
+img:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+h3.teamtitles{
+    text-align: center;
 }

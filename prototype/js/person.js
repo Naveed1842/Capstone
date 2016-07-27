@@ -1,5 +1,3 @@
-var w=$(".barchartcontainer").width();
-var h =$(".barchartcontainer").height();
 chki=0
 var checkimpact=function(){
     event.preventDefault();
@@ -146,11 +144,12 @@ var checkimpact=function(){
         rent= '';
         own='';
     }
+    console.log(fname);
     initbarresidents();
     initbarworker();
     uprofiles(fname,age,race,ht,educ,occ,trn,own,rent,income);
 
-    //console.log(co)
+    
     
 };
 //making sure user enters have we can deliver
@@ -168,13 +167,14 @@ var checkimpact=function(){
 //matching all values on submit
 $("form").submit(checkimpact);
 visinfo=function(n,c,cl,feat){
-   // console.log("i can reach here 0"+cl+" "+feat);
+    console.log(n);
     $('#mycomplain').empty();
     $('#welcomemessage').empty();
+    $("#welcomemessage").append('Hi '+n+'<br>'+"Our model predicts service requests for resident and worker to be as follows:<br>"+'(Please hover on the bars to view service requests and click to view it on the map)');
     $("#start").empty();
     $("#start1").empty();
-    $("#start").append("Impact on Residents");
-    $("#start1").append("Impact on Workers");
+    $("#start").append("<u>Impact on Residents</u>");
+    $("#start1").append("<u>Impact on Workers</u>");
     $("#prediction").css("display","block");
     $("#impactc").css("display","none");
     
@@ -182,15 +182,15 @@ visinfo=function(n,c,cl,feat){
                 .rangeRoundBands([0, width], .1, 1);
 
     var y = d3.scale.linear()
-                .range([height, 0]);
+                .range([height+100, 0]);
             
-    console.log(c);  
+    //console.log(c);  
     var max =d3.max(c,function(d){
                     //console.log(d['Rsquare']);
                    return d['Rsquare'];
                    })
           
-            console.log(max);
+            //console.log(max);
         
             var xAxis = d3.svg.axis()
                 .scale(x)
@@ -203,7 +203,7 @@ visinfo=function(n,c,cl,feat){
              var sorted = c.sort(function(x, y){
                return d3.descending(x.Rsquare, y.Rsquare);
             });
-            console.log(sorted);
+            //console.log(sorted);
            
              var tip = d3.tip()
                       .attr('class', 'd3-tip')
@@ -219,7 +219,7 @@ visinfo=function(n,c,cl,feat){
             visr.call(tip);   
 //            console.log("i can reach here1");
            // var result = $.grep(data, function(e){ return e["Rsquare"] == (max); });
-            console.log(sorted);
+            //console.log(sorted);
             bars.enter()
                 .append("svg:rect")
                 .attr("class", "bar"+feat)
@@ -227,12 +227,12 @@ visinfo=function(n,c,cl,feat){
                 .on('mouseout', tip.hide)
             
               bars.on('click',function(d){
-                console.log(d)
+               // console.log(d)
                 mapupdate(d['Complaint']);
             })
             bars.exit()
                 .remove()
-            var h = 7;
+            var h = 10;
             bars
                 .attr("stroke-width", 4)
                 .attr("width", h)  
@@ -248,12 +248,12 @@ visinfo=function(n,c,cl,feat){
                           {
                     if(i<20){
                         //console.log("top ten:"+max+"rsquare val is"+d.Rsquare);
-                        return ((d.Rsquare/max)*height);
+                        return ((d.Rsquare/max)*(height+100));
                     }
                     })
                     .attr("y", function(d, i){
                         if(i<20){
-                        return (height - (((d.Rsquare/max)*height)));
+                        return (height - (((d.Rsquare/max)*(height+100))));
                         }
                     })
     
@@ -261,6 +261,7 @@ visinfo=function(n,c,cl,feat){
 
 var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
     //age='';
+    //console.log(name);
     var vars=[age,race,hht,edu,occ,tra,own,rent];
     var irt =[];
     var temp=[];
@@ -270,10 +271,10 @@ var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
             temp.push(vars[i]);
         }
     }
-    console.log(irt);
+    //console.log(irt);
     //array of variables consisting of non empty values
-    console.log(irt);
-    console.log(age+race+hht+edu+occ+tra+own+rent);
+    //console.log(irt);
+    //console.log(age+race+hht+edu+occ+tra+own+rent);
     
     d=d3.csv("data/finalup.csv", function(data) {
         //$.grep(data, function(e){ return e['Boro'] == (ct)
@@ -283,7 +284,7 @@ var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
         m1w=data;
       
         for(u=0;u<irt.length;u++){
-            console.log(irt[u]);
+            //console.log(irt[u]);
             m1f=$.grep(m1f, function(e){ return (e[''+irt[u]]!="");});
             m1w=$.grep(m1w, function(e){ return (e[''+irt[u]+'_n']!="");});
         }
@@ -302,7 +303,9 @@ var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
         //console.log(worker);
         //console.log(residents);
         //console.log(Object.keys(data[0])); 
-        impacter(residents,temp);
+        //console.log(name);
+        
+        impacter(name,residents,temp);
         impactw(worker,irt);
         //r=[age,race,hht,edu,occ,tra,income,own,rent];
         //console.log(datamaped);
@@ -311,8 +314,8 @@ var uprofiles= function(name,age,race,hht,edu,occ,tra,own,rent,income){
         
 });
 }
-var impacter =function(r,sels){
-    console.log(sels);
+var impacter =function(name,r,sels){
+    //console.log(sels);
     d=d3.csv("data/demographics_nta_NYC_residents_compiled.csv", function(data1) {
         //console.log(data1);
         //console.log(r)
@@ -328,9 +331,9 @@ var impacter =function(r,sels){
             sm=0;
            // console.log(r[i]);
             sm=d3.sum(data1, function(d){return parseFloat(d[''+r[i]]);});
-            if(em=='T'){
-                sels.push(r[i]); 
-            }
+//            if(em=='T'){
+//                sels.push(r[i]); 
+//            }
             
             sums.push({
                 featurev:r[i],
@@ -339,8 +342,8 @@ var impacter =function(r,sels){
             //sums.push(sm);
             //console.log(sm);
         }
-        console.log(sels);
-        console.log(r);
+        //console.log(sels);
+        //console.log(r);
         sumsr=[];
         for(i=0;i<sums.length;i++){
             //console.log(sumsw[i]['Complaint']);
@@ -418,10 +421,10 @@ var impactw =function(w,sel){
             sm=0;
            // console.log(r[i]);
             sm= d3.sum(data2, function(d){return parseFloat(d[''+w[i]]);});
-            if(em=='T'){
-                console.log('here');
-                sel.push(w[i]); 
-            }
+//            if(em=='T'){
+//                console.log('here');
+//                sel.push(w[i]); 
+//            }
             
             sumsw.push({
                 featurev:w[i],
@@ -450,7 +453,7 @@ var impactw =function(w,sel){
         //sumsw=sumsw1
         //console.log(sumsw1);
        // console.log(m1f);
-        prod=0;
+        prodw=0;
         prodall=[];
         vw=[];
         var Ssolverw = function(dat)
@@ -459,15 +462,15 @@ var impactw =function(w,sel){
             //console.log(sel.length);
                 for(j=0;j<sel.length;j++){
                    // console.log("wo hoo");
-                    if(em=='T'){
-                        betaw=+(dat[i][''+sel[j]]);
-                        fvaluew = +(sumsw[j]['Sum']);
-                    }
-                    else{
+//                    if(em=='T'){
+//                        betaw=+(dat[i][''+sel[j]]);
+//                        fvaluew = +(sumsw[j]['Sum']);
+//                    }
+//                    else{
                         betaw=+(dat[i][''+sel[j]+'_n']);
                         
                         fvaluew = +(sumsw1[j]['Sum']);
-                    }
+ //                   }
                     
                     //console.log(j);
                     prodw = betaw*fvaluew;
@@ -477,6 +480,9 @@ var impactw =function(w,sel){
                  var interceptw = +(dat[i]['Intercept'])
                  //console.log(interceptw);
                  var Sw=interceptw+prodw;
+                 if(Sw<0){
+                     Sw=0;
+                 }
                  //console.log(S);
                  vw.push({
                     Complaint:dat[i]['Complaints'],
@@ -497,7 +503,7 @@ var impactw =function(w,sel){
         //setup the svg
         var svg = d3.select("#svg5")
             .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            .attr("height", (height+100) + margin.top + margin.bottom)
             .attr("preserveAspectRatio", "xMinYMid")
             .attr("viewBox", "0 0 300 200")
             .classed("svg-container", true)
@@ -524,7 +530,7 @@ var impactw =function(w,sel){
         //setup the svg
         var svg = d3.select("#svg6")
             .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            .attr("height", (height+100) + margin.top + margin.bottom)
             .attr("preserveAspectRatio", "xMinYMid")
             .attr("viewBox", "0 0 300 200")
             .attr('display', 'block')
