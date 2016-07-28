@@ -30,43 +30,38 @@ var svgr = d3.select("#pie1").append("svg")
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var runpie1=function(ct){
-    d3.csv("data/demographics_CT_NYC_residentsNoN.csv", function( data) {
-  datanew= data.map(function(d){
-      v = parseInt(d['ID'])
-      v1 = parseInt(d['owner  occupied units']);
-      v2 = parseInt(d['renter occupied units']);
-      m=[{label:"owner occupied",count:v1,Boro:v},{label:"renter occupied",count:v2,Boro:v}];
-      return m
-    })
-  var r=[]
-  for (i=0;i<datanew.length;i++){
-      
-     var m = $.grep(datanew[i], function(e){ return e['Boro'] == (ct); });
-      if(m.length!=0){
-          r=m;
-      }
-  }
-  console.log("ct selected :"+ct);
-  console.log(r);
-  //console.log(datanew.count);
-  var g = svgr.selectAll(".arc")
-      .data(pie(r))
-    .enter().append("g")
-      .attr("class", "arc");
 
-  g.append("path")
-      .style("fill", function(d) { 
-      console.log(d.data.label); 
-      return color1(d.data['label']) 
-  })
-        .attr("d", arc)
-        
-        //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-    
-  g.append("text")
-      .attr("transform", function(d,i) { return "translate(" + labelArc.centroid(d) + ")" })
-      .attr("dy", ".35em")
-      .text(function(d,i) { if(d.data['count']!=0){return d.data['label'] }})
-});
-};
+var svgr1 = d3.select("#pie2").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var svgrb = d3.select("#pie3").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+//worker pie charts
+var svgw = d3.select("#piew").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var svgrw = d3.select("#pie1w").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+var svgrwa = d3.select("#pie2w").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var svgrwb = d3.select("#pie3w").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");

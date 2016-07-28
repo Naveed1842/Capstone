@@ -230,11 +230,14 @@ width: 30%;
 .barcontainer{
     width: 80%;
     
+    
 }
 .barchartcontainer{
    
-  width: 260px;
-  height: 300px;
+  width: 350px;
+  height: 200px;
+  margin-left: 5%;
+
 }
 #pie{
     width:200px;
@@ -249,19 +252,40 @@ width: 30%;
     float: left;
     margin-left: 4%;
 }
+#pie2{
+    width:200px;
+    height:150px;
+    float: left;
+}
+#pie3{
+    width:200px;
+    height:150px;
+    float: left;
+    margin-left: 4%;
+}
 #piew{
     width:200px;
     height:150px;
-   
     float: left;
 }
 #pie1w{
     width:200px;
     height:150px;
-  
     float: left;
     margin-left: 4%;
 }
+#pie2w{
+    width:200px;
+    height:150px;
+    float: left;
+}
+#pie3w{
+    width:200px;
+    height:150px;
+    float: left;
+    margin-left: 4%;
+}
+
 
 .arc text {
   font: 10px sans-serif;
@@ -353,3 +377,11 @@ img:hover {
 h3.teamtitles{
     text-align: center;
 }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+

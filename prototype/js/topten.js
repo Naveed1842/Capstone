@@ -1,12 +1,28 @@
-var w=$(".barchartcontainer").width();
-var h =$(".barchartcontainer").height();
+var w=300;
+var h =280;
  console.log("width is :"+w);
 console.log("height is :"+h);
 
 
-var margin = {top: 0, right: 20, bottom: 10, left: 20},
+var margin = {top: 0, right: 50, bottom: 10, left: 20},
         width = w - margin.left - margin.right,
         height = h - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10, "%");
+
 
 var compliants = function(zip){
     var link1=''
@@ -28,9 +44,7 @@ var compliants = function(zip){
         
         var percent = d3.format('%');
 
-        var bars = function(data){
-        
-            
+var bars = function(data){
             var max =d3.max(data,function(d){
                    return d['callsmade'];
                    })
@@ -39,7 +53,9 @@ var compliants = function(zip){
                return d3.descending(x.callsmade, y.callsmade);
             });
             
-           //console.log(sorted)
+          
+            
+             console.log(sorted)
              var tip = d3.tip()
                       .attr('class', 'd3-tip')
                       .offset([-8, 0])
@@ -51,10 +67,37 @@ var compliants = function(zip){
              var bars = vis.selectAll("rect.bar")
                         .data(sorted)
              
-             
+            //x.domain(data.map(function(d) { return d.Cencus; }));
+            //y.domain([50, d3.max(sorted, function(d) { return d.callsmade/100; })]);
+            //console.log(x);
+            //console.log(y);
             vis.call(tip);
             
             var result = $.grep(data, function(e){ return e["callsmade"] == (max); });
+            
+//            vis.append('g')
+//                .attr("class", "x axis")
+//                  .attr("transform", "translate(0," + height + ")")
+//                  .call(xAxis)
+//                  .append("text")
+//                    //.attr("dy", ".71em")
+//                    .style("text-anchor", "end")
+//                    .text("Type of Complaint(Please Hover)")
+//                    .attr('x','180')
+//                    .attr('x','210')
+//                    .attr('y','10');
+//    
+//             vis.append("g")
+//              .attr("class", "y axis")
+//              .call(yAxis)
+//            .append("text")
+//              .attr("transform", "rotate(-90)")
+//              .attr("y", 6)
+//              //.attr("x")
+//              //.attr("dy", ".71em")
+//              .style("text-anchor", "end")
+//              .text("Frequency");
+            
            
             //console.log(function(d){return d['Cencus']})
             bars.enter()
@@ -107,10 +150,10 @@ var compliants = function(zip){
         var svg = d3.select("#svg4")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
-            .attr("preserveAspectRatio", "xMinYMid")
-            .attr("viewBox", "0 0 300 200")
-            .classed("svg-container", true)
-            .classed("svg-content-responsive", true); 
+            //.attr("preserveAspectRatio", "xMaxYMid")
+            //.attr("viewBox", "0 0 280 280")
+            //.classed("svg-container", true)
+            //.classed("svg-content-responsive", true); 
         
         
    //class to make it responsive

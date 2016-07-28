@@ -170,21 +170,25 @@
 
             </div>
             <div id="analyticsc"><h3 style="text-align: center ">Data</h3>
-<!--
+
                 <input type="button" id="dataresid" class="datatype" value='Residents'> 
                 <input type="button" id="datawork" class="datatype" value="Workers"> 
--->
+
                 <div id="charts">
                     <h5 id='cts'></h5>
                     <p id="mi1">Income per capita: <svg id="svg"></svg></p>
                     <p id="mag1">Median Age:<svg id="svg1"></svg></p>
                     <p id="tca1">Service Requests:<svg id="svg2" ></svg></p>
                     <p id="medhh1">Median Households: <svg id="svg3"></svg></p>
+                    <p id="medhhu1">Total house units: <svg id="svg3a"></svg></p>
+                    
                     <h5>Service Requests</h5><p>(Hover over the bars to see complains and click to change map)</p>
                     <div class="barchartcontainer"><svg id="svg4"></svg></div>
                     <script>
+                        
                          $('#dataresid').on('click',function(){
-                            $('#chartsworker').hide();
+                            $('#chartworker').hide();
+                            //$('#chartsworker').css("display",'none');
                             $('#charts').show();
                          });
                       
@@ -192,24 +196,26 @@
                         init("svg1","barchart1");
                         init("svg2","barchart2");
                         init("svg3","barchart3");
+                        init("svg3a","barchart3a");
                             //y=$('#mainc').height();
                             //console.log("main height is "+(y-210));
                     </script>
                     <div id='pie'></div>
                     <div id='pie1'></div>
+                    <div id='pie2'></div>
+                    <div id='pie3'></div>
                 </div>
-<!--
+
                 <div id="chartworker">
-                    <h5 id='ctsw'></h5>
-                    <p id="mi1w">Income per capita: <svg id="svgw"></svg></p>
+                    <h5 id='ctsw'>Workers</h5>
+                    <p id="mi1w">work at home: <svg id="svgw"></svg></p>
                     <p id="mag1w">Median Age:<svg id="svgw1"></svg></p>
                     <p id="tca1w">Service Requests:<svg id="svgw2" ></svg></p>
                     <p id="medhh1w">Median Households: <svg id="svgw3"></svg></p>
-                    <h5>Service Requests</h5><p>(Hover over the bars to see complains and click to change map)</p>
-                    <div class="barchartcontainer"><svg id="svgw4"></svg></div>
                     <script>
                          $('#datawork').on('click',function(){
-                            $('#chartsworker').show();
+                            $('#chartworker').show();
+                            //$('#chartsworker').css("display",'block');
                             $('#charts').hide();
                          });
                         init("svgw","barchartw");
@@ -221,8 +227,10 @@
                     </script>
                     <div id='piew'></div>
                     <div id='pie1w'></div>
+                    <div id='pie2w'></div>
+                    <div id='pie3w'></div>
                 </div>
--->
+
             </div>
              
 
@@ -323,6 +331,7 @@
                     $("#impactc").hide();
                     $("#mainc").hide();
                     $("#teamc").hide();
+                    //$("#chartworker").hide();
                     $("#prediction").hide();
                     $("#"+div2).show();
                     $("#"+div2).css("display","block");

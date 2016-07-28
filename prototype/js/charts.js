@@ -6,8 +6,12 @@ var width = 200,
 
 var color = d3.scale.ordinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
 var color1 = d3.scale.ordinal()
     .range(["#98abc5", "#ff8c00"]);
+
+var color2 = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 var arc = d3.svg.arc()
     .outerRadius(radius - 10)
     .innerRadius(0);
@@ -23,17 +27,8 @@ var pie = d3.layout.pie()
         console.log(d.count);
         return d.count; 
     });
-var svg = d3.select("#pie").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var svgr = d3.select("#pie1").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
 
 var chart = function(ctract,nhood)
 {
@@ -59,7 +54,8 @@ var chart = function(ctract,nhood)
                 medincome = parseInt(d['income per capita'])
                 medAge = parseInt(d['Median Age'])
                 hholds = parseInt(d['Total households'])
-                m= {"censustract":ct,"calls": calls, "MedianIncome":medincome,"medianAge":medAge,"hholds":hholds};
+                hunits =  parseInt(d['total housing units'])
+                m= {"censustract":ct,"calls": calls, "MedianIncome":medincome,"medianAge":medAge,"hholds":hholds,"hunits":hunits};
                 return m;
             });  
         $('#cts').empty();
@@ -67,9 +63,12 @@ var chart = function(ctract,nhood)
         //console.log("id"+);
         findct(""+ctract,"MedianIncome",'svg','barchart');
         findct(""+ctract,"medianAge",'svg1','barchart1');
-        findct(""+ctract,"hholds",'svg2','barchart2');
-        findct(""+ctract,"calls",'svg3','barchart3');
-            
+        findct(""+ctract,"calls",'svg2','barchart2');
+        findct(""+ctract,"hholds",'svg3','barchart3');
+        findct(""+ctract,"hunits",'svga3a','barchart3a');
+        
+        
+        //console.log(threedata);
         datanew= threedata.map(function(d){
             v = (d['ID'])
             v1 = parseInt(d['Population under 18']);
@@ -78,12 +77,25 @@ var chart = function(ctract,nhood)
             v4 = parseInt(d['population 65 and over']);
             v1r = parseInt(d['owner  occupied units']);
             v2r = parseInt(d['renter occupied units']);
+            f= +(d['family households']);
+            g= parseInt(d['nonfamily households']);
+            //console.log(f);
+            a= parseInt(d['Population white']);
+            b= parseInt(d['population black']);
+            c= parseInt(d['Population asian']);
+            d= parseInt(d['population hispanic']);
+            e= parseInt(d['population other race']);
+            
             m=[{label:"<18",count:v1,Boro:v},{label:"18-34",count:v2,Boro:v},{label:"35-64",count:v3,Boro:v},{label:"65+",count:v4,Boro:v}];
             m1r=[{label:"owner occupied",count:v1r,Boro:v},{label:"renter occupied",count:v2r,Boro:v}];
-      return [m,m1r]
+            ma=[{label:"White",count:a,Boro:v},{label:"Black",count:b,Boro:v},{label:"Asian",count:c,Boro:v},{label:"Hispanic",count:d,Boro:v}];
+            mb=[{label:"Family Household",count:f,Boro:v},{label:"Non Family",count:g,Boro:v}];
+      return [m,m1r,ma,mb]
     });
         var r=[];
         var r1=[];
+        var r2=[];
+        var r3=[];
         //console.log(datanew);
         for (i=0;i<datanew.length;i++){
             var mpie = $.grep(datanew[i][0], function(e){ return e['Boro'] == (ctract); });
@@ -94,47 +106,28 @@ var chart = function(ctract,nhood)
             if(mpier.length!=0){
                 r1=mpier;
             }
+             var mpiea = $.grep(datanew[i][2], function(e){ return e['Boro'] == (ctract); });
+            if(mpiea.length!=0){
+                r2=mpiea;
+            }
+            var mpierb = $.grep(datanew[i][3], function(e){ return e['Boro'] == (ctract); });
+            if(mpierb.length!=0){
+                r3=mpierb;
+            }
         }
-        console.log(r);
-        var g = svg.selectAll(".arc")
-        .data(pie(r))
-        .enter().append("g")
-        .attr("class", "arc");
+       
+        console.log(r3);
         //pie population 
-        g.append("path")
-            .style("fill", function(d) { 
-                //console.log(d.data.label); 
-                return color(d.data['label']) 
-            })
-            .attr("d", arc)
-            //.transition()
-            //.duration(300)
-        //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-        g.append("text")
-          .attr("transform", function(d,i) { return "translate(" + labelArc.centroid(d) + ")" })
-          .attr("dy", ".35em")
-          .text(function(d,i) { if(d.data['count']!=0){return d.data['label']} })
+        console.log(r3)
+        pierunner(r,svg,color);
+        pierunner(r1,svgr,color1);
+        pierunner(r2,svgr1,color);
+        pierunner(r3,svgrb,color1);
+  
         
         //piewonership
-          var g = svgr.selectAll(".arc")
-          .data(pie(r1))
-          .enter().append("g")
-          .attr("class", "arc");
-
-          g.append("path")
-              .style("fill", function(d) { 
-              console.log(d.data.label); 
-              return color1(d.data['label']) 
-          })
-                .attr("d", arc)
-
-                //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-          g.append("text")
-              .attr("transform", function(d,i) { return "translate(" + labelArc.centroid(d) + ")" })
-              .attr("dy", ".35em")
-              .text(function(d,i) { if(d.data['count']!=0){return d.data['label'] }})
-        
+         
+          //pie race
 
     });   
 };
@@ -228,8 +221,23 @@ function init(svgid,ide)
             .attr("id", ""+ide)
             .attr("transform", "translate(50,50)")
     }
-
-
-
-
-   
+var pierunner = function(da,svgide,col){
+             var g = svgide.selectAll(".arc")
+                .data(pie(da))
+                .enter().append("g")
+                .attr("class", "arc");
+            
+            g.append("path")
+            .style("fill", function(d) { 
+                //console.log(d.data.label); 
+                return col(d.data['label']) 
+            })
+            .attr("d", arc)
+            //.transition()
+            //.duration(300)
+        //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        g.append("text")
+          .attr("transform", function(d,i) { return "translate(" + labelArc.centroid(d) + ")" })
+          .attr("dy", ".35em")
+          .text(function(d,i) { if(d.data['count']!=0){return d.data['label']} })
+        } 
