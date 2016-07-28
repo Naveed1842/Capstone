@@ -18,46 +18,44 @@ var chartw = function(ctract,nhood)
             {
                 //each d is one line of the csv file represented as a json object
               if(document.getElementById("ctmain").checked){
-                        ct = parseInt(d['ID'])
+                        ct = parseInt(d['ID']);
                     }
                     else{
-                        ct = (d['ID'])
+                        ct = (d['ID']);
                     }
                 
                 calls = parseInt(d['total workers']);
-                medincome = parseInt(d['work at home'])
-                medAge = parseInt(d['Median Age']+'_n')
-                hholds = parseInt(d['Total households']+'n')
-                m= {"censustract":ct,"calls": calls, "MedianIncome":medincome,"medianAge":medAge,"hholds":hholds};
+                medincome = parseInt(d['work at home']);
+                hholds = parseInt(d['median house value']);
+                m= {"censustract":ct,"calls": calls, "MedianIncome":medincome,"hholds":hholds};
                 return m;
             });  
         $('#cts').empty();
         $('#cts').append("<strong>Census Tract Selected: "+nhood+"</strong>");
         //console.log("id"+);
         findct(""+ctract,"MedianIncome",'svgw','barchartw');
-        findct(""+ctract,"medianAge",'svgw1','barchartw1');
-         findct(""+ctract,"calls",'svgw2','barchartw2');
-        findct(""+ctract,"hholds",'svgw3','barchartw3');
+        findct(""+ctract,"calls",'svgw1','barchartw1');
+        findct(""+ctract,"hholds",'svgw3','barchartw2');
        
             
         datanew= threedata.map(function(d){
             v = (d['ID'])
-            v1 = parseInt(d['Population under 18']);
-            v2 = parseInt(d['population between 18 and 34']);
-            v3 = parseInt(d['population between 35 to 64']);
-            v4 = parseInt(d['population 65 and over']);
-            v1r = parseInt(d['owner  occupied units']);
-            v2r = parseInt(d['renter occupied units']);
-            f= +(d['family households']);
-            g= parseInt(d['nonfamily households']);
+            //v1 = parseInt(d['Population under 18_n']);
+            v2 = parseInt(d['population between 18 and 34_n']);
+            v3 = parseInt(d['population between 35 to 64_n']);
+            v4 = parseInt(d['population 65 and over_n']);
+            v1r = parseInt(d['owner  occupied units_n']);
+            v2r = parseInt(d['renter occupied units_n']);
+            f= +(d['family households_n']);
+            g= parseInt(d['nonfamily households_n']);
      //       console.log(f);
-            a= parseInt(d['Population white']);
-            b= parseInt(d['population black']);
-            c= parseInt(d['Population asian']);
-            d= parseInt(d['population hispanic']);
-            e= parseInt(d['population other race']);
+            a= parseInt(d['Population white_n']);
+            b= parseInt(d['population black_n']);
+            c= parseInt(d['Population asian_n']);
+            d= parseInt(d['population hispanic_n']);
+            e= parseInt(d['population other race_n']);
             
-            m=[{label:"<18",count:v1,Boro:v},{label:"18-34",count:v2,Boro:v},{label:"35-64",count:v3,Boro:v},{label:"65+",count:v4,Boro:v}];
+            m=[{label:"18-34",count:v2,Boro:v},{label:"35-64",count:v3,Boro:v},{label:"65+",count:v4,Boro:v}];
             m1r=[{label:"owner occupied",count:v1r,Boro:v},{label:"renter occupied",count:v2r,Boro:v}];
             ma=[{label:"White",count:a,Boro:v},{label:"Black",count:b,Boro:v},{label:"Asian",count:c,Boro:v},{label:"Hispanic",count:d,Boro:v}];
             mb=[{label:"Family Household",count:f,Boro:v},{label:"Non Family",count:g,Boro:v}];
