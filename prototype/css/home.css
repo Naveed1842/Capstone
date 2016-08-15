@@ -352,6 +352,18 @@ input.valid, textarea.valid{
      margin-top: 5%;
    
 }
+#di .text {
+position:relative;
+bottom:60px;
+left:0px;
+color: aliceblue;
+visibility:hidden;
+
+}
+
+#di:hover .text {
+    visibility:visible;
+}
 #nikhil{
     margin-top: 5%;
 }
