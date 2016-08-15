@@ -1,7 +1,8 @@
 var flag=0;
 var percen=80/100;
 var map = L.map('map', {
-        scrollWheelZoom: true
+        scrollWheelZoom: false,
+        zoomControl: true
       }).setView( [40.717802, -73.81326], 11);
 
 var dblclickzoom = function(){
@@ -17,7 +18,7 @@ if(document.getElementById('doubleclickckeck').checked){
 //Percentile Function
 
 
-
+map.zoomControl.setPosition('topright');
 dblclickzoom();
 //map.doubleClickZoom.disable();
 //map.dragging.disable();
