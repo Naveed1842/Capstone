@@ -352,6 +352,12 @@ input.valid, textarea.valid{
      margin-top: 5%;
    
 }
+#di{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-bottom: 5%;
+}
 #di .text {
 position:relative;
 bottom:60px;
