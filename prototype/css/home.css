@@ -362,10 +362,11 @@ input.valid, textarea.valid{
     margin-bottom: 5%;
 }
 #di .text {
+text-align: center;
 position:relative;
 bottom:60px;
 left:0px;
-color: aliceblue;
+color: black;
 visibility:hidden;
 
 }
