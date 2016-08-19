@@ -134,7 +134,7 @@ var maximus = function(ko){
 //Layer Selection
         
     L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Designed and Developed by <a href="http://nikhilsprofile.com"> Nikhil Kishore </a>, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     }).addTo(map);
 
     //L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: 'Stamen'}).addTo(map_object);
